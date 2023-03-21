@@ -11422,7 +11422,7 @@ html {
 
 .callout::before {    
       content: "";
-      background-image: url('../assets/img/soggiorno-cucina.jpg');
+      background-image: url('../assets/img/interior1.jpg');
       background-size: cover;
       position: absolute;
       top: 0px;
@@ -11493,7 +11493,7 @@ footer.footer .social-link:hover {
 
 .masthead::before {    
       content: "";
-      background-image: url('../assets/img/soggiorno.jpg');
+      background-image: url('../assets/img/interior2.jpg');
       background-size: cover;
       position: absolute;
       top: 0px;
