@@ -106,6 +106,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-bottom: 0.5rem;
   font-weight: 700;
   line-height: 1.2;
+  position: relative;
 }
 
 h1, .h1 {
@@ -11419,12 +11420,23 @@ html {
   padding: 1.25rem 2.5rem;
 }
 
+.callout::before {    
+      content: "";
+      background-image: url('../assets/img/soggiorno-cucina.jpg');
+      background-size: cover;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.5;
+}
+
 .callout {
   padding: 15rem 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../assets/img/bg-callout.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: auto;
 }
 .callout h2, .callout .h2 {
   font-size: 3.5rem;
@@ -11432,7 +11444,9 @@ html {
   display: block;
   max-width: 30rem;
 }
-
+.callout a, .callout .a {
+  position: relative;
+}
 footer.footer {
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -11469,6 +11483,27 @@ footer.footer .social-link:hover {
   }
 }
 .masthead {
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.masthead::before {    
+      content: "";
+      background-image: url('../assets/img/soggiorno.jpg');
+      background-size: cover;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.5;
+}
+
+.masthead {
   min-height: 30rem;
   position: relative;
   display: table;
@@ -11476,16 +11511,21 @@ footer.footer .social-link:hover {
   height: auto;
   padding-top: 8rem;
   padding-bottom: 8rem;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../assets/img/bg-masthead.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 .masthead h1, .masthead .h1 {
   font-size: 4rem;
   margin: 0;
   padding: 0;
 }
+
+.masthead a, .masthead .a {
+  position: relative;
+}
+
+
+
+
+
 @media (min-width: 992px) {
   .masthead {
     height: 100vh;
