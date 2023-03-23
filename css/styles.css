@@ -11535,6 +11535,64 @@ footer.footer .social-link:hover {
   }
 }
 
+
+
+.contactform {
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactform::before {    
+      content: "";
+      background-color: darkcyan;
+      background-size: cover;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 1;
+}
+
+.contactform {
+  min-height: 8rem;
+  position: relative;
+  display: table;
+  width: 100%;
+  height: auto;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+.contactform h1, .contactform .h1 {
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.contactform a, .contactform .a {
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .contactform {
+    min-height: 60vh;
+  }
+  .contactform h1, .contactform .h1 {
+    font-size: 5.5rem;
+  }
+}
+
+
+
+
+
+
+
+
 .portfolio-item {
   display: block;
   position: relative;

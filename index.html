@@ -255,9 +255,51 @@
 
 
 
+<header class="contactform" >
+    <div class="container position-relative" >
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="text-center text-white">
+                    <!-- Page heading-->
+                    <h1 class="mb-5">Contattaci</h1>
+
+                        <form id="message-form">
+                          <div class="row">
+                            <div class="col">
+                              <input class="form-control form-control-lg" type="text" placeholder="Nome" id="name" name="name" required><br>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <input class="form-control form-control-lg" type="tel" id="telefono" name="telefono" placeholder="Numero di telefono" required><br>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <input class="form-control form-control-lg" type="email" id="email" name="email" placeholder="Indirizzo email" required><br>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col">
+                              <textarea class="form-control form-control-lg " rows="5" id="message" name="message" placeholder="Messaggio" required></textarea><br>
+                            </div>
+
+                            <div class="col-auto">
+                              <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Invia</button>
+                            </div>
+                          </div>
+                        </form>
+                        <div id="response"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
 
         <!-- Call to Action-->
-        <section class="content-section bg-primary text-white">
+        <section class="content-section bg-primary text-white" id="contact">
             <div class="container px-4 px-lg-5 text-center">
                 <h2 class="mb-4">Contattaci via whatsapp</h2>
                 <a class="btn btn-xl btn-light me-4" href="https://wa.me/393288233594">Scrivici!</a>
@@ -266,46 +308,9 @@
         </section>
 
 
-
-
-    <h1>Benvenuto nella mia pagina web</h1>
-    <form id="my-form">
-      <label for="name">Nome:</label>
-      <input type="text" id="name" name="name" value="">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" value="">
-      <button type="submit">Invia</button>
-    </form>
-    <script>
-    const form = document.querySelector('#my-form');
-form.addEventListener('submit', async (event) => {
-  event.preventDefault();
-  const formData = new FormData(form);
-  const response = await fetch('https://maledizione.duckdns.org/api/webhook/test', {
-    method: 'POST',
-    mode: 'no-cors',
-    body: formData
-
-  });
-  console.log('Dati inviati:', formData);
-  console.log('Risposta:', response);
-});
-
-    </script>
-
-
-
-
-        <!-- Map
-        <div class="map" id="contact">
-            <iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;kk=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-            <br />
-            <small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;kkk=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a></small>
-        </div>
-        -->
         <!-- Footer-->
         <footer class="footer text-center" >
-            <div class="container px-4 px-lg-5" id="contact">
+            <div class="container px-4 px-lg-5"">
                 <!-- 
                 <ul class="list-inline mb-5">
                     <li class="list-inline-item">
@@ -331,5 +336,6 @@ form.addEventListener('submit', async (event) => {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script src="js/formscript.js"></script>
     </body>
 </html>
