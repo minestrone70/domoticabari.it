@@ -78,3 +78,7 @@ function fadeIn(el, display) {
         }
     })();
 };
+
+$(document).ready(function() {
+  $('.service-item').equalHeights();
+});
