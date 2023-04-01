@@ -11465,8 +11465,9 @@ html {
 
 .callout::before {    
       content: "";
-      background-image: url('../assets/img/interior1.jpg');
+      background-image: url('../assets/img/interior2.jpg');
       background-size: cover;
+      background-position: center center;
       position: absolute;
       top: 0px;
       right: 0px;
@@ -11537,6 +11538,8 @@ footer.footer .social-link:hover {
 .masthead::before {    
       content: "";
       background-size: cover;
+      background-position: center center;
+      background-image: url('../assets/img/interior1.jpg');
       position: absolute;
       top: 0px;
       right: 0px;
@@ -11544,20 +11547,6 @@ footer.footer .social-link:hover {
       left: 0px;
       opacity: 0.5;
 }
-
-@media (max-width: 480px) {
-    .masthead::before {
-        background-image: url('../assets/img/interior1.jpg');
-    }
-}
-
-@media (min-width: 481px) {
-    .masthead::before {
-        background-image: url('../assets/img/interior3.jpg');
-    }
-}
-
-
 
 
 .masthead {
