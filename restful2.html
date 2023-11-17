@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h1>Stato del sensore: <span id="sensor-state">Loading...</span></h1>
+<h1>Stato del sensore sun: <span id="sensor-state">Loading...</span></h1>
 
 <script>
 
@@ -19,8 +19,7 @@ const url = "http://maledizione.duckdns.org:8123/api/states/sun.sun";
 const options = {
   mode: 'no-cors',
   headers: {
-    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIxNTQxYTYyMzdlOTM0M2M3YjVmMjVjYjU1MTUwNGY5YSIsImlhdCI6MTcwMDI0NDk0OSwiZXhwIjoyMDE1NjA0OTQ5fQ.5itU437WuYSFRNedDhEK3bTRun6-z1xDadcQeDcpAGI
-"
+    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmNzJkYWE4MmMzZTc0YWU2YjdiMDY3YWU0ZGRlOTlhZCIsImlhdCI6MTcwMDI0NTcyMSwiZXhwIjoyMDE1NjA1NzIxfQ.13NjIkTW4BKk1Dyr5phOxfNz7gaZuAYe-RCHdXn5Zh0"
   }
 };
 fetch(url, options)
