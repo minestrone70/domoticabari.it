@@ -13,12 +13,12 @@
 
 <script>
     // Replace 'YOUR_ACCESS_TOKEN' with the actual access token you obtained
-    const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI5MTRlOTdlZmM4MGY0ZWM2OTRkM2I3NGQ0YjhjNDhlZSIsImlhdCI6MTcwMDE3Nzk5NCwiZXhwIjoyMDE1NTM3OTk0fQ.zZv-94PYO33Lg6_neV0RntVbEZ1kOaOB65FrWC4kVjs';
+    const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI0YjQxYTdjYTY5OGQ0YjE2ODRiMjZhNDFhODAzZGZmNyIsImlhdCI6MTcwMDIxMTY2MCwiZXhwIjoyMDE1NTcxNjYwfQ.4ZIAttBHPUOS8rwElz1bq9xaHI6un8MGNRNUxegMhQg';
 
     function fetchSensorState() {
         fetch('https://maledizione.duckdns.org/api/states/input_text.testo_allarme', {
             headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI5MTRlOTdlZmM4MGY0ZWM2OTRkM2I3NGQ0YjhjNDhlZSIsImlhdCI6MTcwMDE3Nzk5NCwiZXhwIjoyMDE1NTM3OTk0fQ.zZv-94PYO33Lg6_neV0RntVbEZ1kOaOB65FrWC4kVjs',
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI0YjQxYTdjYTY5OGQ0YjE2ODRiMjZhNDFhODAzZGZmNyIsImlhdCI6MTcwMDIxMTY2MCwiZXhwIjoyMDE1NTcxNjYwfQ.4ZIAttBHPUOS8rwElz1bq9xaHI6un8MGNRNUxegMhQg',
                 'Content-Type': 'application/json'
             }
         })
