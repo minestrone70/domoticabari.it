@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="formrodi4.css">
+</head>
+<body><div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2 id="heading">Guest ID Data</h2>
+                <p>Casa Rodi</p>
+                <form id="msform">
+                    <!-- progressbar -->
+                    <ul id="progressbar">
+                        <li class="active" id="account"><strong>Dates</strong></li>
+                        <li id="personal"><strong>Guest 1</strong></li>
+                        <li id="personal"><strong>Guest 2</strong></li>
+                        <li id="personal"><strong>Guest 3</strong></li>
+                        <li id="personal"><strong>Guest 4</strong></li>
+                        <li id="confirm"><strong>Finish</strong></li>
+                    </ul>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div> <br> <!-- fieldsets -->
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Account Information:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 1 - 6</h2>
+                                </div>
+                            </div> 
+                          <label class="fieldlabels">Check-in: *</label> 
+                          <input type="date" name="checkin" placeholder="" />
+                          <label class="fieldlabels">Expected time of your arrival to the apartment: *</label> 
+                          <input type="time" name="arrtime" placeholder="" /> 
+                          <label class="fieldlabels">Check-out: *</label> 
+                          <input type="date" name="checkout" placeholder="" /> 
+                          <label class="fieldlabels">Expected time of your departure from the apartment: *</label> 
+                          <input type="time" name="deptime" placeholder="" /> 
+                        </div> 
+                      <input type="button" name="next" class="next action-button" value="Next" />
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Guest 1 information:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 2 - 6</h2>
+                                </div>
+                            </div> 
+                          <label class="fieldlabels">Name: *</label> 
+                          <input type="text" name="g1name" placeholder="Insert here guest's 1 Name" /> 
+                          <label class="fieldlabels">Last Name: *</label> 
+                          <input type="text" name="g1lastname" placeholder="Insert guest's 1 last name" />
+                          <label class="fieldlabels">Gender: *</label>
+                          <select id="gender" name="g1gender" placeholder="Insert here your last name">
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                          </select>
+                          <label class="fieldlabels">Birth date: *</label> 
+                          <input type="date" name="g1birth" placeholder="" />
+                          
+                          <label class="fieldlabels">State of birth: *</label>
+            <select id="birthstate" name="g1birthstate" required onchange="populateNations()">
+                <option value="" disabled selected>Select State</option>
+                <option value="100000301">Afghanistan AFG</option>
+                <option value="100000201">Albania ALB</option>
+                <!-- Add other hardcoded options here -->
+            </select>
+            <label class="fieldlabels">Nationality:</label>
+            <select id="nationality" name="g1nationality" required>
+                <option value="" disabled selected>Select Nationality</option>
+                <option value="100000301">Afghanistan AFG</option>
+                <option value="100000201">Albania ALB</option>
+                <!-- Add other hardcoded options here -->
+            </select>
+            <label class="fieldlabels">ID Type:</label>
+            <select id="idType" name="g1idType" required>
+                <option value="" disabled selected>Select ID Type</option>
+                <option value="IDENT">Identity Card</option>
+                <option value="PATEN">Driver's License</option>
+                <option value="PASOR">Passport</option>
+            </select>
+
+            <label class="fieldlabels">ID Number:</label>
+            <input type="text" name="g1idnumber" placeholder="Insert guest's 1 ID number" />
+                          
+             <label class="fieldlabels">Nation where ID was issued:</label>
+            <select id="idIssued" name="g1idIssued" required>
+                <option value="" disabled selected>Select Issuing nation</option>
+                <option value="100000301">Afghanistan AFG</option>
+                <option value="100000201">Albania ALB</option>
+                <!-- Add other hardcoded options here -->
+            </select>
+                          
+                        </div> 
+                      <input type="button" name="next" class="next action-button" value="Next" />  
+                      <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Guest 2 information:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 3 - 6</h2>
+                                </div>
+                            </div> 
+                          <label class="fieldlabels">Name: *</label> 
+                          <input type="text" name="g2name" placeholder="Insert here guest's 2 Name" /> 
+                          <label class="fieldlabels">Last Name: *</label> 
+                          <input type="text" name="g2lastname" placeholder="Insert guest's 2 last name" />
+                          <label class="fieldlabels">Gender: *</label>
+                          <select id="gender" name="g2gender" placeholder="">
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                          </select>
+                          <label class="fieldlabels">Birth date: *</label> 
+                          <input type="date" name="g2birth" placeholder="" />
+                          
+                          <label class="fieldlabels">State of birth: *</label>
+            <select id="birthstate" name="g2birthstate" required onchange="populateNations()">
+                <option value="" disabled selected>Select State</option>
+                <option value="100000301">Afghanistan AFG</option>
+                <option value="100000201">Albania ALB</option>
+                <!-- Add other hardcoded options here -->
+            </select>
+            <label class="fieldlabels">Nationality:</label>
+            <select id="nationality" name="g2nationality" required>
+                <option value="" disabled selected>Select Nationality</option>
+                <option value="100000301">Afghanistan AFG</option>
+                <option value="100000201">Albania ALB</option>
+                <!-- Add other hardcoded options here -->
+            </select>
+                          
+                        </div> 
+                      <input type="button" name="next" class="next action-button" value="Next" />  
+                      <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    </fieldset>
+
+                  
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Guest 3 information:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 4 - 6</h2>
+                                </div>
+                            </div> 
+                          <label class="fieldlabels">Name: *</label> 
+                          <input type="text" name="g3name" placeholder="Insert here guest's 3 Name" /> 
+                          <label class="fieldlabels">Last Name: *</label> 
+                          <input type="text" name="g3lastname" placeholder="Insert guest's 3 last name" />
+                          <label class="fieldlabels">Gender: *</label>
+                          <select id="gender" name="g3gender" placeholder="">
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                          </select>
+                          <label class="fieldlabels">Birth date: *</label> 
+                          <input type="date" name="g3birth" placeholder="" />
+                          
+                          <label class="fieldlabels">State of birth: *</label>
+            <select id="birthstate" name="g3birthstate" required onchange="populateNations()">
+                <option value="" disabled selected>Select State</option>
+                <option value="100000301">Afghanistan AFG</option>
+                <option value="100000201">Albania ALB</option>
+                <!-- Add other hardcoded options here -->
+            </select>
+            <label class="fieldlabels">Nationality:</label>
+            <select id="nationality" name="g3nationality" required>
+                <option value="" disabled selected>Select Nationality</option>
+                <option value="100000301">Afghanistan AFG</option>
+                <option value="100000201">Albania ALB</option>
+                <!-- Add other hardcoded options here -->
+            </select>
+                          
+                        </div> 
+                      <input type="button" name="next" class="next action-button" value="Next" />  
+                      <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    </fieldset>
+                  
+                  
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Guest 4 information:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 5 - 6</h2>
+                                </div>
+                            </div> 
+                          <label class="fieldlabels">Name: *</label> 
+                          <input type="text" name="g4name" placeholder="Insert here guest's 3 Name" /> 
+                          <label class="fieldlabels">Last Name: *</label> 
+                          <input type="text" name="g4lastname" placeholder="Insert guest's 3 last name" />
+                          <label class="fieldlabels">Gender: *</label>
+                          <select id="gender" name="g4gender" placeholder="">
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                          </select>
+                          <label class="fieldlabels">Birth date: *</label> 
+                          <input type="date" name="g4birth" placeholder="" />
+                          
+                          <label class="fieldlabels">State of birth: *</label>
+            <select id="birthstate" name="g4birthstate" required onchange="populateNations()">
+                <option value="" disabled selected>Select State</option>
+                <option value="100000301">Afghanistan AFG</option>
+                <option value="100000201">Albania ALB</option>
+                <!-- Add other hardcoded options here -->
+            </select>
+            <label class="fieldlabels">Nationality:</label>
+            <select id="nationality" name="g4nationality" required>
+                <option value="" disabled selected>Select Nationality</option>
+                <option value="100000301">Afghanistan AFG</option>
+                <option value="100000201">Albania ALB</option>
+                <!-- Add other hardcoded options here -->
+            </select>
+                          
+                        </div> 
+                      <input type="button" name="next" class="next action-button" value="Submit" />  
+                      <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    </fieldset>
+                  <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Finish:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 4 - 4</h2>
+                                </div>
+                            </div> <br><br>
+                            <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
+                            <div class="row justify-content-center">
+                                <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div>
+                            </div> <br><br>
+                            <div class="row justify-content-center">
+                                <div class="col-7 text-center">
+                                    <h5 class="purple-text text-center">You Have Successfully Signed Up</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="formrodi4.js"></script>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+    <link rel="stylesheet" href="formrodi.css">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .box {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Check-in/Out Date Information Box -->
+    <div class="box">
+        <h2>Check-in/Out Date Information</h2>
+        <form class="date-form">
+            <label for="checkInDate">Check-in Date:</label>
+            <input type="date" id="checkInDate" name="checkInDate" required>
+
+            <label for="checkOutDate">Check-out Date:</label>
+            <input type="date" id="checkOutDate" name="checkOutDate" required>
+        </form>
+    </div>
+
+    <!-- Guest Information Form Box -->
+    <div class="box">
+        <h2>Guest 1 Info</h2>
+        <form class="user-form">
+            <!-- Guest 1 Info Fields -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label for="birthdate">Birthdate:</label>
+            <input type="date" id="birthdate" name="birthdate" required>
+
+            <label for="birthstate">State of birth:</label>
+            <select id="birthstate" name="birthstate" required onchange="populateNations()">
+                <option value="" disabled selected>Select State</option>
+                <option value="100000301">Afghanistan AFG</option>
+                <option value="100000201">Albania ALB</option>
+                <!-- Add other hardcoded options here -->
+            </select>
+
+            <label for="nationality">Nationality:</label>
+            <select id="nationality" name="nationality" required>
+                <option value="" disabled selected>Select Nationality</option>
+                <option value="100000301">Afghanistan AFG</option>
+                <option value="100000201">Albania ALB</option>
+                <!-- Add other hardcoded options here -->
+            </select>
+
+            <label for="idType">ID Type:</label>
+            <select id="idType" name="idType" required>
+                <option value="" disabled selected>Select ID Type</option>
+                <option value="IDENT">Identity Card</option>
+                <option value="PATEN">Driver's License</option>
+                <option value="PASOR">Passport</option>
+            </select>
+
+            <label for="idNumber">ID Number:</label>
+            <input type="text" id="idNumber" name="idNumber" required>
+
+            <label for="idIssued">Nation where ID was issued:</label>
+            <select id="idIssued" name="idIssued" required>
+                <option value="" disabled selected>Select Issuing nation</option>
+                <option value="100000301">Afghanistan AFG</option>
+                <option value="100000201">Albania ALB</option>
+                <!-- Add other hardcoded options here -->
+            </select>
+
+
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Placeholder for Guest 2 Info Box (Add more if needed) -->
+    <div class="box">
+        <h2>Guest 2 Info</h2>
+        <!-- Add Guest 2 Info Fields and Check-in/Out Dates Here -->
+    </div>
+
+    <!-- Add More Guest Boxes as Needed -->
+
+</div>
+
+<script>
+    function populateNations() {
+        var selectedBirthState = document.getElementById("birthstate").value;
+        document.getElementById("nationality").value = selectedBirthState;
+        document.getElementById("idIssued").value = selectedBirthState;
+    }
+</script>
+
+</body>
+</html>
