@@ -4,12 +4,9 @@
     function handleSubmit(event) {
   event.preventDefault();
 
-  const name = document.querySelector('#name').value;
-  const email = document.querySelector('#email').value;
-  const message = document.querySelector('#message').value;
-  const telefono = document.querySelector('#telefono').value;
+  const passcode = document.querySelector('#passcode').value;
 
-  const data = { name: name, email: email, message: message, telefono: telefono };
+  const data = { passcode: passcode };
 
   const timeoutPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -18,7 +15,7 @@
   });
 
   Promise.race([
-    fetch('https://maledizione.duckdns.org/api/webhook/form_domoticabari', {
+    fetch('https://maledizione.duckdns.org/api/webhook/test', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
