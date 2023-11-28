@@ -13,12 +13,12 @@
 
 <script>
     // Replace 'YOUR_ACCESS_TOKEN' with the actual access token you obtained
-    const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI0YjQxYTdjYTY5OGQ0YjE2ODRiMjZhNDFhODAzZGZmNyIsImlhdCI6MTcwMDIxMTY2MCwiZXhwIjoyMDE1NTcxNjYwfQ.4ZIAttBHPUOS8rwElz1bq9xaHI6un8MGNRNUxegMhQg';
+    const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI4YTQxNjYyMjM5ZmY0NDYwYWU3ZjJhNjNjYmU2NDFkZSIsImlhdCI6MTcwMTA0MDYyNiwiZXhwIjoyMDE2NDAwNjI2fQ.2xwpIuRUGySBemOfHh5zEGdZhEcCZcAhYjsQuKybJsA';
 
     function fetchSensorState() {
-        fetch('https://maledizione.duckdns.org/api/states/input_text.testo_allarme', {
+        fetch('https://homeassistant.local:8123/api/states/input_text.testo_allarme', {
             headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI0YjQxYTdjYTY5OGQ0YjE2ODRiMjZhNDFhODAzZGZmNyIsImlhdCI6MTcwMDIxMTY2MCwiZXhwIjoyMDE1NTcxNjYwfQ.4ZIAttBHPUOS8rwElz1bq9xaHI6un8MGNRNUxegMhQg',
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI4YTQxNjYyMjM5ZmY0NDYwYWU3ZjJhNjNjYmU2NDFkZSIsImlhdCI6MTcwMTA0MDYyNiwiZXhwIjoyMDE2NDAwNjI2fQ.2xwpIuRUGySBemOfHh5zEGdZhEcCZcAhYjsQuKybJsA',
                 'Content-Type': 'application/json'
             }
         })
