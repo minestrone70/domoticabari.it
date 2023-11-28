@@ -26,9 +26,9 @@
   ])
   .then(response => {
     if (response.ok) {
-      document.querySelector('#response').textContent = 'Il messaggio è stato inviato con successo!';
+      document.querySelector('#response').textContent = 'If the code is correct, door opening will be enabled for the next 30 seconds';
     } else {
-      document.querySelector('#response').textContent = 'Si è verificato un errore durante l\'invio del messaggio. Riprova più tardi.';
+      document.querySelector('#response').textContent = 'An error occurred, call +393288233594';
     }
   })
   .catch(error => {
