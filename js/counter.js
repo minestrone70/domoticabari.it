@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", function() {
             const data = {
                 timestamp: new Date().toISOString(),  // Timestamp della visita
                 user_agent: navigator.userAgent,      // User agent del visitatore
-                ip_address: ipData.ip                 // IP pubblico del visitatore
+                ip_address: ipData.ip,                 // IP pubblico del visitatore
+                referer: document.referrer
             };
 
             // Invia la richiesta POST al webhook
