@@ -1,827 +1,1275 @@
 <!DOCTYPE html>
-<html lang="it">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Domotica Bari offre servizi di progettazione di impianti di domotica personalizzati per la gestione e il controllo dell'ambiente domestico. Contattaci per avere maggiori informazioni!">
-        <meta name="keywords" content="progettazione, domotica, home assistant, bari, sonoff, shelly, alexa, google home, tapparelle, lampadine">
-        <meta name="author" content="A Free Bootstrap Theme by Start Bootstrap - Stylish portfolio" />
-        <title>Domotica Bari - Progettazione di impianti di domotica personalizzati</title>
-          <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon3.svg" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Simple line icons-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+<html lang="it" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DomoticaBari.it - Soluzioni avanzate di domotica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon SVG incorporata (Data URI) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20width%3D%22700pt%22%20height%3D%22700pt%22%20version%3D%221.1%22%20viewBox%3D%220%200%20700%20700%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%3Cg%3E%3Cpath%20d%3D%22m567.13%20220.43-197.04-173.8c-6.125-4.9219-13.539-7.3867-20.957-7.3867-7.4648%200-14.926%202.4922-21.055%207.4688l-195.15%20173.72c-7.8125%206.3438-12.348%2015.863-12.348%2025.922v218.64c0%2018.445%2014.953%2033.398%2033.398%2033.398h123.2v-33.398h-123.2v-218.64l195.16-173.71%20197.05%20173.8v218.56l-179.4-0.003906v-65.367c16.414-6.6484%2028.242-22.715%2028.242-41.512%200-24.754-20.059-44.801-44.801-44.801-24.742%200-44.801%2020.047-44.801%2044.801%200%2018.805%2011.344%2034.871%2027.758%2041.512v65.375l0.003906%2033.395h213c18.445%200%2033.402-14.953%2033.402-33.398v-218.56c0-10.102-4.5859-19.672-12.453-26.012z%22%2F%3E%3Cpath%20d%3D%22m350.22%20258.32c-34.344%200-65.84%2017.328-84.258%2046.344-4.6641%207.3477-2.4883%2017.074%204.8555%2021.738%202.6211%201.6562%205.5391%202.4531%208.4297%202.4531%205.2148%200%2010.309-2.582%2013.312-7.3125%2012.605-19.863%2034.164-31.723%2057.664-31.723%2023.414%200%2044.922%2011.789%2057.551%2031.535%204.6875%207.3242%2014.41%209.4688%2021.758%204.7812%207.332-4.6875%209.4648-14.426%204.7812-21.758-18.457-28.84-49.891-46.059-84.094-46.059z%22%2F%3E%3Cpath%20d%3D%22m217.84%20274.64c-4.8555%207.6953-2.5586%2017.859%205.1289%2022.727%202.7344%201.7266%205.7734%202.5469%208.7812%202.5469%205.4648%200%2010.809-2.7148%2013.945-7.6758%2022.797-36.094%2061.867-57.641%20104.52-57.641%2042.465%200%2081.445%2021.402%20104.29%2057.262%204.8828%207.668%2015.07%209.9219%2022.742%205.0391%207.6719-4.8906%209.9297-15.07%205.0391-22.742-28.918-45.398-78.289-72.504-132.07-72.504-54.023-0.007813-103.5%2027.281-132.38%2072.988z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
 
-        <link href="css/carousel.css" rel="stylesheet" />
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-RC50RG5MZJ">
-        </script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      /* Custom fade-in animation */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+      /* Utility to hide/show views */
+      .view-section {
+        display: none;
+      }
+      .view-section.active {
+        display: block;
+        animation: fadeIn 0.3s ease-out;
+      }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen">
+    
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+<!-- Logo -->
+<a href="#home" onclick="handleNav(event, '#home')" class="flex items-center gap-2 group cursor-pointer">
+    <!-- SVG Personalizzato Inserito (Ingrandito del 20%: 28px -> 34px) -->
+    <svg width="34px" height="34px" version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+         class="text-[#1e4e79] group-hover:scale-110 transition-transform"
+         fill="currentColor" <!-- Aggiunto fill="currentColor" per ereditare il colore da Tailwind -->
+    >
+        <g>
+            <path d="m567.13 220.43-197.04-173.8c-6.125-4.9219-13.539-7.3867-20.957-7.3867-7.4648 0-14.926 2.4922-21.055 7.4688l-195.15 173.72c-7.8125 6.3438-12.348 15.863-12.348 25.922v218.64c0 18.445 14.953 33.398 33.398 33.398h123.2v-33.398h-123.2v-218.64l195.16-173.71 197.05 173.8v218.56l-179.4-0.003906v-65.367c16.414-6.6484 28.242-22.715 28.242-41.512 0-24.754-20.059-44.801-44.801-44.801-24.742 0-44.801 20.047-44.801 44.801 0 18.805 11.344 34.871 27.758 41.512v65.375l0.003906 33.395h213c18.445 0 33.402-14.953 33.402-33.398v-218.56c0-10.102-4.5859-19.672-12.453-26.012z"/>
+            <path d="m350.22 258.32c-34.344 0-65.84 17.328-84.258 46.344-4.6641 7.3477-2.4883 17.074 4.8555 21.738 2.6211 1.6562 5.5391 2.4531 8.4297 2.4531 5.2148 0 10.309-2.582 13.312-7.3125 12.605-19.863 34.164-31.723 57.664-31.723 23.414 0 44.922 11.789 57.551 31.535 4.6875 7.3242 14.41 9.4688 21.758 4.7812 7.332-4.6875 9.4648-14.426 4.7812-21.758-18.457-28.84-49.891-46.059-84.094-46.059z"/>
+            <path d="m217.84 274.64c-4.8555 7.6953-2.5586 17.859 5.1289 22.727 2.7344 1.7266 5.7734 2.5469 8.7812 2.5469 5.4648 0 10.809-2.7148 13.945-7.6758 22.797-36.094 61.867-57.641 104.52-57.641 42.465 0 81.445 21.402 104.29 57.262 4.8828 7.668 15.07 9.9219 22.742 5.0391 7.6719-4.8906 9.9297-15.07 5.0391-22.742-28.918-45.398-78.289-72.504-132.07-72.504-54.023-0.007813-103.5 27.281-132.38 72.988z"/>
+        </g>
+    </svg>
+    <span class="text-2xl font-bold text-[#1e4e79]">DomoticaBari.it</span>
+</a>
 
-          gtag('config', 'G-RC50RG5MZJ');
-        </script>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex space-x-8">
+            <a href="#chi-siamo" onclick="handleNav(event, '#chi-siamo')" class="text-gray-600 hover:text-[#1e4e79] font-medium transition-colors cursor-pointer">Chi Siamo</a>
+            <a href="#servizi" onclick="handleNav(event, '#servizi')" class="text-gray-600 hover:text-[#1e4e79] font-medium transition-colors cursor-pointer">Servizi</a>
+            <a href="#progetti" onclick="handleNav(event, '#progetti')" class="text-gray-600 hover:text-[#1e4e79] font-medium transition-colors cursor-pointer">Progetti</a>
+            <a href="#contatti" onclick="handleNav(event, '#contatti')" class="text-gray-600 hover:text-[#1e4e79] font-medium transition-colors cursor-pointer">Contatti</a>
+          </div>
 
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
-        <nav id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand"><a href="#page-top">Domotica Bari</a></li>
-                <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
-                <li class="sidebar-nav-item"><a href="#chose">Sceglici</a></li>
-                <li class="sidebar-nav-item"><a href="#why">Domotica</a></li>
-                <li class="sidebar-nav-item"><a href="#esempi">Esempi</a></li>
-                <li class="sidebar-nav-item"><a href="#domotica_b&b">Speciale b&b</a></li>
-                <li class="sidebar-nav-item"><a href="#disabilità">Disabilità</a></li>
-                <li class="sidebar-nav-item"><a href="#homeassistant">Home assistant</a></li>
-                
-                <li class="sidebar-nav-item"><a href="#about">Chi siamo</a></li>
-                
-                
-                <li class="sidebar-nav-item"><a href="#contact">Contatti</a></li>
-            </ul>
-        </nav>
-
-        <!-- Logo-->
-
-
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12">
-      <div class="logo-container">
-        <a href="index.html">
-          <img src="assets/favicon3.svg" alt="logo" class="logo-img">
-        </a>
-        <h1 class="logo-text">
-          <a href="index.html" style="text-decoration: none; color: #000;">domotica bari</a>
-        </h1>
-      </div>
-    </div>
-  </div>
-</div>
-        <!-- Header-->
-        <header class="masthead d-flex align-items-center">
-            <div class="container px-4 px-lg-5 text-center">
-                <h1 class="mb-1">Domotica Bari</h1>
-                <h2 class="mb-5"><em>Soluzioni avanzate per la tua smart home</em></h3>
-                <!-- non lasciare -->
-                <div class="container px-4 px-lg-5">
-<a class="btn btn-primary btn-xl" href="#who">Avanti</a>
-      
-            </div>
-
-
-            </div>
-        </header>
-
-        <!-- Chi progetta?-->
-        <section class="content-section bg-secondary  text-center" id="who">
-                <!-- non lasciare -->
-                <div class="container px-4 px-lg-5">
-                <div class="content-section-heading text-center">
-                    
-                    <h1 class="mb-5">Chi progetta la domotica della tua casa?</h1><br><br><br><br><br>
-                </div>
-                <div class="row row-cols-1 row-cols-md-2 mb-3 text-center">
-                  <div class="col">
-                    <div class="card  rounded-3 shadow-sm border-secondary">
-                      <div class="card-header py-3 text-white  bg-dark border-dark">
-                        <h4 class="my-0 fw-normal">A - L'impresa a cui ho affidato i lavori</h4>
-                      </div>
-                      <div class="card-body schede-ab">
-                        
-    <p class="lead mb-5 text-justified">
-        È molto probabile che ti ritroverai un impianto già <strong>obsoleto</strong> e <strong>non espandibile</strong>, dotato di semplici automazioni che non miglioreranno la qualità della tua vita. Potrai probabilmente accendere le luci con la voce o chiudere le tapparelle con un tocco. Nulla per cui valga realmente la pena spendere i tuoi soldi.
-    </p>
-                        
-                      </div>
-                    </div>
-                  </div>                  
-                  <div class="col">
-                    <div class="card  rounded-3 shadow-sm border-secondary">
-                      <div class="card-header py-3 text-white bg-primary border-primary">
-                        <h4 class="my-0 fw-normal">B - Un ingegnere specializzato</h4>
-                      </div>
-                      <div class="card-body schede-ab">
-                        
-                          <p class="lead mb-5 text-justified">Quasi certamente troverai una persona in grado di comprendere le tue esigenze e di proporti una soluzione davvero <strong>integrata</strong>, al passo con la tecnologia <strong>attuale</strong> che semplificherà le tue azioni quotidiane, aumenterà il livello di <strong>sicurezza</strong> della tua abitazione e renderà la tua vita domestica <strong>moderna</strong> e tecnologica</p>                      
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- cosa offriamo-->
-<section class="content-section bg-primary text-white text-center" id="why">
-    <div class="container px-4 px-lg-5">
-        <div class="content-section-heading">
-            <h2 class="mb-5">Cosa offriamo</h2>
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden flex items-center">
+            <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+              <svg id="menu-icon-open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+              <svg id="menu-icon-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+          </div>
         </div>
-        <div class="row gx-4 gx-lg-5">
-            <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-                <span class="service-icon rounded-circle mx-auto mb-3"><i class="fas fa-cogs"></i></span>
-                <h4><strong>Impianti personalizzati</strong></h4>
-                <p class="text-faded mb-0">
-                    Il progetto nasce dopo un attento ascolto delle esigenze del cliente, finalizzato all’implementazione di soluzioni che migliorano realmente la qualità della vita domestica.
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-                <span class="service-icon rounded-circle mx-auto mb-3"><i class="fas fa-user-clock"></i></span>
-                <h4><strong>Correttezza</strong></h4>
-                <p class="text-faded mb-0">
-                    Il nostro è un approccio totalmente orientato al cliente, con la massima trasparenza su costi, tempi di realizzazione e funzionalità offerte. Ogni proposta è studiata per garantire un investimento vantaggioso e senza sorprese.
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 mb-md-0">
-                <span class="service-icon rounded-circle mx-auto mb-3"><i class="fas fa-hands-helping"></i></span>
-                <h4><strong>Assistenza continua</strong></h4>
-                <p class="text-faded mb-0">
-                    Offriamo un supporto costante prima, durante e dopo l’installazione. Monitoriamo il sistema da remoto e interveniamo tempestivamente per qualsiasi necessità, garantendo un impianto sempre efficiente e aggiornato.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
-
-
-        <!-- About-->
-        <section class="content-section bg-light" id="chose">
-            <div class="container px-4 px-lg-5 text-center">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-10">
-                        <h1>Scegli Domotica Bari per la progettazione della tua domotica</h1>
-                        <p class="lead mb-5 text-justified">
-                                La nostra esperienza parte dal mondo della robotica industriale, dove negli ultimi 30 anni abbiamo sviluppato impianti integrati ad altissimo livello tecnologico, con un approccio sempre orientato al cliente ed al risultato. Oggi mettiamo questa esperienza nel mondo della automazione domestica, utilizzando soluzioni non proprietarie, open source e che davvero riescono a dar vita alla tua casa, con l'obiettivo di migliorare la tua esperienza di vita domestica
-
-                        </p>
-                        <a class="btn btn-primary btn-xl" href="#contact">Contattaci</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- perchè è opportuno domotizzare?-->
-        <section class="content-section bg-primary text-white text-center" id="why">
-            <div class="container px-4 px-lg-5">
-                <div class="content-section-heading">
-                    
-                    <h2 class="mb-5">Perché è opportuno domotizzare</h2>
-                </div>
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="fas fa-piggy-bank"></i></span>
-                        <h4><strong>Convenienza</strong></h4>
-                        <p class="text-faded mb-0">la domotica offre un elevato livello di comfort e convenienza, automatizzando diverse funzioni domestiche e semplificando la gestione dell'ambiente domestico.</p>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-camera"></i></span>
-                        <h4><strong>Sicurezza</strong></h4>
-                        <p class="text-faded mb-0">i sistemi di domotica possono migliorare la sicurezza domestica, ad esempio attraverso l'installazione di telecamere di sorveglianza, sensori di movimento e allarmi, consentendo di monitorare e controllare la casa anche da remoto.</p>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="fas fa-leaf"></i></span>
-                        <h4><strong>Efficienza energetica</strong></h4>
-                        <p class="text-faded mb-0">
-                            l'automazione dei sistemi di riscaldamento, raffreddamento e illuminazione attraverso la domotica consente di ridurre i costi energetici e di mantenere un ambiente più 
-                            <i class="fas fa-leaf"></i>
-                            sostenibile
-                        </p>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="fas fa-microchip"></i></span>
-                        <h4><strong>Innovazione tecnologica</strong></h4>
-                        <p class="text-faded mb-0">la domotica rappresenta una delle tecnologie più avanzate e innovative per il controllo degli ambienti domestici, offrendo un'esperienza di vita moderna e tecnologica.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-
-        <!-- ALCUNI ESEMPI -->
-        <section class="content-section bg-secondary text-white text-center" id="esempi">
-            <div class="container px-4 px-lg-5">
-                <div class="content-section-heading">
-                    <h3 class="text-light mb-0">Un nuovo concetto di smart home</h3>
-                    <h2 class="mb-5">Ecco alcuni esempi</h2>
-                </div>
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 service-item">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-droplet"></i></span>
-                        <h4><strong>Irrigazione smart</strong></h4>
-                        <p class="text-faded mb-0">Il tuo nuovo sistema di irrigazione terà conto di delle precipitazioni delle ultime settimane e modulerà la quantità di acqua di conseguenza</p>
-                        <br><a href="irrigazione-smart.html"><button type="button" class="btn btn-outline-light"><i class="fas fa-external-link-alt btn-approfondisci "></i> Approfondisci</button></a>
-
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 service-item">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-person-running"></i></span>
-                        <h4><strong>Antifurto smart</strong></h4>
-                        <p class="text-faded mb-0">Pensa ad un antifurto che si attivi e disattivi automaticamente basandosi sulla presenza in casa dei membri della tua famiglia</p>
-                        <br><a href="antifurto-smart.html"><button type="button"  class="btn btn-outline-light"><i class="fas fa-external-link-alt btn-approfondisci"></i> Approfondisci</button></a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-5 mb-md-0 service-item">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-location-dot"></i></span>
-                        <h4><strong>Azioni basate sulla posizione</strong></h4>
-                        <p class="text-faded mb-0">
-                            Spegni le luci quando siete tutti fuori o modifica la temperatura in casa se qualcuno sta rientrando
-                        </p>
-                        <br><a href="azioni-basate-sulla-posizione.html"><button type="button"  class="btn btn-outline-light"><i class="fas fa-external-link-alt btn-approfondisci"></i> Approfondisci</button></a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 service-item">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-sun"></i></span>
-                        <h4><strong>Monitoraggio fotovoltaico</strong></h4>
-                        <p class="text-faded mb-0">Il nostro server può interfcciarsi con i principali inverter per ricevere informazioni sull'energia prodotta</p>
-                        <br><a href="monitoraggio-fotovoltaico.html"><button type="button"  class="btn btn-outline-light"><i class="fas fa-external-link-alt btn-approfondisci"></i> Approfondisci</button></a>
-                    </div>
-                </div>
-
-
-
-
-
-            </div>
-        </section>
-
-
-        <!-- ALTRI ESEMPI -->
-        <section class="content-section bg-dark text-white text-center" id="esempi">
-            <div class="container px-4 px-lg-5">
-
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 service-item">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-user-group"></i></span>
-                        <h4><strong>Simulazione presenza </strong></h4>
-                        <p class="text-faded mb-0">Possiamo creare delle routine di accensione luci e movimento serrande che simulano la presenza di persone in casa</p>
-                        <br>
-
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 service-item">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-brands fa-playstation"></i></span>
-                        <h4><strong>Timer per playstation</strong></h4>
-                        <p class="text-faded mb-0">Vuoi conoscere le statistiche di utilizzo della playstation? Puoi monitorare praticamente tutto!</p>
-                        <br>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-5 mb-md-0 service-item">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-money-bill-trend-up"></i></span>
-                        <h4><strong>Monitora le tue azioni</strong></h4>
-                        <p class="text-faded mb-0">
-                            Vuoi cambiare colore della luce in soggiorno al tuo rientro in base a come è andata la borsa oggi?
-                        </p>
-                        <br>
-                    </div>
-                    <div class="col-lg-3 col-md-6 service-item">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-bell"></i></span>
-                        <h4><strong>Alert sui tuoi figli</strong></h4>
-                        <p class="text-faded mb-0">Puoi ricevere notifiche quando i tuoi figli entrano o escono da alcune zone geografiche</p>
-                        <br>
-                    </div>
-                </div>
-
-
-
-
-
-            </div>
-        </section>
-
-
-
-
-
-        <!-- Callout-->
-        <section class="callout">
-            <div class="container px-4 px-lg-5 text-center">
-                <h2 class="mx-auto mb-5">
-                    Acquisisci il controllo
-                    <em>totale</em>
-                    della tua casa!
-                </h2>
-                <div class="card  rounded-3 shadow-sm ">
-                     
-                      <div class="card-body">
-                        
-                          <p class="lead mb-5 text-justified">Tutti gli esempi precedenti sono possibili solo attraverso l'introduzione di un componente fondamentale all'interno di un progetto di domotica: un hub personale. L'hub personale è un software che si installa su dei piccoli server dedicati, che si occupa di interagire con i dispositivi dei vari fornitori, permettendo di integrarli in modo intelligente.</p>
-                          <p class="lead mb-5 text-justified">Come probabilmente hai avuto modo di osservare in questa pagina, la domotica è molto di più che accendere la luce con la propria voce. E' la capacità di far raccogliere alla propria casa tutte le informazioni possibili, ed utilizzarle all'occorrenza. </p>
-                        
-                      </div>
-                    </div><br><br>
-                                 
-                <a class="btn btn-primary btn-xl" href="#contact">Contattaci!</a>
-            </div>
-        </section>
-
-        <!-- domotica x b&b-->
-        <section class="content-section bg-secondary text-white text-center" id="domotica_b&b">
-            <div class="container px-4 px-lg-5">
-                <div class="content-section-heading">
-                    <h3 class="text-secondary mb-0">Domotica x bed and breakfast</h3>
-                    <h2 class="mb-5">Domotica per il tuo bed and breakfast</h2>
-                </div>
-                <div class="row gx-4 gx-lg-5">
-<div class="col-lg-3 col-md-6 mb-5 mb-lg-0 service-item">
-    <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-door-open"></i></span>
-    <h4><strong>Apertura cancello da remoto</strong></h4>
-    <p class="text-faded mb-0">Stanco di dover accogliere i tuoi clienti per consegnare le chiavi? Possiamo introdurre dei dispositivi automatici di apertura porte, spesso a costi molto interessanti</p>
-    <br><a href="automazione-portone-b&b.html"><button type="button"  class="btn btn-outline-light"><i class="fas fa-external-link-alt btn-approfondisci "></i> Approfondisci</button></a>
-
-</div>
-
-                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 service-item">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-person-running"></i></span>
-                        <h4><strong>Controllo presenza ospiti</strong></h4>
-                        <p class="text-faded mb-0">Può interessarti sapere se i tuoi ospiti sono in casa o meno? Esistono molte soluzioni che ci permettono di raccogliere questo tipo di informazioni</p>
-                        <br><a href="#domotica_b&b"><button type="button" disabled class="btn btn-outline-light"><i class="fas fa-external-link-alt btn-approfondisci"></i> Approfondisci</button></a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-5 mb-md-0 service-item">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-plug-circle-bolt"></i></span>
-                        <h4><strong>Controllo potenza istantanea</strong></h4>
-                        <p class="text-faded mb-0">
-                            Il caro bollette ti preoccupa e vuoi conoscere se i tuoi ospiti mantengono in comportamento <i class="fas fa-leaf "></i> corretto?
-                            Le nostre soluzioni permettono di monitorare tutti gli aspetti legati al consumo energetico
-                        </p>
-                        <br><a href="#domotica_b&b"><button type="button" disabled class="btn btn-outline-light"><i class="fas fa-external-link-alt btn-approfondisci"></i> Approfondisci</button></a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 service-item">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-power-off"></i></span>
-                        <h4><strong>Spegnimento automatico boiler</strong></h4>
-                        <p class="text-faded mb-0">A volte capita che la casa non sia occupata ma il boiler continua a scaldare l'acqua sanitaria. Possiamo interfacciarci con il calendario delle tue prenotazioni e spegnere (e accendere) il boiler automaticamente</p>
-                        <br><a href="#domotica_b&b"><button type="button" disabled class="btn btn-outline-light"><i class="fas fa-external-link-alt btn-approfondisci"></i> Approfondisci</button></a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-
-
-
-
-
-
-
-
-
-        <!-- domotica x disabili-->
-        <section class="content-section bg-primary text-white text-center" id="Disabilità">
-            <div class="container px-4 px-lg-5">
-                <div class="content-section-heading">
-                    <h3 class="text-secondary mb-0">Soluzioni per una abitazione accessibile</h3>
-                    <h2 class="mb-5">Domotica per disabili</h2>
-                </div>
-
-
-
-<div class="card  rounded-3 shadow-sm ">
-                     
-                      <div class="card-body  text-primary">
-                        
-                          <p class="lead mb-5  text-justified">La domotica può trasformare radicalmente la quotidianità di persone con disabilità: la nostra esperienza pluriennale, unita a un contatto stretto con questo mondo, ci ha permesso di sviluppare progetti mirati e personalizzati — perché ogni disabilità ha esigenze specifiche e non esiste una soluzione “taglia unica”. In particolare, nell’ambito dei Pro.V.I. – Progetti di Vita Indipendente promossi dalla Regione Puglia (che prevedono anche interventi di domotica, connettività e co‑housing per favorire autonomia e inclusione) abbiamo affiancato utenti e strutture del territorio, contribuendo alla progettazione e realizzazione di ambienti accessibili, intelligenti e su misura. Possiamo intervenire anche in contesti di cohousing o comunità residenziali dove l’accessibilità, la condivisione degli spazi e l’automazione diventano fattori chiave per migliorare la qualità della vita, l’autonomia delle persone e la gestione degli ambienti </p>
-                        
-                      </div>
-                    </div>
-<br><br>
-
-
-
-
-
-
-                <div class="row gx-4 gx-lg-5">
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 service-item">
-                <span class="service-icon rounded-circle mx-auto mb-3"><i class="fas fa-wheelchair"></i>
-</span>
-                <h4><strong>Controllo a distanza dei dispositivi</strong></h4>
-                <p class="text-faded mb-0">Regola luci, tende e temperatura con comandi vocali o tramite smartphone, per un comfort ottimale senza necessità di movimento.</p>
-                <br>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 service-item">
-                <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-person-falling-burst"></i></span>
-                <h4><strong>Sistemi di rilevamento cadute</strong></h4>
-                <p class="text-faded mb-0">L'utilizzo di sensori mmWave con firmware dedicato permette di allertare i caregiver quando necessario.</p>
-                <br>
-            </div>
-
-            <div class="col-lg-3 col-md-6 mb-5 mb-md-0 service-item">
-                <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-brands fa-amazon"></i></span>
-                <h4><strong>Assistenti vocali per la vita quotidiana</strong></h4>
-                <p class="text-faded mb-0">Utilizza assistenti vocali per controllare dispositivi, accedere a informazioni e gestire la tua casa con facilità.</p>
-                <br>
-            </div>
-            <div class="col-lg-3 col-md-6 service-item">
-                <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-heartbeat"></i></span>
-                <h4><strong>Telemedicina e controllo remoto</strong></h4>
-                <p class="text-faded mb-0">Soluzioni di telemedicina integrate per monitorare la salute a distanza, garantendo interventi tempestivi.</p>
-                <br>
-            </div>
-
-
-
-
-                </div>
-
-            </div>
-        </section>
-
-
-
-<section class="content-section bg-light" id="homeassistant">
-  <div class="container px-4 px-lg-5 text-center">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-      <div class="col-lg-10">
-        <h1>Perché usiamo hub Home Assistant</h1>
-        <p class="lead mb-5 text-justified">
-          Noi di Domotica Bari utilizziamo Home Assistant come hub personale per la nostra domotica. Sappiamo che la scelta tra Home Assistant e KNX è dibattuta e che ciascuna soluzione offre vantaggi e svantaggi. Tuttavia, ci sono alcuni vantaggi di Home Assistant che consideriamo irrinunciabili. Di seguito elenchiamo quelli che per noi sono i punti di forza più importanti.
-        </p>
       </div>
-    </div>
-  </div>
-</section>
 
+      <!-- Mobile Menu Dropdown -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a href="#chi-siamo" onclick="handleNav(event, '#chi-siamo')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-[#1e4e79] hover:bg-gray-50">Chi Siamo</a>
+          <a href="#servizi" onclick="handleNav(event, '#servizi')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-[#1e4e79] hover:bg-gray-50">Servizi</a>
+          <a href="#progetti" onclick="handleNav(event, '#progetti')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-[#1e4e79] hover:bg-gray-50">Progetti</a>
+          <a href="#contatti" onclick="handleNav(event, '#contatti')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-[#1e4e79] hover:bg-gray-50">Contatti</a>
+        </div>
+      </div>
+    </nav>
 
-
-
-
-
-
-
-
-<section class="content-section bg-secondary text-white text-center" id="domotica_b&b">
-  <div class="container px-4 px-lg-5">
-    <div class="content-section-heading">
-      <h3 class="text-primary mb-0"></h3>
-      <h2 class="mb-5">HOME ASSISTANT VS KNX</h2>
-    </div>
-    <div class="table-responsive">
-      <table class="table table-striped table-border border-light">
-        <thead class="border-light ">
-          <tr>
-            <th scope="col"></th>
-            <th scope="col"><strong>Home Assistant</strong></th>
-            <th scope="col"><strong>KNX</strong></th>
-          </tr>
-        </thead>
-        <tbody class="">
-          <tr>
-            <th scope="row">Flessibilità</th>
-            <td>Estremamente flessibile, supporta vari dispositivi</td>
-            <td>Meno flessibile, standard industriale, cablato</td>
-          </tr>
-          <tr>
-            <th scope="row">Costo</th>
-            <td>Decisamente più economico perchè è open source</td>
-            <td>Costo iniziale elevato per installazione</td>
-          </tr>
-          <tr>
-            <th scope="row">Configurazione</th>
-            <td>Configurabile via software, facile da aggiornare</td>
-            <td>Richiede cablaggio dedicato e installazione professionale</td>
-          </tr>
-          <tr>
-            <th scope="row">Integrazione</th>
-            <td>Ampia gamma di integrazioni con diversi ecosistemi</td>
-            <td>Principalmente integrato con dispositivi certificati KNX</td>
-          </tr>
-          <tr>
-            <th scope="row">Community</th>
-            <td>La più grande comunità del settore, supporto continuo</td>
-            <td>Supporto limitato a installatori certificati e forum</td>
-          </tr>
-          <tr>
-            <th scope="row">Interfaccia Utente</th>
-            <td>Interfaccia web user-friendly e personalizzabile</td>
-            <td>Interfaccia meno intuitiva, dipende da HMI certificati</td>
-          </tr>
-          <tr>
-            <th scope="row">Espandibilità</th>
-            <td>Facile da espandere senza essere cablato</td>
-            <td>Limitata dall'infrastruttura cablata</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-
-
-
+    <!-- MAIN CONTAINER FOR VIEWS -->
+    <main class="flex-grow">
         
-
-        <!-- Punti di forza
-        <section class="content-section" id="cosa-offriamo">
-            <div class="container px-4 px-lg-5">
-                <div class="content-section-heading text-center">
-                    <h3 class="text-secondary mb-0">Cosa offriamo</h3>
-                    <h2 class="mb-5">I nostri punti di forza</h2>
-                </div>
-                <div class="row gx-0">
-                     <div class="col-lg-6 portfolio-item">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2">Parla</div>
-                                    <p class="mb-0">Controlla ogni aspetto della tua casa con la tua voce!</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/google-home.jpg" alt="immagine che mostra un assistente google che controlla la casa domotica" />
-                        
+        <!-- ======================= VIEW: HOME ======================= -->
+        <div id="view-home" class="view-section active">
+            <!-- Hero Section -->
+            <div class="relative">
+                <div class="flex flex-col md:flex-row min-h-[600px] w-full">
+                    <!-- Left Content -->
+                    <div class="w-full md:w-1/2 bg-[#1e4e79] flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 text-white relative z-10">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in">
+                        Soluzioni<br />avanzate di domotica
+                    </h1>
+                    <p class="text-lg md:text-xl text-blue-100 max-w-lg leading-relaxed mb-8 animate-fade-in" style="animation-delay: 0.2s">
+                        Tecnologie smart che trasformano ogni spazio in un ambiente moderno, comodo e totalmente automatizzato
+                    </p>
+                    <div class="md:mb-32 animate-fade-in" style="animation-delay: 0.4s">
+                        <a href="#contatti" onclick="handleNav(event, '#contatti')" class="bg-white text-[#1e4e79] font-bold py-3 px-8 rounded-full hover:bg-blue-50 transition-colors inline-block shadow-lg">
+                        Richiedi Consulenza
+                        </a>
                     </div>
-                    <div class="col-lg-6 portfolio-item">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2">App</div>
-                                    <p class="mb-0">Tutto ciò che installeremo sarà controllabile dal tuo telefono</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/controllo.jpg" alt="immagine che mostra uno smartphone che controlla la casa" />
-                        
                     </div>
-                    <div class="col-lg-6 portfolio-item">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2">Open source</div>
-                                    <p class="mb-0">La tua casa sarà gestita dal famoso software open source home assistant. Potrai ampliare le tue implementazioni domotiche in qualsiasi momento</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/hassio.jpg" alt="immagine che mostra il logo di home assistant, il software usato da Domotica Bari nelle sue installazioni" />
-                        
+                    <!-- Right Image -->
+                    <div class="w-full md:w-1/2 bg-gray-200 relative h-[400px] md:h-auto overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Modern Smart Home Living Room" class="w-full h-full object-cover object-center" />
+                    <div class="absolute inset-0 bg-[#1e4e79]/10"></div>
+                    
+                    <!-- Animated Icons -->
+                    <div class="absolute top-1/4 left-1/4 animate-pulse">
+                        <div class="bg-white/20 backdrop-blur-sm p-3 rounded-full border border-white/50 shadow-lg">
+                        <svg class="text-white w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
                     </div>
-                    <div class="col-lg-6 portfolio-item">
-
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2">Efficienza</div>
-                                    <p class="mb-0">La domotica permette di controllare e automatizzare i sistemi energetici di una casa, riducendo gli sprechi e aumentando l'efficienza energetica.</p>
-
-                                </div>
-
-                            </div>
-                            <img class="img-fluid" src="assets/img/home-energy.jpg" alt="Immagine che mostra una casa con l'etichetta di efficienza energetica" />
-
                     </div>
                 </div>
-            </div>
-        </section>
-        -->
-<!--
-        <section class="content-section" id="prezzi">
-            <div class="container px-4 px-lg-5">
-                <div class="content-section-heading text-center">
-                    <h3 class="text-secondary mb-0">Prezzi</h3>
-                    <h2 class="mb-5">Tabella di confronto prezzi</h2>
-                </div>
-                <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-                  <div class="col">
-                    <div class="card mb-4 rounded-3 shadow-sm">
-                      <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Basic</h4>
-                      </div>
-                      <div class="card-body">
-                        <h1 class="card-title pricing-card-title">€2.000<small class="text-muted fw-light">+iva</small></h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                          <li>fornitura e configurazione server</li>
-                          <li>configurazione wifi</li>
-                          <li>fornitura echo dot</li>
-                          <li>5 luci domotizzate</li>
-                          <li>2 configurazione app</li>
-                          <li><br></li>
-                          <li><br></li>
-                          <li><br></li>
-                          <li><br></li>
-                          <li><br></li>
-                          <li><br></li>
-                          <li><br></li>
-                        </ul>
-                        <a class="w-100 btn btn-lg btn-outline-primary" href="#contact">Contattaci!</a>
-                      </div>
+
+                <!-- Overlapping Cards -->
+                <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 mb-20">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12">
+                    <!-- Card 1 -->
+                    <a href="#servizi-residenziale" onclick="handleNav(event, '#servizi-residenziale')" class="block bg-white rounded-xl shadow-xl p-8 transform transition-transform hover:-translate-y-1 border-t-4 border-[#1e4e79] cursor-pointer group">
+                        <div class="mb-4 text-[#1e4e79]">
+                        <svg class="w-12 h-12" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-[#1e4e79] mb-3">Ristrutturi la tua casa?</h3>
+                        <p class="text-gray-600 mb-6">
+                        Scopri i vantaggi di installare la domotica durante la fase di ristrutturazione. 
+                        Massimizza il comfort e il risparmio energetico.
+                        </p>
+                        <span class="text-[#1e4e79] font-semibold flex items-center group-hover:underline">
+                        Scopri i servizi privati 
+                        <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </span>
+                    </a>
+                    <!-- Card 2 -->
+                    <a href="#servizi-ingegneria" onclick="handleNav(event, '#servizi-ingegneria')" class="block bg-white rounded-xl shadow-xl p-8 transform transition-transform hover:-translate-y-1 border-t-4 border-[#1e4e79] cursor-pointer group">
+                        <div class="mb-4 text-[#1e4e79]">
+                        <svg class="w-12 h-12" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.47a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-[#1e4e79] mb-3">Sei uno studio di ingegneria?</h3>
+                        <p class="text-gray-600 mb-6">
+                        Collaboriamo con studi tecnici e aziende per integrare soluzioni domotiche avanzate per bandi pubblici e privati
+                        </p>
+                        <span class="text-[#1e4e79] font-semibold flex items-center group-hover:underline">
+                        Ottieni una quotazione 
+                        <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </span>
+                    </a>
                     </div>
-                  </div>
-                  <div class="col">
-                    <div class="card mb-4 rounded-3 shadow-sm">
-                      <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Advanced</h4>
-                      </div>
-                      <div class="card-body">
-                        <h1 class="card-title pricing-card-title">€3.500<small class="text-muted fw-light">+iva</small></h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                          <li>fornitura e configurazione server</li>
-                          <li>configurazione wifi</li>
-                          <li>fornitura echo dot</li>
-                          <li>10 luci domotizzate</li>
-                          <li>4 configurazione app</li>
-                          <li>configurazione repeater</li>
-                          <li>2 taparelle domotizzate</li>
-                          <li>1 cancello elettrico domotizzato</li>
-                          <li><br></li>
-                          <li><br></li>
-                          <li><br></li>
-                          <li><br></li>
-                        </ul>
-                        <a class="w-100 btn btn-lg btn-primary" href="#contact">Contattaci!</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                      <div class="card-header py-3 text-white bg-primary border-primary">
-                        <h4 class="my-0 fw-normal">Addicted</h4>
-                      </div>
-                      <div class="card-body">
-                        <h1 class="card-title pricing-card-title">€10.000<small class="text-muted fw-light">+iva</small></h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                          <li>fornitura e configurazione server</li>
-                          <li>configurazione wifi</li>
-                          <li>fornitura echo dot</li>
-                          <li>10 luci domotizzate</li>
-                          <li>4 configurazione app</li>
-                          <li>configurazione repeater</li>
-                          <li>2 taparelle domotizzate</li>
-                          <li>1 cancello elettrico domotizzato</li>
-                          <li>irrigazione domotizzata </li>
-                          <li>videosorveglianza </li>
-                          <li>configurazione telecamere wifi </li>
-                          <li>termostati wifi </li>
-                        </ul>
-                        <a class="w-100 btn btn-lg btn-primary" href="#contact">Contattaci!</a>
-                      </div>
-                    </div>
-                  </div>
                 </div>
             </div>
-        </section>
 
--->
-<section id="about">
-            <div class="container px-5">
-                <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="img-fluid rounded-circle" src="assets/img/chisiamo.jpg" alt="Foto di Alberto Caruso - fondatore"></div>
+            <!-- Chi Siamo -->
+            <section id="chi-siamo" class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#1e4e79] mb-4">La Nostra Identità</h2>
+                    <div class="h-1 w-20 bg-[#1e4e79] mx-auto rounded-full"></div>
+                    <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">Dal background industriale all'eccellenza domestica.</p>
                     </div>
-                    <div class="col-lg-6 order-lg-1">
-                        <div class="p-5">
-                            <h2 class="display-4">Chi siamo</h2>
-                            <p class="lead mb-5 text-justified">Domotica Bari nasce da una idea dell'ing. Alberto Caruso, entusiasta digitale. </p>
-                            <p class="lead mb-5 text-justified">Il background è una ventennale esperienza in robotica ed automazione industriale, settore sotto certi aspetti simile a quello dell'home automation.</p>
-                            <p class="lead mb-5 text-justified">La passione per l'informatica, per il mondo open source e per uno stile di vita digitale, ci ha portato ad esplorare il mondo della automazione domotica. Mondo affascinante e dalle molteplici interpretazioni. </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?auto=format&fit=crop&w=800&q=80" alt="Meeting professionale" class="rounded-lg shadow-lg w-full object-cover h-[400px]" />
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">La nostra storia</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Domotica Bari nasce da una idea dell'<strong>ing. Alberto Caruso</strong>, entusiasta digitale.
+                        </p>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Il background è una ventennale esperienza in <strong>robotica ed automazione industriale</strong>, settore sotto certi aspetti simile a quello dell'home automation.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            La passione per l'informatica, per il mondo open source e per uno stile di vita digitale, ci ha portato ad esplorare il mondo della automazione domotica. Mondo affascinante e dalle molteplici interpretazioni.
+                        </p>
+                    </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Cards -->
+                        <div class="text-center p-6 bg-slate-50 rounded-lg border border-slate-100 hover:shadow-md transition-shadow">
+                            <div class="inline-block p-4 bg-blue-100 rounded-full mb-4">
+                            <svg class="h-8 w-8 text-[#1e4e79]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Mission</h4>
+                            <p class="text-gray-600">Portare il futuro in ogni casa pugliese, rendendo la tecnologia accessibile e utile.</p>
+                        </div>
+                        <div class="text-center p-6 bg-slate-50 rounded-lg border border-slate-100 hover:shadow-md transition-shadow">
+                            <div class="inline-block p-4 bg-blue-100 rounded-full mb-4">
+                            <svg class="h-8 w-8 text-[#1e4e79]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Competenze</h4>
+                            <p class="text-gray-600">Competenza sui principali standard mondiali (KNX, Matter, Zigbee) per garantire affidabilità.</p>
+                        </div>
+                        <div class="text-center p-6 bg-slate-50 rounded-lg border border-slate-100 hover:shadow-md transition-shadow">
+                            <div class="inline-block p-4 bg-blue-100 rounded-full mb-4">
+                            <svg class="h-8 w-8 text-[#1e4e79]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Esperienza</h4>
+                            <p class="text-gray-600">Oltre 5 anni di progetti realizzati su ville, appartamenti di lusso e alberghi</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sezione Confronto: Chi progetta -->
+            <section class="py-16 bg-blue-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-[#1e4e79]">Chi progetta la domotica della tua casa?</h2>
+                        <p class="mt-4 text-xl text-gray-600">Un bivio fondamentale per il futuro della tua abitazione.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Option A -->
+                        <div class="bg-white p-8 rounded-xl shadow-md border-l-8 border-red-500 relative overflow-hidden transform hover:-translate-y-1 transition-transform">
+                            <div class="absolute top-0 right-0 bg-red-100 text-red-600 px-3 py-1 text-xs font-bold uppercase rounded-bl-lg">Rischio</div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                                <svg class="w-6 h-6 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                A - L'impresa generica
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                È molto probabile che ti ritroverai un impianto già obsoleto e non espandibile, dotato di semplici automazioni che non miglioreranno la qualità della tua vita.
+                            </p>
+                            <p class="text-gray-600 font-medium">
+                                Potrai probabilmente accendere le luci con la voce o chiudere le tapparelle con un tocco. Nulla per cui valga realmente la pena spendere i tuoi soldi.
+                            </p>
+                        </div>
+                        <!-- Option B -->
+                        <div class="bg-white p-8 rounded-xl shadow-md border-l-8 border-green-500 relative overflow-hidden transform hover:-translate-y-1 transition-transform">
+                             <div class="absolute top-0 right-0 bg-green-100 text-green-600 px-3 py-1 text-xs font-bold uppercase rounded-bl-lg">Scelta Consigliata</div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                                <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                B - Un ingegnere specializzato
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Quasi certamente troverai una persona in grado di comprendere le tue esigenze e di proporti una soluzione davvero integrata.
+                            </p>
+                            <p class="text-gray-600 font-medium">
+                                Al passo con la tecnologia attuale, semplificherà le tue azioni quotidiane, aumenterà il livello di sicurezza della tua abitazione e renderà la tua vita domestica moderna e tecnologica.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Servizi -->
+<section id="servizi" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#1e4e79] mb-4">Eccellenza Tecnologica & Servizi</h2>
+            <div class="h-1 w-20 bg-[#1e4e79] mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <a href="#servizi-residenziale" onclick="handleNav(event, '#servizi-residenziale')" class="block bg-slate-50 border border-slate-100 p-8 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group cursor-pointer">
+                <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-[#1e4e79] mb-6 shadow-sm group-hover:bg-[#1e4e79] group-hover:text-white transition-colors">
+                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-xl font-bold text-gray-900">Abitazioni</h3>
+                    <span class="text-sm font-semibold text-gray-400 group-hover:text-[#1e4e79] transition-colors">Scopri i Dettagli</span>
+                </div>
+                <p class="text-gray-600">Controllo luci, tapparelle, clima e consumi da un'unica app intuitiva per la tua casa.</p>
+            </a>
+            
+            <a href="#servizi-ville" onclick="handleNav(event, '#servizi-ville')" class="block bg-slate-50 border border-slate-100 p-8 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group cursor-pointer">
+                <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-[#1e4e79] mb-6 shadow-sm group-hover:bg-[#1e4e79] group-hover:text-white transition-colors">
+                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 22v-6.57"/><path d="M12 11h.01"/><path d="M12 7h.01"/><path d="M14 15.43V22"/><path d="M15 16a5 5 0 0 0-6 0"/><path d="M16 11h.01"/><path d="M16 7h.01"/><path d="M8 11h.01"/><path d="M8 7h.01"/><rect x="4" y="2" width="16" height="20" rx="2"/></svg>
+                </div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-xl font-bold text-gray-900">Ville di Pregio</h3>
+                    <span class="text-sm font-semibold text-gray-400 group-hover:text-[#1e4e79] transition-colors">Scopri i Dettagli</span>
+                </div>
+                <p class="text-gray-600">Soluzioni esclusive per grandi metrature, cinema room e integrazione esterni.</p>
+            </a>
+
+            <a href="#servizi-alberghieri" onclick="handleNav(event, '#servizi-alberghieri')" class="block bg-slate-50 border border-slate-100 p-8 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group cursor-pointer">
+                <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-[#1e4e79] mb-6 shadow-sm group-hover:bg-[#1e4e79] group-hover:text-white transition-colors">
+                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M17 21v-8.5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2V21"/><path d="M14 2v4"/><path d="M10 2v4"/></svg>
+                </div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-xl font-bold text-gray-900">B&B e Alberghi</h3>
+                    <span class="text-sm font-semibold text-gray-400 group-hover:text-[#1e4e79] transition-colors">Scopri i Dettagli</span>
+                </div>
+                <p class="text-gray-600">Automazione check-in, controllo accessi e risparmio energetico per strutture ricettive.</p>
+            </a>
+
+            <a href="#servizi-disabilita" onclick="handleNav(event, '#servizi-disabilita')" class="block bg-slate-50 border border-slate-100 p-8 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group cursor-pointer">
+                <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-[#1e4e79] mb-6 shadow-sm group-hover:bg-[#1e4e79] group-hover:text-white transition-colors">
+                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><path d="m9 20 3-6 3 6"/><path d="m6 8 6 2 6-2"/><path d="M12 10v4"/></svg>
+                </div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-xl font-bold text-gray-900">Domotica Assistiva</h3>
+                    <span class="text-sm font-semibold text-gray-400 group-hover:text-[#1e4e79] transition-colors">Scopri i Dettagli</span>
+                </div>
+                <p class="text-gray-600">Tecnologie per l'autonomia: comandi vocali, montascale e scenari semplificati per disabilità.</p>
+            </a>
+
+            <a href="#servizi-ingegneria" onclick="handleNav(event, '#servizi-ingegneria')" class="block bg-slate-50 border border-slate-100 p-8 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group cursor-pointer">
+                <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-[#1e4e79] mb-6 shadow-sm group-hover:bg-[#1e4e79] group-hover:text-white transition-colors">
+                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>
+                </div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-xl font-bold text-gray-900">Supporto Ingegneria</h3>
+                    <span class="text-sm font-semibold text-gray-400 group-hover:text-[#1e4e79] transition-colors">Scopri i Dettagli</span>
+                </div>
+                <p class="text-gray-600">Consulenza tecnica specialistica per studi di architettura in fase di progettazione.</p>
+            </a>
+
+            <a href="#servizi-energy" onclick="handleNav(event, '#servizi-energy')" class="block bg-slate-50 border border-slate-100 p-8 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group cursor-pointer">
+                <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-[#1e4e79] mb-6 shadow-sm group-hover:bg-[#1e4e79] group-hover:text-white transition-colors">
+                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-xl font-bold text-gray-900">Energy Saving</h3>
+                    <span class="text-sm font-semibold text-gray-400 group-hover:text-[#1e4e79] transition-colors">Scopri i Dettagli</span>
+                </div>
+                <p class="text-gray-600">Gestione intelligente dei carichi e del fotovoltaico per il massimo risparmio energetico.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+            <!-- Home Assistant Section -->
+<section class="py-16 bg-[#1e4e79] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div class="w-full lg:w-1/2">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Home Assistant, l'hub domotico del momento</h2>
+                <p class="text-blue-100 text-lg mb-8 leading-relaxed">
+                    Noi di Domotica Bari proponiamo Home Assistant come cuore pulsante della tua smart home. A differenza delle soluzioni commerciali chiuse, questa piattaforma open source offre una libertà senza precedenti.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-blue-600 p-3 rounded-lg mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Privacy & Controllo Locale</h4>
+                            <p class="text-blue-200">I tuoi dati restano a casa tua, non su un server in Cina o in America. Il sistema funziona anche se cade la connessione internet, garantendo un'affidabilità superiore.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-blue-600 p-3 rounded-lg mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Compatibilità Universale</h4>
+                            <p class="text-blue-200">Integrazione totale. Facciamo dialogare dispositivi di marche diverse (Shelly, Sonoff, Philips Hue, Zigbee, KNX) in un'unica interfaccia coerente e fluida.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-blue-600 p-3 rounded-lg mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 10V7a4 4 0 00-4-4H8a4 4 0 00-4 4v3m16 0h-4m4 0c-.552 0-1-.448-1-1v-2a2 2 0 00-2-2H7a2 2 0 00-2 2v2c0 .552-.448 1-1 1zm0 0H4"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Forza della Community & Flessibilità</h4>
+                            <p class="text-blue-200">La vasta e attiva community globale garantisce il supporto e lo sviluppo continuo di nuove integrazioni. Se un dispositivo esiste, è quasi certo che si possa integrare in Home Assistant.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-
-
-
-<header class="contactform" id="contact">
-    <div class="container position-relative" >
-        <div class="row justify-content-center">
-            <div class="col-xl-6">
-                <div class="text-center text-white">
-                    <!-- Page heading-->
-                    <h1 class="mb-5">Contattaci</h1>
-
-                        <form id="message-form">
-                          <div class="row">
-                            <div class="col">
-                              <input class="form-control form-control-lg" type="text" placeholder="Nome" id="name" name="name" required><br>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col">
-                              <input class="form-control form-control-lg" type="tel" id="telefono" name="telefono" placeholder="Numero di telefono" required><br>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col">
-                              <input class="form-control form-control-lg" type="email" id="email" name="email" placeholder="Indirizzo email" required><br>
-                            </div>
-                          </div>
-
-                          <div class="row">
-                            <div class="col">
-                              <textarea class="form-control form-control-lg " rows="5" id="message" name="message" placeholder="Messaggio" required></textarea><br>
-                            </div>
-
-                            <div class="col-auto">
-                              <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Invia</button>
-                            </div>
-                          </div>
-                        </form>
-                        <div id="response"></div>
+            <div class="w-full lg:w-1/2">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-blue-400/30">
+                    <img src="https://images.unsplash.com/photo-1643409329501-f17776d3823a?auto=format&fit=crop&w=800&q=80" alt="Dashboard Domotica Home Assistant" class="w-full h-full object-cover" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1e4e79]/80 to-transparent flex items-end p-8">
+                        <p class="text-white italic font-medium">"Il vero controllo è avere la libertà di scegliere e personalizzare, grazie alla potenza dell'Open Source."</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</header>
-
-
-
-
-
-        <!-- Call to Action-->
-        <section class="content-section bg-primary text-white" >
-            <div class="container px-4 px-lg-5 text-center">
-                <h2 class="mb-4">Contattaci via whatsapp</h2>
-                <a class="btn btn-xl btn-light me-4" href="https://wa.me/393288233594">Scrivici!</a>
-
-            </div>
-        </section>
-
-<!-- Client 1 - HCF Bootstrap 5 Component -->
-<section class="bg-light py-5 py-xl-6">
-  <div class="container mb-5 mb-md-6">
-    <div class="row justify-content-md-center">
-      <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6 text-center">
-        <h2 class="mb-4 display-5">I nostri partners</h2>
-        <p class="text-secondary mb-4 mb-md-5"></p>
-        <hr class="w-50 mx-auto mb-0 text-secondary">
-      </div>
-    </div>
-  </div>
-  <div class="container overflow-hidden">
-    <div class="row gy-5 gy-md-6">
-      <div class="col-6 col-md-3 align-self-center text-center">
-        <img src="assets/img/home-assistant-logo.svg" alt="logo Home assistant" width="125" height="65" viewBox="0 0 125 65" fill="currentColor" class="text-dark">
-      </div>
-      <div class="col-6 col-md-3 align-self-center text-center">
-        <img src="assets/img/intel-nuc-logo.png" alt="logo Intel nuc" width="125" height="65" viewBox="0 0 125 65" fill="currentColor" class="text-dark">
-      </div>
-      <div class="col-6 col-md-3 align-self-center text-center">
-        <img src="assets/img/unifi-logo.png" alt="logo Unifi" width="125" height="65" >
-      </div>
-      <div class="col-6 col-md-3 align-self-center text-center">
-        <img src="assets/img/shelly-logo.webp" alt="logo Shelly" width="125" height="65" >
-      </div> 
-      <div class="col-6 col-md-3 align-self-center text-center">
-        <img src="assets/img/matter-logo.webp" alt="logo matter" width="125" height="65" >
-      </div> 
-      <div class="col-6 col-md-3 align-self-center text-center">
-        <img src="assets/img/sonoff-logo.png" alt="logo sonoff" width="125" height="65" >
-      </div>
-      <div class="col-6 col-md-3 align-self-center text-center">
-        <img src="assets/img/esphome-logo.png" alt="logo esphome" width="125" height="65" >
-      </div>
-      <div class="col-6 col-md-3 align-self-center text-center">
-        <img src="assets/img/zigbee-logo.svg" alt="logo zigbee" width="125" height="65" viewBox="0 0 125 65" fill="currentColor" class="text-dark">
-      </div>
-
-    </div>
-  </div>
 </section>
 
-
-
-
-
-
-
-
-        <!-- Footer-->
-        <footer class="footer text-center" >
-            <div class="container px-4 px-lg-5">
-                
-
-
-                
-                <p class="text-muted small mb-0">Copyright &copy; Domotica Bari 2023 - tel. +39 328 823 3594</p>
-            </div>
-            <div class="container px-4 px-lg-5" >
-                <p class="text-muted small mb-0">Credits: home automation by David Carrero from </p><a href="https://thenounproject.com/browse/icons/term/home-automation/" target="_blank" title="home automation Icons">Noun Project</a>
-            </div>
-        </footer>
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.equalheights/1.0.1/jquery.equalheights.min.js"></script>
-
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <script src="js/formscript.js"></script>
-        <script src="js/counter.js"></script>
+            <!-- Progetti -->
+<section id="progetti" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#1e4e79] mb-4">Storie di Successo</h2>
+            <div class="h-1 w-20 bg-[#1e4e79] mx-auto rounded-full"></div>
+        </div>
         
-    </body>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-80">
+                <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=600&q=80" alt="Villa Moderna" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                    <span class="text-blue-300 text-sm font-semibold uppercase tracking-wider mb-2">Residenziale Lusso</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">Villa con piscina a Torre a Mare</h3>
+                    <p class="text-gray-300">Gestione smart di luci esterne, sistema di irrigazione automatico e controllo della piscina.</p>
+                </div>
+            </div>
+            
+            <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-80">
+                <img src="https://images.unsplash.com/photo-1553632544-9bae92ffb225?auto=format&fit=crop&w=600&q=80" alt="Penthouse" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                    <span class="text-blue-300 text-sm font-semibold uppercase tracking-wider mb-2">Ricettivo Storico</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">Resort Diffuso a Noci</h3>
+                    <p class="text-gray-300">Automazione di luci e clima nelle suite, gestione check-in/out e monitoraggio energetico.</p>
+                </div>
+            </div>
+            
+            <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-80">
+                <img src="https://images.unsplash.com/photo-1611755489400-3c53602ab783?auto=format&fit=crop&w=600&q=80" alt="Uffici Moderni" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                    <span class="text-blue-300 text-sm font-semibold uppercase tracking-wider mb-2">Residenziale Urbano</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">Attico nel centro di Bari</h3>
+                    <p class="text-gray-300">Automazione di tapparelle, tende da sole e creazione di scenari di illuminazione personalizzati.</p>
+                </div>
+            </div>
+            
+            <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-80">
+                <img src="https://images.unsplash.com/photo-1545483656-1a34ae73add1?auto=format&fit=crop&w=600&q=80" alt="Casa Smart Green" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                    <span class="text-blue-300 text-sm font-semibold uppercase tracking-wider mb-2">Assistenza & Autonomia</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">Progetto "Vita Indipendente"</h3>
+                    <p class="text-gray-300">Domotica per il controllo ambientale e l'assistenza personalizzata per persone con disabilità.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contatti (Shared) - SEZIONE AGGIORNATA -->
+<section id="contatti" class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#1e4e79] mb-4">Parliamo del Tuo Progetto</h2>
+            <div class="h-1 w-20 bg-[#1e4e79] mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white rounded-2xl shadow-xl overflow-hidden">
+            <!-- Info -->
+            <div class="bg-[#1e4e79] p-10 text-white flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Informazioni Aziendali</h3>
+                    <p class="text-blue-100 mb-8">Siamo a tua disposizione per analizzare le tue esigenze.</p>
+
+
+
+<div class="space-y-6">
+    <!-- Indirizzo -->
+    <div class="flex items-start">
+        <svg class="w-6 h-6 mr-4 text-blue-300 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+            <p class="font-semibold">Sede Operativa</p>
+            <p class="text-blue-100">Via Conte Giusso 3<br />70125 Bari (BA)</p>
+        </div>
+    </div>
+    
+<!-- Telefono e WhatsApp -->
+<div class="flex items-start">
+    <svg class="w-6 h-6 mr-4 text-blue-300 flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+
+    <div>
+        <p class="font-semibold">Telefono</p>
+        <p class="text-blue-100">+39 328 8233594</p>
+
+        <!-- PULSANTE WHATSAPP CON ICONA -->
+        <a href="https://wa.me/393288233594?text=Ciao,%20sono%20interessato%20ai%20vostri%20servizi%20di%20domotica." 
+           target="_blank" 
+           class="mt-2 inline-flex items-center px-3 py-1 bg-green-500 rounded-full text-white text-xs font-bold hover:bg-green-600 transition-colors shadow-lg w-max">
+
+            <!-- Icona WhatsApp -->
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.52 3.48A11.87 11.87 0 0 0 12 0a11.94 11.94 0 0 0-10.4 17.94L0 24l6.28-1.64A11.94 11.94 0 1 0 20.52 3.48ZM12 21.82a9.77 9.77 0 0 1-5-.1l-.36-.14-3.73.97 1-3.64-.17-.37A9.78 9.78 0 1 1 12 21.82Zm5.28-7.47c-.29-.15-1.7-.84-1.96-.94s-.45-.15-.64.15-.73.94-.9 1.13-.33.22-.62.07a8 8 0 0 1-2.35-1.45 8.7 8.7 0 0 1-1.62-2c-.17-.29 0-.45.13-.6s.29-.33.44-.51a2 2 0 0 0 .29-.48.53.53 0 0 0 0-.51c-.07-.15-.64-1.54-.88-2.11s-.47-.49-.64-.5h-.55a1 1 0 0 0-.73.34 3 3 0 0 0-.94 2.21 5.57 5.57 0 0 0 1.17 3.07 12.7 12.7 0 0 0 4.81 4.11 11.36 11.36 0 0 0 1.65.61 4 4 0 0 0 1.82.11A3 3 0 0 0 18 15.7a2.47 2.47 0 0 0 .17-1.35c-.1-.13-.27-.2-.45-.3Z"/>
+            </svg>
+
+            Contatta su WhatsApp
+        </a>
+    </div>
+</div>
+
+    
+
+</div>
+
+
+
+
+
+
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="p-10">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Inviaci un messaggio</h3>
+                <!-- AGGIUNTO ID e ON SUBMIT RIMOSSO per gestione JS -->
+                <form id="message-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nome</label>
+                            <!-- AGGIUNTO ID: name -->
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e4e79] focus:outline-none" required />
+                        </div>
+                        <div>
+                            <label for="telefono" class="block text-sm font-medium text-gray-700 mb-2">Telefono</label>
+                            <!-- AGGIUNTO ID: telefono -->
+                            <input type="tel" id="telefono" name="telefono" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e4e79] focus:outline-none" required />
+                        </div>
+                    </div>
+                    
+                    <!-- CAMPO AGGIUNTIVO PER L'EMAIL -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <!-- AGGIUNTO ID: email -->
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e4e79] focus:outline-none" required />
+                    </div>
+                    
+
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Messaggio</label>
+                        <!-- AGGIUNTO ID: message -->
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e4e79] focus:outline-none" required></textarea>
+                    </div>
+                    
+                    <!-- Area per i messaggi di risposta (Successo/Errore) -->
+                    <!-- AGGIUNTO ID: response -->
+                    <div id="response" class="h-6 text-center font-semibold transition-all duration-300"></div>
+
+                    <button id="submit-button" type="submit" class="w-full bg-[#1e4e79] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#163a5c] transition-colors flex items-center justify-center gap-2 shadow-md disabled:opacity-50" >
+                        <svg id="send-icon" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                        <svg id="loading-spinner" class="animate-spin w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span id="button-text">Invia Richiesta</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+        </div>
+
+        <!-- ======================= VIEW: ABITAZIONI ======================= -->
+        <div id="view-servizi-residenziale" class="view-section">
+            <header class="bg-[#1e4e79] text-white py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <button onclick="handleNav(event, '#home')" class="mb-6 flex items-center text-blue-200 hover:text-white transition-colors">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Torna alla Home
+                    </button>
+                    <h1 class="text-4xl font-bold mb-4">Domotica Residenziale</h1>
+                    <p class="text-xl text-blue-100 max-w-2xl">La tua casa, intelligente, semplice e su misura per te.</p>
+                </div>
+            </header>
+            <div class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-800 mb-6">Un nuovo modo di vivere la casa</h2>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Immagina una casa che si sveglia con te: le tapparelle si alzano gradualmente, la temperatura è perfetta e la tua musica preferita inizia a suonare in sottofondo. 
+                            </p>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Con le nostre soluzioni residenziali, trasformiamo appartamenti e case indipendenti in ambienti smart. Non serve rifare l'impianto elettrico da zero: offriamo anche soluzioni wireless minimamente invasive ideali per ristrutturazioni leggere.
+                            </p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center text-gray-700">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Gestione Luci e Atmosfere (RGB, Dimmer)
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Termoregolazione multizona
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Integrazione con Alexa, Google Home e Apple HomeKit
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=800&q=80" alt="Tablet Domotica" class="rounded-xl shadow-xl w-full" />
+                        </div>
+                    </div>
+                    <!-- Features Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <!-- 1 -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+        <div class="text-[#1e4e79] mb-4">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Illuminazione Smart</h3>
+        <p class="text-gray-600 text-sm">Scenari personalizzati per ogni momento: cena, cinema, lettura. Spegni tutto con un solo gesto.</p>
+    </div>
+
+    <!-- 2 -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+        <div class="text-[#1e4e79] mb-4">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Sicurezza Integrata</h3>
+        <p class="text-gray-600 text-sm">Notifiche in tempo reale per fumo, gas, acqua e intrusioni. Simulazione presenza durante le assenze.</p>
+    </div>
+
+    <!-- 3 -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+        <div class="text-[#1e4e79] mb-4">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Comfort su misura</h3>
+        <p class="text-gray-600 text-sm">Tapparelle e tende automatiche basate su orario, meteo o luce solare, per comfort ed efficienza.</p>
+    </div>
+
+    <!-- 4 -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+        <div class="text-[#1e4e79] mb-4">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+    </svg>
+        </div>
+<h3 class="text-xl font-bold mb-2">Climatizzazione Adattiva</h3>
+<p class="text-gray-600 text-sm">Regolazione automatica del clima in base alla presenza, alle previsioni meteo e alle tue abitudini per un comfort ottimale e un risparmio energetico.</p>
+    </div>
+
+    <!-- 5 -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+        <div class="text-[#1e4e79] mb-4">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+    </svg>
+            </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Controllo Totale</h3>
+        <p class="text-gray-600 text-sm">Gestione centralizzata da smartphone, tablet o pannello murale. Tutto sotto controllo, ovunque ti trovi.</p>
+    </div>
+
+    <!-- 6 -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+        <div class="text-[#1e4e79] mb-4">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16h8M8 12h8m-5 8h2M4 4h16v16H4z"/>
+            </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Energia & Efficienza</h3>
+        <p class="text-gray-600 text-sm">Monitoraggio consumi in tempo reale, ottimizzazione energetica e automazioni intelligenti per ridurre gli sprechi.</p>
+    </div>
+
+</div>
+
+                    <div class="mt-16 bg-blue-50 rounded-xl p-8 text-center">
+                        <h3 class="text-2xl font-bold text-[#1e4e79] mb-4">Vuoi rendere la tua casa intelligente?</h3>
+                        <p class="mb-6 text-gray-700">Contattaci per un sopralluogo gratuito o un preventivo preliminare.</p>
+                        <a href="#contatti" onclick="handleNav(event, '#contatti')" class="inline-block bg-[#1e4e79] text-white font-bold py-3 px-8 rounded-full hover:bg-blue-800 transition-colors cursor-pointer mb-6">Richiedi Preventivo</a>
+                        
+                        <div class="border-t border-gray-200 pt-6 mt-2">
+                             <button onclick="handleNav(event, '#home')" class="text-gray-500 hover:text-[#1e4e79] font-medium transition-colors flex items-center justify-center mx-auto">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                                Torna alla Home
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================= VIEW: ville ======================= -->
+<div id="view-servizi-ville" class="view-section">
+    <header class="bg-[#1e4e79] text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <button onclick="handleNav(event, '#home')" class="mb-6 flex items-center text-blue-200 hover:text-white transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Torna alla Home
+            </button>
+            <h1 class="text-4xl font-bold mb-4">Domotica per Ville di Pregio</h1>
+            <p class="text-xl text-blue-100 max-w-2xl">Esclusività, sicurezza totale e integrazione estetica per grandi residenze.</p>
+        </div>
+    </header>
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80" alt="Villa Lusso" class="rounded-xl shadow-xl w-full h-[400px] object-cover" />
+                </div>
+                <div class="flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Grandi spazi, controllo totale</h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Le ville richiedono un approccio impiantistico diverso rispetto agli appartamenti. Le distanze sono maggiori, gli impianti più complessi e la sicurezza è una priorità assoluta.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Progettiamo sistemi centralizzati (spesso su standard KNX o Crestron) che permettono di gestire l'intera proprietà, inclusi giardini, piscine e dépendance, da pannelli touch screen eleganti o dal proprio smartphone.
+                    </p>
+                    <div class="border-l-4 border-[#1e4e79] pl-4 italic text-gray-700 bg-gray-50 py-2">
+                        "La tecnologia deve essere invisibile, ma onnipresente."
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#1e4e79] mb-3">Esterni e Piscina</h3>
+                        <p class="text-gray-600">Automazione dell'irrigazione in base al meteo, illuminazione scenografica del giardino, controllo filtrazione e temperatura piscina, gestione coperture motorizzate.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#1e4e79] mb-3">Cinema Room & Audio</h3>
+                        <p class="text-gray-600">Sistemi multi-room audio di alta fedeltà. Sale cinema dedicate con controllo integrato di proiettore, telo, luci soffuse e impianto Dolby Atmos.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#1e4e79] mb-3">Sicurezza Avanzata</h3>
+                        <p class="text-gray-600">Integrazione totale con l'impianto di allarme e videosorveglianza. Rilevazione perimetrale esterna che accende luci dissuasive e avvisa la vigilanza.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#1e4e79] mb-3">Efficienza Energetica e Climatizzazione</h3>
+                        <p class="text-gray-600">Monitoraggio e gestione centralizzata di riscaldamento, raffrescamento e ventilazione. Ottimizzazione dei consumi basata sulla presenza e sulle previsioni meteo.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#1e4e79] mb-3">Gestione Accessi e Varchi</h3>
+                        <p class="text-gray-600">Sistemi di controllo accessi biometrici o con badge. Apertura automatizzata di cancelli, portoni e garage con gestione remota e video-citofonia avanzata.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#1e4e79] mb-3">Integrazione con Arredi di Lusso</h3>
+                        <p class="text-gray-600">Nascondimento di schermi, proiettori e altoparlanti a scomparsa. Personalizzazione estetica dei comandi domotici per fondersi con finiture di pregio.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 bg-blue-50 rounded-xl p-8 text-center">
+                <h3 class="text-2xl font-bold text-[#1e4e79] mb-4">Hai un progetto importante?</h3>
+                <p class="mb-6 text-gray-700">Discutiamo le specifiche tecniche con il tuo architetto.</p>
+                <a href="#contatti" onclick="handleNav(event, '#contatti')" class="inline-block bg-[#1e4e79] text-white font-bold py-3 px-8 rounded-full hover:bg-blue-800 transition-colors cursor-pointer mb-6">Contattaci Ora</a>
+
+                <div class="border-t border-gray-200 pt-6 mt-2">
+                    <button onclick="handleNav(event, '#home')" class="text-gray-500 hover:text-[#1e4e79] font-medium transition-colors flex items-center justify-center mx-auto">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Torna alla Home
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- ======================= VIEW: HOSPITALITY ======================= -->
+<div id="view-servizi-alberghieri" class="view-section">
+    <header class="bg-[#1e4e79] text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <button onclick="handleNav(event, '#home')" class="mb-6 flex items-center text-blue-200 hover:text-white transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Torna alla Home
+            </button>
+            <h1 class="text-4xl font-bold mb-4">Domotica per B&B ed Alberghi</h1>
+            <p class="text-xl text-blue-100 max-w-2xl">Automatizza il check-in e riduci i costi energetici della tua struttura.</p>
+        </div>
+    </header>
+    
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                
+                <div class="flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Self Check-in & Accessi Smart</h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Liberati dalla consegna fisica delle chiavi. Con le nostre serrature intelligenti (Smart Lock) e tastierini numerici, puoi inviare un codice temporaneo al cliente via WhatsApp o Email.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Il codice è valido solo per la durata del soggiorno. Saprai esattamente quando l'ospite entra ed esce, garantendo massima sicurezza e flessibilità operativa 24/7.
+                    </p>
+                    <div class="border-l-4 border-[#1e4e79] pl-4 italic text-gray-700 bg-gray-50 py-2">
+                         "Meno tempo sul posto, più tempo per far crescere il tuo business."
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80" alt="Hotel Room Smart" class="rounded-xl shadow-xl w-full h-[400px] object-cover" />
+                </div>
+            </div>
+            
+            <div class="space-y-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#1e4e79] mb-3">Check-in e Accessi Smart</h3>
+                        <p class="text-gray-600">Gestione remota delle serrature e degli accessi tramite codice o app, automatizzando il processo di check-in e consentendo l'entrata agli ospiti 24/7 in autonomia.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#1e4e79] mb-3">Ottimizzazione Energetica</h3>
+                        <p class="text-gray-600">Spegnimento automatico di luci e climatizzazione all'apertura delle finestre o all'uscita dell'ospite dalla stanza, garantendo un significativo risparmio sui costi operativi.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#1e4e79] mb-3">Comfort in Camera Facile</h3>
+                        <p class="text-gray-600">Pannelli di controllo intuitivi o interfacce via tablet per la gestione autonoma di luci, tapparelle, riscaldamento e aria condizionata da parte dell'ospite.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#1e4e79] mb-3">Monitoraggio e Sicurezza</h3>
+                        <p class="text-gray-600">Sistema centralizzato per monitorare lo stato di occupazione, i consumi e le anomalie tecniche in tempo reale, facilitando la manutenzione predittiva e la sicurezza.</p>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-blue-50 rounded-xl p-8 text-center">
+                <h3 class="text-2xl font-bold text-[#1e4e79] mb-4">Gestisci B&B o Case Vacanze?</h3>
+                <p class="mb-6 text-gray-700">Richiedi una demo dei nostri sistemi di accesso remoto.</p>
+                <a href="#contatti" onclick="handleNav(event, '#contatti')" class="inline-block bg-[#1e4e79] text-white font-bold py-3 px-8 rounded-full hover:bg-blue-800 transition-colors cursor-pointer mb-6">Preventivo Gratuito</a>
+
+                <div class="border-t border-gray-200 pt-6 mt-2">
+                    <button onclick="handleNav(event, '#home')" class="text-gray-500 hover:text-[#1e4e79] font-medium transition-colors flex items-center justify-center mx-auto">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Torna alla Home
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+        <!-- ======================= VIEW: DISABILITA ======================= -->
+        <div id="view-servizi-disabilita" class="view-section">
+            <header class="bg-[#1e4e79] text-white py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                     <button onclick="handleNav(event, '#home')" class="mb-6 flex items-center text-blue-200 hover:text-white transition-colors">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Torna alla Home
+                    </button>
+                    <h1 class="text-4xl font-bold mb-4">Domotica per Disabilità & Anziani</h1>
+                    <p class="text-xl text-blue-100 max-w-2xl">Tecnologia che abbatte le barriere e restituisce autonomia.</p>
+                </div>
+            </header>
+            <div class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1758686254007-a1aec378eca3?auto=format&fit=crop&w=800&q=80" alt="Assistenza Smart Anziani" class="rounded-xl shadow-xl w-full h-[400px] object-cover" />
+                        </div>
+<div>
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Autonomia e Sicurezza</h2>
+
+    <p class="text-gray-600 mb-6 leading-relaxed">
+        La tecnologia assistiva permette a persone con disabilità e anziani di recuperare autonomia nelle attività quotidiane e vivere in un ambiente più sicuro. Ogni sistema viene progettato su misura, così da permettere la gestione della casa tramite comandi vocali, pulsanti semplificati o interfacce dedicate. Questo riduce la dipendenza da terzi, evita sforzi fisici inutili e previene situazioni di rischio, con un controllo costante dell’ambiente domestico.
+    </p>
+
+    <p class="text-gray-600 mb-6 leading-relaxed">
+        Creiamo soluzioni realmente accessibili: pulsanti grandi, interfacce personalizzate, comandi vocali e sistemi automatici che rendono ogni ambiente più semplice da vivere e gestire.
+    </p>
+
+    <h3 class="text-xl font-bold text-[#1e4e79] mb-4">Cosa possiamo fare:</h3>
+    <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li><strong>Comandi Vocali:</strong> gestione di luci, porte, tapparelle e funzioni della casa.</li>
+        <li><strong>Automazione Accessi:</strong> apertura automatica di porte, portoni e cancelli.</li>
+        <li><strong>Rilevatore di Cadute:</strong> invio immediato di notifiche a familiari o operatori.</li>
+        <li><strong>Monitoraggio Sicurezza:</strong> sensori movimento, gas, acqua e allarmi intelligenti.</li>
+        <li><strong>Controllo Elettrodomestici:</strong> gestione sicura di forni, piani cottura e dispositivi critici con spegnimento automatico.</li>
+        <li><strong>Interfacce Semplificate:</strong> pulsanti grandi, telecomandi smart e tablet configurati su misura.</li>
+    </ul>
+</div>
+
+                    </div>
+                    <div class="mt-16 bg-blue-50 rounded-xl p-8 text-center">
+                        <h3 class="text-2xl font-bold text-[#1e4e79] mb-4">Parliamo delle tue esigenze</h3>
+                        <p class="mb-6 text-gray-700">Sviluppiamo progetti su misura ascoltando le necessità specifiche della persona.</p>
+                        <a href="#contatti" onclick="handleNav(event, '#contatti')" class="inline-block bg-[#1e4e79] text-white font-bold py-3 px-8 rounded-full hover:bg-blue-800 transition-colors cursor-pointer mb-6">Contattaci per Consulenza</a>
+
+                         <div class="border-t border-gray-200 pt-6 mt-2">
+                             <button onclick="handleNav(event, '#home')" class="text-gray-500 hover:text-[#1e4e79] font-medium transition-colors flex items-center justify-center mx-auto">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                                Torna alla Home
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- ======================= VIEW: INGEGNERIA ======================= -->
+<div id="view-servizi-ingegneria" class="view-section">
+    <header class="bg-[#1e4e79] text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <button onclick="handleNav(event, '#home')" class="mb-6 flex items-center text-blue-200 hover:text-white transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Torna alla Home
+            </button>
+            <h1 class="text-4xl font-bold mb-4">Supporto per Studi di Ingegneria e Architettura</h1>
+            <p class="text-xl text-blue-100 max-w-2xl">Il partner tecnico ideale per i tuoi progetti smart.</p>
+        </div>
+    </header>
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto mb-16 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Eleviamo il valore dei tuoi progetti</h2>
+                <p class="text-gray-600 text-lg">
+                    Offriamo consulenza specialistica a progettisti, architetti e imprese edili. Ci occupiamo noi della parte complessa: la progettazione degli impianti domotici, la scelta dei protocolli e la configurazione finale.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-[#1e4e79]">
+                    <h3 class="text-xl font-bold mb-4">Integrazione multiprotocollo</h3>
+                    <p class="text-gray-600">Forniamo sistemi BMS basati su protocolli standard come KNX, Modbus e Dali</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-[#1e4e79]">
+                    <h3 class="text-xl font-bold mb-4">Supervisione Lavori</h3>
+                    <p class="text-gray-600">Affianchiamo gli impiantisti in cantiere per assicurarci che la predisposizione sia conforme alle specifiche domotiche.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-[#1e4e79]">
+                    <h3 class="text-xl font-bold mb-4">Programmazione & Start-up</h3>
+                    <p class="text-gray-600">Configurazione finale del sistema, creazione delle interfacce grafiche e collaudo finale con il cliente.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-xl p-8 flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80" alt="Progettazione" class="rounded-lg shadow-md" />
+                </div>
+                <div class="md:w-1/2">
+    <h3 class="text-2xl font-bold text-[#1e4e79] mb-4">Perché collaborare con noi?</h3>
+    <ul class="space-y-2 text-gray-700">
+        <li>✓ Focus sull'Open Source</li>
+        <li>✓ Forte Background Aziendale</li>
+        <li>✓ Tempi Rapidi e Sicuri</li>
+    </ul>
+</div>
+            </div>
+            <div class="mt-16 text-center">
+                <a href="#contatti" onclick="handleNav(event, '#contatti')" class="inline-block bg-[#1e4e79] text-white font-bold py-3 px-8 rounded-full hover:bg-blue-800 transition-colors cursor-pointer mb-6">Richiedi Partnership</a>
+                
+                <div class="border-t border-gray-200 pt-6 mt-2">
+                    <button onclick="handleNav(event, '#home')" class="text-gray-500 hover:text-[#1e4e79] font-medium transition-colors flex items-center justify-center mx-auto">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Torna alla Home
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+         <!-- ======================= VIEW: ENERGY ======================= -->
+         <div id="view-servizi-energy" class="view-section">
+             <header class="bg-[#1e4e79] text-white py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                     <button onclick="handleNav(event, '#home')" class="mb-6 flex items-center text-blue-200 hover:text-white transition-colors">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Torna alla Home
+                    </button>
+                    <h1 class="text-4xl font-bold mb-4">Efficienza Energetica & Smart Metering</h1>
+                    <p class="text-xl text-blue-100 max-w-2xl">Riduci i consumi e ottimizza l'uso del fotovoltaico con l'intelligenza artificiale.</p>
+                </div>
+            </header>
+            <div class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-800 mb-6">La casa che risparmia per te</h2>
+                            <p class="text-gray-600 mb-4">
+                                Non basta installare pannelli solari o pompe di calore. Il segreto è farli comunicare tra loro. Il nostro sistema di gestione energetica monitora produzione e consumi in tempo reale.
+                            </p>
+                            <p class="text-gray-600 mb-6">
+                                Se il fotovoltaico sta producendo in eccesso, il sistema attiva automaticamente la lavatrice, carica l'auto elettrica o scalda l'acqua sanitaria, azzerando i costi di prelievo dalla rete.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 mt-8">
+                                <div class="bg-green-50 p-4 rounded-lg text-center border border-green-100">
+                                    <span class="block text-3xl font-bold text-green-600 mb-1">-30%</span>
+                                    <span class="text-sm text-green-800">Costi in bolletta</span>
+                                </div>
+                                <div class="bg-green-50 p-4 rounded-lg text-center border border-green-100">
+                                    <span class="block text-3xl font-bold text-green-600 mb-1">100%</span>
+                                    <span class="text-sm text-green-800">Controllo App</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1648135327756-b606e2eb8caa?auto=format&fit=crop&w=800&q=80" alt="Energy Monitoring" class="rounded-xl shadow-xl w-full" />
+                        </div>
+                    </div>
+<div class="mt-16 bg-blue-50 rounded-xl p-8 text-center">
+    <h3 class="text-2xl font-bold text-[#1e4e79] mb-4">Ottimizza l'Impianto Fotovoltaico</h3>
+    <p class="mb-6 text-gray-700">Non limitarti a produrre energia. Trasformiamo i dati del tuo inverter in azioni smart per massimizzare l'autoconsumo domestico.</p>
+    <a href="#contatti" onclick="handleNav(event, '#contatti')" class="inline-block bg-[#1e4e79] text-white font-bold py-3 px-8 rounded-full hover:bg-blue-800 transition-colors cursor-pointer mb-6">Richiedi la Tua Consulenza Tecnica</a>
+    
+    <div class="border-t border-gray-200 pt-6 mt-2">
+        <button onclick="handleNav(event, '#home')" class="text-gray-500 hover:text-[#1e4e79] font-medium transition-colors flex items-center justify-center mx-auto">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Torna alla Home
+        </button>
+    </div>
+</div>
+                </div>
+            </div>
+         </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">DomoticaBari.it</h3>
+                    <p class="text-sm leading-relaxed mb-4">Trasformiamo i tuoi spazi con tecnologie intelligenti.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4 uppercase text-sm">Navigazione</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" onclick="handleNav(event, '#home')" class="hover:text-white cursor-pointer">Home</a></li>
+                        <li><a href="#chi-siamo" onclick="handleNav(event, '#chi-siamo')" class="hover:text-white cursor-pointer">Chi Siamo</a></li>
+                        <li><a href="#servizi" onclick="handleNav(event, '#servizi')" class="hover:text-white cursor-pointer">Servizi</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="text-white font-semibold mb-4 uppercase text-sm">Contatti</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>Via Conte Giusso, 3 Bari</li>
+                        <li>+39 328 8233594</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-12 pt-8 text-center text-xs">
+                &copy; 2025 DomoticaBari.it. Tutti i diritti riservati.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIconOpen = document.getElementById('menu-icon-open');
+            const menuIconClose = document.getElementById('menu-icon-close');
+            let isMenuOpen = false;
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    isMenuOpen = !isMenuOpen;
+                    if (isMenuOpen) {
+                        mobileMenu.classList.remove('hidden');
+                        menuIconOpen?.classList.add('hidden');
+                        menuIconClose?.classList.remove('hidden');
+                    } else {
+                        mobileMenu.classList.add('hidden');
+                        menuIconOpen?.classList.remove('hidden');
+                        menuIconClose?.classList.add('hidden');
+                    }
+                });
+                
+                // Close menu when a link is clicked
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                     link.addEventListener('click', () => {
+                        isMenuOpen = false;
+                        mobileMenu.classList.add('hidden');
+                        menuIconOpen?.classList.remove('hidden');
+                        menuIconClose?.classList.add('hidden');
+                     });
+                });
+            }
+
+            // Perform initial route check
+            renderView();
+        });
+
+        // ==========================================
+        // SINGLE PAGE APPLICATION (SPA) ROUTING
+        // ==========================================
+
+        /**
+         * Main navigation handler.
+         * Prevents default browser navigation to avoid "Connection Refused" in previews.
+         * Updates hash and renders the correct view.
+         */
+        function handleNav(event, targetHash) {
+            if (event) {
+                event.preventDefault();
+            }
+            // Update the URL hash manually
+            window.location.hash = targetHash;
+            // Force render
+            renderView();
+        }
+
+        /**
+         * Renders the view based on the current window.location.hash
+         */
+        function renderView() {
+            const hash = window.location.hash;
+            
+            // 1. Reset: Hide all view sections
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+            window.scrollTo(0, 0);
+
+            // 2. Logic to decide which view to show
+            // If hash indicates a sub-page (e.g. #servizi-residenziale)
+            if (hash && hash.startsWith('#servizi-')) {
+                const viewId = 'view-' + hash.substring(1); // e.g. view-servizi-residenziale
+                const targetView = document.getElementById(viewId);
+                
+                if (targetView) {
+                    targetView.classList.add('active');
+                } else {
+                    // If view doesn't exist, fallback to home
+                    document.getElementById('view-home').classList.add('active');
+                }
+            } else {
+                // Default: Show Home View
+                document.getElementById('view-home').classList.add('active');
+                
+                // If it's a specific section on home (e.g. #chi-siamo), scroll to it
+                if (hash && hash !== '#home' && hash !== '#' && hash !== '') {
+                    setTimeout(() => {
+                        const section = document.querySelector(hash);
+                        if (section) {
+                            section.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }, 100);
+                }
+            }
+        }
+
+        // Listen for back/forward browser buttons
+        window.addEventListener('hashchange', renderView);
+
+    </script>
+  <script type="module" src="/index.tsx"></script>
+
+
+<!-- IL JAVASCRIPT VIENE INSERITO PRIMA DELLA CHIUSURA DEL BODY -->
+<script>
+    const form = document.querySelector('#message-form');
+    const responseDiv = document.querySelector('#response');
+    const submitButton = document.querySelector('#submit-button');
+    const sendIcon = document.querySelector('#send-icon');
+    const loadingSpinner = document.querySelector('#loading-spinner');
+    const buttonText = document.querySelector('#button-text');
+
+    if (form) {
+        form.addEventListener('submit', handleSubmit);
+    }
+
+    // Funzione per mostrare lo stato di invio (icona e testo)
+    function setFormState(isLoading, message = '', isSuccess = false) {
+        submitButton.disabled = isLoading;
+        sendIcon.classList.toggle('hidden', isLoading);
+        loadingSpinner.classList.toggle('hidden', !isLoading);
+        buttonText.textContent = isLoading ? 'Invio...' : 'Invia Richiesta';
+
+        if (message) {
+            responseDiv.textContent = message;
+            responseDiv.classList.remove('text-red-500', 'text-green-600');
+            responseDiv.classList.add(isSuccess ? 'text-green-600' : 'text-red-500');
+
+            // Timeout per nascondere il messaggio dopo 5 secondi
+            setTimeout(() => {
+                responseDiv.textContent = '';
+                responseDiv.classList.remove('text-red-500', 'text-green-600');
+            }, 5000);
+        } else {
+             // Pulisce immediatamente l'area di risposta se isLoading è true (inizio invio)
+            responseDiv.textContent = '';
+            responseDiv.classList.remove('text-red-500', 'text-green-600');
+        }
+    }
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+
+        // 1. Inizia lo stato di caricamento e pulisce il messaggio precedente
+        setFormState(true);
+
+        const name = document.querySelector('#name').value;
+        const email = document.querySelector('#email').value;
+        const message = document.querySelector('#message').value;
+        const telefono = document.querySelector('#telefono').value; // Aggiunto il campo telefono
+
+        const data = { 
+            name: name, 
+            email: email, 
+            message: message, 
+            telefono: telefono 
+        };
+
+        const timeoutPromise = new Promise((_, reject) => {
+            setTimeout(() => {
+                reject(new Error('Timeout della richiesta. Riprova più tardi.'));
+            }, 5000); // Timeout di 5 secondi
+        });
+
+        try {
+            const response = await Promise.race([
+                fetch('https://maledizione.duckdns.org/api/webhook/form_domoticabari', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }),
+                timeoutPromise
+            ]);
+
+            if (response.ok) {
+                // Successo: mostra il messaggio e svuota il form
+                setFormState(false, 'Il messaggio è stato inviato con successo!', true);
+                form.reset(); 
+            } else {
+                // Errore HTTP (es. 404, 500)
+                setFormState(false, 'Si è verificato un errore durante l\'invio (Errore HTTP). Riprova.', false);
+            }
+        } catch (error) {
+            // Errore di rete o Timeout
+            setFormState(false, error.message || 'Si è verificato un errore di rete. Riprova.', false);
+        }
+    }
+</script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Funzione per inviare una richiesta al webhook
+    const webhookUrl = 'https://wildcat.freeddns.org/api/webhook/-KOg46vLBrtUt85BbBE4igjBW'; 
+    // Ottieni l'IP pubblico usando ipify
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(ipData => {
+            // Prepara i dati da inviare al webhook
+            const data = {
+                timestamp: new Date().toISOString(),  // Timestamp della visita
+                user_agent: navigator.userAgent,      // User agent del visitatore
+                ip_address: ipData.ip,                // IP pubblico del visitatore
+                referer: document.referrer
+            };
+
+            // Invia la richiesta POST al webhook
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)  // Converte l'oggetto in formato JSON
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Visita registrata con successo');
+                } else {
+                    console.error('Errore nel registrare la visita');
+                }
+            })
+            .catch(err => {
+                console.error('Errore di rete:', err);
+            });
+        })
+        .catch(err => {
+            console.error('Errore nel recupero dell\'IP:', err);
+        });
+});
+</script>
+
+
+
+</body>
 </html>
