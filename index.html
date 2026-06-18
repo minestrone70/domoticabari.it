@@ -58,6 +58,7 @@
           <div class="hidden md:flex space-x-8">
             <a href="#chi-siamo" onclick="handleNav(event, '#chi-siamo')" class="text-gray-600 hover:text-[#1e4e79] font-medium transition-colors cursor-pointer">Chi Siamo</a>
             <a href="#servizi" onclick="handleNav(event, '#servizi')" class="text-gray-600 hover:text-[#1e4e79] font-medium transition-colors cursor-pointer">Servizi</a>
+            <a href="#servizi" onclick="handleNav(event, '#prezzi')" class="text-gray-600 hover:text-[#1e4e79] font-medium transition-colors cursor-pointer">Prezzi</a>
             <a href="#progetti" onclick="handleNav(event, '#progetti')" class="text-gray-600 hover:text-[#1e4e79] font-medium transition-colors cursor-pointer">Progetti</a>
             <a href="#contatti" onclick="handleNav(event, '#contatti')" class="text-gray-600 hover:text-[#1e4e79] font-medium transition-colors cursor-pointer">Contatti</a>
           </div>
@@ -77,6 +78,7 @@
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <a href="#chi-siamo" onclick="handleNav(event, '#chi-siamo')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-[#1e4e79] hover:bg-gray-50">Chi Siamo</a>
           <a href="#servizi" onclick="handleNav(event, '#servizi')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-[#1e4e79] hover:bg-gray-50">Servizi</a>
+          <a href="#servizi" onclick="handleNav(event, '#prezzi')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-[#1e4e79] hover:bg-gray-50">Prezzi</a>
           <a href="#progetti" onclick="handleNav(event, '#progetti')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-[#1e4e79] hover:bg-gray-50">Progetti</a>
           <a href="#contatti" onclick="handleNav(event, '#contatti')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-[#1e4e79] hover:bg-gray-50">Contatti</a>
         </div>
@@ -326,6 +328,152 @@
         </div>
     </div>
 </section>
+
+
+
+
+
+
+<!-- Sezione Prezzi e Soluzioni -->
+<section id="prezzi" class="py-16 bg-slate-50 border-t border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#1e4e79] mb-4">Le Nostre Soluzioni</h2>
+      <div class="h-1 w-20 bg-[#1e4e79] mx-auto rounded-full"></div>
+      <p class="mt-4 text-lg text-gray-600">Scegli la configurazione ideale per le tue esigenze o richiedi un progetto su misura.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+      
+      <!-- Soluzione A -->
+      <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-2">Soluzione A</span>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Smart Cloud</h3>
+          <div class="mb-6">
+            <span class="text-4xl font-bold text-[#1e4e79]">650 €</span>
+            <span class="text-gray-500 text-sm"> / una tantum</span>
+          </div>
+          <p class="text-gray-600 text-sm mb-6">La soluzione ideale per chi desidera un controllo agile e immediato dei dispositivi fondamentali tramite cloud.</p>
+          <ul class="space-y-3 text-sm mb-8">
+            <li class="flex items-center text-gray-700">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Controllo di 4 Luci
+            </li>
+            <li class="flex items-center text-gray-700">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Controllo di 4 Serrande
+            </li>
+            <li class="flex items-center text-gray-700">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Gestione Cloud
+            </li>
+            <li class="flex items-center text-gray-700">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Integrazione con Alexa
+            </li>
+          </ul>
+        </div>
+        <a href="https://wa.me/393288233594?text=Ciao!%20Vorrei%20ricevere%20maggiori%20informazioni%20sulla%20Soluzione%20A%20(Smart%20Cloud%20da%20650%E2%82%AC)." target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-green-500 rounded-lg text-white font-bold hover:bg-green-600 transition-colors shadow-md w-full text-center">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.52 3.48A11.87 11.87 0 0 0 12 0a11.94 11.94 0 0 0-10.4 17.94L0 24l6.28-1.64A11.94 11.94 0 1 0 20.52 3.48ZM12 21.82a9.77 9.77 0 0 1-5-.1l-.36-.14-3.73.97 1-3.64-.17-.37A9.78 9.78 0 1 1 12 21.82Zm5.28-7.47c-.29-.15-1.7-.84-1.96-.94s-.45-.15-.64.15-.73.94-.9 1.13-.33.22-.62.07a8 8 0 0 1-2.35-1.45 8.7 8.7 0 0 1-1.62-2c-.17-.29 0-.45.13-.6s.29-.33.44-.51a2 2 0 0 0 .29-.48.53.53 0 0 0 0-.51c-.07-.15-.64-1.54-.88-2.11s-.47-.49-.64-.5h-.55a1 1 0 0 0-.73.34 3 3 0 0 0-.94 2.21 5.57 5.57 0 0 0 1.17 3.07 12.7 12.7 0 0 0 4.81 4.11 11.36 11.36 0 0 0 1.65.61 4 4 0 0 0 1.82.11A3 3 0 0 0 18 15.7a2.47 2.47 0 0 0 .17-1.35c-.1-.13-.27-.2-.45-.3Z"></path>
+          </svg>
+          Richiedi Informazioni
+        </a>
+      </div>
+
+      <!-- Soluzione B (In Evidenza) -->
+      <div class="bg-white border-2 border-[#1e4e79] rounded-xl p-8 shadow-md flex flex-col justify-between hover:shadow-xl transition-all relative transform md:-translate-y-2">
+        <div class="absolute top-0 right-6 transform -translate-y-1/2 bg-[#1e4e79] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+          Consigliato
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[#1e4e79] block mb-2">Soluzione B</span>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Advanced Pro</h3>
+          <div class="mb-6">
+            <span class="text-4xl font-bold text-[#1e4e79]">2.000 €</span>
+            <span class="text-gray-500 text-sm"> / una tantum</span>
+          </div>
+          <p class="text-gray-600 text-sm mb-6">Controllo locale avanzato incentrato sulla privacy e sulla massima personalizzazione dei flussi domestici.</p>
+          <ul class="space-y-3 text-sm mb-8">
+            <li class="flex items-center text-gray-700">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Controllo di 8 Luci
+            </li>
+            <li class="flex items-center text-gray-700">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Controllo di 6 Serrande
+            </li>
+            <li class="flex items-center text-gray-700">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              3 Telecamere di Sicurezza
+            </li>
+            <li class="flex items-center text-gray-700">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <strong>Server Home Assistant locale</strong>
+            </li>
+            <li class="flex items-center text-gray-700">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Automazioni e Scenari personalizzati
+            </li>
+          </ul>
+        </div>
+        <a href="https://wa.me/393288233594?text=Ciao!%20Sono%20interessato%20alla%20Soluzione%20B%20(Advanced%20Pro%20da%202000%E2%82%AC%20con%20Home%20Assistant).%20Vorrei%20maggiori%20dettagli." target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-green-500 rounded-lg text-white font-bold hover:bg-green-600 transition-colors shadow-lg w-full text-center">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.52 3.48A11.87 11.87 0 0 0 12 0a11.94 11.94 0 0 0-10.4 17.94L0 24l6.28-1.64A11.94 11.94 0 1 0 20.52 3.48ZM12 21.82a9.77 9.77 0 0 1-5-.1l-.36-.14-3.73.97 1-3.64-.17-.37A9.78 9.78 0 1 1 12 21.82Zm5.28-7.47c-.29-.15-1.7-.84-1.96-.94s-.45-.15-.64.15-.73.94-.9 1.13-.33.22-.62.07a8 8 0 0 1-2.35-1.45 8.7 8.7 0 0 1-1.62-2c-.17-.29 0-.45.13-.6s.29-.33.44-.51a2 2 0 0 0 .29-.48.53.53 0 0 0 0-.51c-.07-.15-.64-1.54-.88-2.11s-.47-.49-.64-.5h-.55a1 1 0 0 0-.73.34 3 3 0 0 0-.94 2.21 5.57 5.57 0 0 0 1.17 3.07 12.7 12.7 0 0 0 4.81 4.11 11.36 11.36 0 0 0 1.65.61 4 4 0 0 0 1.82.11A3 3 0 0 0 18 15.7a2.47 2.47 0 0 0 .17-1.35c-.1-.13-.27-.2-.45-.3Z"></path>
+          </svg>
+          Scegli Questa Soluzione
+        </a>
+      </div>
+
+      <!-- Soluzione C -->
+      <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-2">Soluzione C</span>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Custom Full</h3>
+          <div class="mb-6">
+            <span class="text-3xl font-bold text-[#1e4e79]">Su Richiesta</span>
+          </div>
+          <p class="text-gray-600 text-sm mb-6">Integrazione totale per progetti complexes, ville o strutture ricettive che richiedono massima efficienza.</p>
+          <ul class="space-y-3 text-sm mb-8">
+            <li class="flex items-center text-gray-700">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Luci e serrande illimitate
+            </li>
+            <li class="flex items-center text-gray-700">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Termoregolazione avanzata
+            </li>
+            <li class="flex items-center text-gray-700">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Integrazione Fotovoltaico & Controllo Energia
+            </li>
+            <li class="flex items-center text-gray-700">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Tende Solari & Irrigazione Smart
+            </li>
+            <li class="flex items-center text-gray-700">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Molto altro su specifiche del cliente
+            </li>
+          </ul>
+        </div>
+        <a href="https://wa.me/393288233594?text=Ciao!%20Vorrei%20richiedere%20un%20preventivo%20su%20misura%20per%20la%20Soluzione%20C%20(Custom%20Full%20con%20integrazioni%20avanzate)." target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-green-500 rounded-lg text-white font-bold hover:bg-green-600 transition-colors shadow-md w-full text-center">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.52 3.48A11.87 11.87 0 0 0 12 0a11.94 11.94 0 0 0-10.4 17.94L0 24l6.28-1.64A11.94 11.94 0 1 0 20.52 3.48ZM12 21.82a9.77 9.77 0 0 1-5-.1l-.36-.14-3.73.97 1-3.64-.17-.37A9.78 9.78 0 1 1 12 21.82Zm5.28-7.47c-.29-.15-1.7-.84-1.96-.94s-.45-.15-.64.15-.73.94-.9 1.13-.33.22-.62.07a8 8 0 0 1-2.35-1.45 8.7 8.7 0 0 1-1.62-2c-.17-.29 0-.45.13-.6s.29-.33.44-.51a2 2 0 0 0 .29-.48.53.53 0 0 0 0-.51c-.07-.15-.64-1.54-.88-2.11s-.47-.49-.64-.5h-.55a1 1 0 0 0-.73.34 3 3 0 0 0-.94 2.21 5.57 5.57 0 0 0 1.17 3.07 12.7 12.7 0 0 0 4.81 4.11 11.36 11.36 0 0 0 1.65.61 4 4 0 0 0 1.82.11A3 3 0 0 0 18 15.7a2.47 2.47 0 0 0 .17-1.35c-.1-.13-.27-.2-.45-.3Z"></path>
+          </svg>
+          Richiedi Preventivo
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
 
             <!-- Home Assistant Section -->
 <section class="py-16 bg-[#1e4e79] text-white">
