@@ -1,92 +1,191 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BNBready - Gestionale per B&B e affittacamere</title>
-<style>
-    * { box-sizing: border-box; }
-    body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        background: #0f172a;
-        color: #e2e8f0;
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
-    }
-    .wrap {
-        max-width: 720px;
-        margin: 0 auto;
-        padding: 60px 24px;
-    }
-    .logo {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 800;
-        font-size: 1.4rem;
-        color: #fff;
-        margin-bottom: 8px;
-    }
-    .logo span {
-        background: #2563eb;
-        width: 34px;
-        height: 34px;
-        border-radius: 10px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.1rem;
-    }
-    .tagline {
-        color: #94a3b8;
-        font-size: 1.05rem;
-        margin-bottom: 40px;
-    }
-    h2 {
-        color: #fff;
-        font-size: 1.15rem;
-        margin-top: 40px;
-        margin-bottom: 12px;
-    }
-    p { color: #cbd5e1; }
-    ul { color: #cbd5e1; padding-left: 20px; }
-    li { margin-bottom: 6px; }
-    .footer {
-        margin-top: 60px;
-        padding-top: 24px;
-        border-top: 1px solid #1e293b;
-        font-size: 0.85rem;
-        color: #64748b;
-    }
-    a { color: #60a5fa; }
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1e4e79" />
+    <meta name="description" content="BNBready aiuta B&B, affittacamere e case vacanza a gestire check-in online, accessi smart e attività quotidiane." />
+    <title>BNBready — Gestionale per B&B e case vacanza | DomoticaBari.it</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e4e79'/%3E%3Cpath d='M12 31 32 14l20 17v20H37V38H27v13H12z' fill='white'/%3E%3C/svg%3E" />
+    <style>
+        body{font-family:'Inter',sans-serif}
+        .dashboard-shot{aspect-ratio:3772/1832}
+        .dashboard-shot img{transform-origin:top left;transform:translate(var(--pan-x,0%),var(--pan-y,0%)) scale(var(--zoom,1));transition:transform 1100ms cubic-bezier(.2,.75,.25,1);will-change:transform}
+        .tour-caption{transition:opacity .22s ease,transform .22s ease}
+        .tour-caption.is-changing{opacity:.35;transform:translateY(5px)}
+        .tour-stop[aria-pressed="true"]{background:#1e4e79;color:white;border-color:#1e4e79}
+        @media(prefers-reduced-motion:reduce){.dashboard-shot img,.tour-caption{transition:none}}
+    </style>
 </head>
-<body>
-<div class="wrap">
-    <div class="logo"><span>🏠</span> BNBready</div>
-    <p class="tagline">Gestionale per B&amp;B, affittacamere e case vacanza — sviluppato da Alberto Caruso (domoticabari.it)</p>
+<body class="bg-slate-50 text-slate-900 antialiased">
+    <header class="sticky top-0 z-20 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur">
+        <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+            <a href="index.html#home" class="flex items-center gap-3 text-[#1e4e79]" aria-label="DomoticaBari.it, torna alla home">
+                <svg class="h-9 w-9" viewBox="0 0 700 700" fill="currentColor" aria-hidden="true"><path d="m567.13 220.43-197.04-173.8c-6.125-4.9219-13.539-7.3867-20.957-7.3867-7.4648 0-14.926 2.4922-21.055 7.4688l-195.15 173.72c-7.8125 6.3438-12.348 15.863-12.348 25.922v218.64c0 18.445 14.953 33.398 33.398 33.398h123.2v-33.398h-123.2v-218.64l195.16-173.71 197.05 173.8v218.56l-179.4-0.003906v-65.367c16.414-6.6484 28.242-22.715 28.242-41.512 0-24.754-20.059-44.801-44.801-44.801-24.742 0-44.801 20.047-44.801 44.801 0 18.805 11.344 34.871 27.758 41.512v65.375l0.003906 33.395h213c18.445 0 33.402-14.953 33.402-33.398v-218.56c0-10.102-4.5859-19.672-12.453-26.012z"/><path d="m350.22 258.32c-34.344 0-65.84 17.328-84.258 46.344-4.6641 7.3477-2.4883 17.074 4.8555 21.738 2.6211 1.6562 5.5391 2.4531 8.4297 2.4531 5.2148 0 10.309-2.582 13.312-7.3125 12.605-19.863 34.164-31.723 57.664-31.723 23.414 0 44.922 11.789 57.551 31.535 4.6875 7.3242 14.41 9.4688 21.758 4.7812 7.332-4.6875 9.4648-14.426 4.7812-21.758-18.457-28.84-49.891-46.059-84.094-46.059z"/><path d="m217.84 274.64c-4.8555 7.6953-2.5586 17.859 5.1289 22.727 2.7344 1.7266 5.7734 2.5469 8.7812 2.5469 5.4648 0 10.809-2.7148 13.945-7.6758 22.797-36.094 61.867-57.641 104.52-57.641 42.465 0 81.445 21.402 104.29 57.262 4.8828 7.668 15.07 9.9219 22.742 5.0391 7.6719-4.8906 9.9297-15.07 5.0391-22.742-28.918-45.398-78.289-72.504-132.07-72.504-54.023-0.007813-103.5 27.281-132.38 72.988z"/></svg>
+                <span class="text-xl font-bold tracking-tight sm:text-2xl">DomoticaBari.it</span>
+            </a>
+            <a href="index.html#bnbready" class="rounded-lg px-4 py-2 font-semibold text-[#1e4e79] transition-colors hover:bg-blue-50">← Torna al sito</a>
+        </div>
+    </header>
 
-    <p>BNBready è una piattaforma software che aiuta chi gestisce strutture ricettive a digitalizzare il check-in degli ospiti e automatizzare le operazioni quotidiane, integrandosi con i sistemi di domotica già presenti nella struttura.</p>
+    <main>
+        <section class="bg-[#1e4e79] text-white">
+            <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-2 lg:px-8">
+                <div>
+                    <span class="inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-blue-100">Una soluzione DomoticaBari.it</span>
+                    <h1 class="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">Accogli meglio.<br />Gestisci con semplicità.</h1>
+                    <p class="mt-6 max-w-xl text-lg leading-relaxed text-blue-100">BNBready è il gestionale pensato per B&amp;B, affittacamere e case vacanza. Riunisce check-in online, accessi smart e operazioni quotidiane in un flusso più semplice per te e per i tuoi ospiti.</p>
+                    <a href="https://wa.me/393288233594?text=Ciao%2C%20vorrei%20ricevere%20informazioni%20su%20BNBready%20per%20la%20mia%20struttura." target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex items-center rounded-lg bg-white px-6 py-3 font-bold text-[#1e4e79] shadow-lg transition hover:bg-blue-50">Richiedi informazioni <span class="ml-2" aria-hidden="true">→</span></a>
+                </div>
+                <div class="rounded-2xl border border-white/20 bg-white p-6 text-slate-900 shadow-2xl sm:p-8">
+                    <div class="mb-6 flex items-center gap-4">
+                        <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-3xl text-[#1e4e79]" aria-hidden="true"><i class="mdi mdi-home-city-outline"></i></div>
+                        <div><p class="text-sm font-semibold uppercase tracking-wider text-[#1e4e79]">BNBready</p><h2 class="text-xl font-bold">La gestione, più leggera</h2></div>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex gap-3"><i class="mdi mdi-check-circle mt-0.5 text-xl text-green-600" aria-hidden="true"></i><span><strong>Check-in online</strong><br /><span class="text-sm text-slate-600">Raccolta dei dati e dei documenti degli ospiti.</span></span></li>
+                        <li class="flex gap-3"><i class="mdi mdi-check-circle mt-0.5 text-xl text-green-600" aria-hidden="true"></i><span><strong>Accessi e domotica</strong><br /><span class="text-sm text-slate-600">Integrazione con i sistemi smart della struttura.</span></span></li>
+                        <li class="flex gap-3"><i class="mdi mdi-check-circle mt-0.5 text-xl text-green-600" aria-hidden="true"></i><span><strong>Comunicazioni automatiche</strong><br /><span class="text-sm text-slate-600">Informazioni e promemoria per gli ospiti.</span></span></li>
+                        <li class="flex gap-3"><i class="mdi mdi-check-circle mt-0.5 text-xl text-green-600" aria-hidden="true"></i><span><strong>Gestione operativa</strong><br /><span class="text-sm text-slate-600">Strumenti per prenotazioni, contabilità e fatturazione.</span></span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <h2>Cosa fa</h2>
-    <ul>
-        <li>Check-in online per gli ospiti, con raccolta documenti e invio dati alla Polizia (Alloggiati Web)</li>
-        <li>Apertura porta da remoto integrata con l'impianto domotico della struttura</li>
-        <li>Comunicazioni automatiche con gli ospiti via WhatsApp (promemoria, istruzioni, notifiche)</li>
-        <li>Gestione prenotazioni, contabilità e fatturazione elettronica</li>
-    </ul>
+        <section class="overflow-hidden bg-slate-100 py-14 sm:py-20" aria-labelledby="product-view-title">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto mb-9 max-w-3xl text-center">
+                    <p class="font-semibold uppercase tracking-widest text-[#1e4e79]">Tutto sotto controllo</p>
+                    <h2 id="product-view-title" class="mt-3 text-3xl font-bold text-[#1e4e79] sm:text-4xl">Prenotazioni, soggiorni e chat. Insieme.</h2>
+                    <p class="mt-4 leading-relaxed text-slate-600">Una vista d’insieme per passare dalla prenotazione ai dettagli del soggiorno e parlare con l’ospite da un’unica area di lavoro.</p>
+                </div>
+                <div class="overflow-hidden rounded-2xl border border-slate-300 bg-slate-950 shadow-2xl ring-1 ring-slate-900/5">
+                    <div class="dashboard-shot overflow-hidden bg-slate-950" id="dashboard-tour-frame">
+                        <img id="dashboard-tour-image" src="assets/bnbready-dashboard.png" alt="Interfaccia BNBready con elenco prenotazioni, dettagli del soggiorno, dati degli ospiti e chat WhatsApp integrata. I nomi e i riferimenti personali sono fittizi." class="h-full w-full max-w-none object-cover" />
+                    </div>
+                    <div class="grid gap-5 border-t border-slate-700 bg-slate-900 p-5 text-white sm:p-7 md:grid-cols-[1fr_auto] md:items-center">
+                        <div id="tour-caption" class="tour-caption" aria-live="polite">
+                            <div class="mb-2 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-sky-300"><i id="tour-icon" class="mdi mdi-calendar-check text-xl" aria-hidden="true"></i><span id="tour-kicker">Area 1 di 4</span></div>
+                            <h3 id="tour-title" class="text-xl font-bold sm:text-2xl">Prenotazioni</h3>
+                            <p id="tour-description" class="mt-2 max-w-3xl text-sm leading-relaxed text-slate-300 sm:text-base">L’elenco raccoglie gli arrivi e le partenze, con stato, date e struttura. Seleziona una prenotazione per aprirne i dettagli.</p>
+                        </div>
+                        <nav class="flex flex-wrap gap-2" aria-label="Esplora le aree di BNBready">
+                            <button type="button" class="tour-stop rounded-full border border-slate-600 px-3 py-2 text-sm font-semibold text-slate-300 transition hover:border-blue-300 hover:text-white" data-tour-stop="0" aria-pressed="true"><i class="mdi mdi-calendar-check mr-1" aria-hidden="true"></i>Prenotazioni</button>
+                            <button type="button" class="tour-stop rounded-full border border-slate-600 px-3 py-2 text-sm font-semibold text-slate-300 transition hover:border-blue-300 hover:text-white" data-tour-stop="1" aria-pressed="false"><i class="mdi mdi-card-account-details-outline mr-1" aria-hidden="true"></i>Dettagli</button>
+                            <button type="button" class="tour-stop rounded-full border border-slate-600 px-3 py-2 text-sm font-semibold text-slate-300 transition hover:border-blue-300 hover:text-white" data-tour-stop="2" aria-pressed="false"><i class="mdi mdi-whatsapp mr-1" aria-hidden="true"></i>Chat WhatsApp</button>
+                            <button type="button" class="tour-stop rounded-full border border-slate-600 px-3 py-2 text-sm font-semibold text-slate-300 transition hover:border-blue-300 hover:text-white" data-tour-stop="3" aria-pressed="false"><i class="mdi mdi-file-send-outline mr-1" aria-hidden="true"></i>Invio Alloggiati</button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <h2>Contatti</h2>
-    <p>Sviluppato e mantenuto da Alberto Caruso.<br>
-    Email: <a href="mailto:ing.alberto.caruso@gmail.com">ing.alberto.caruso@gmail.com</a><br>
-    Sito: <a href="https://www.domoticabari.it">www.domoticabari.it</a></p>
+        <section class="py-16 sm:py-20">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-3xl text-center">
+                    <p class="font-semibold uppercase tracking-widest text-[#1e4e79]">Pensato per l’ospitalità</p>
+                    <h2 class="mt-3 text-3xl font-bold text-[#1e4e79] sm:text-4xl">Dall’arrivo dell’ospite alla gestione quotidiana</h2>
+                    <p class="mt-4 leading-relaxed text-slate-600">BNBready collega raccolta dei dati, comunicazioni, accessi, adempimenti e attività operative. La configurazione viene adattata ai servizi utilizzati dalla struttura.</p>
+                </div>
+                <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"><div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-2xl text-[#1e4e79]" aria-hidden="true"><i class="mdi mdi-account-edit-outline"></i></div><h3 class="text-lg font-bold">Check-in e raccolta completa dei dati</h3><p class="mt-2 leading-relaxed text-slate-600">Invia ai clienti un link dedicato: compilano i dati richiesti per tutti gli ospiti e caricano le informazioni e i documenti necessari prima dell’arrivo. La struttura ritrova le schede associate alla prenotazione.</p></article>
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"><div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-2xl text-[#1e4e79]" aria-hidden="true"><i class="mdi mdi-file-document-check-outline"></i></div><h3 class="text-lg font-bold">Adempimenti e imposta di soggiorno</h3><p class="mt-2 leading-relaxed text-slate-600">BNBready supporta l’invio delle schedine alla piattaforma Alloggiati Web e la comunicazione con PayTourist per la gestione dell’imposta di soggiorno.</p></article>
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"><div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-2xl text-[#1e4e79]" aria-hidden="true"><i class="mdi mdi-whatsapp"></i></div><h3 class="text-lg font-bold">WhatsApp integrato</h3><p class="mt-2 leading-relaxed text-slate-600">La piattaforma include una sezione di messaggistica WhatsApp collegata alla prenotazione. Puoi gestire le conversazioni e inviare messaggi modello (template) per le comunicazioni ricorrenti.</p></article>
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"><div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-2xl text-[#1e4e79]" aria-hidden="true"><i class="mdi mdi-translate"></i></div><h3 class="text-lg font-bold">Traduzione automatica delle chat con AI</h3><p class="mt-2 leading-relaxed text-slate-600">Le conversazioni possono essere tradotte automaticamente con l’intelligenza artificiale, così puoi comunicare più facilmente con ospiti di lingue diverse.</p></article>
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"><div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-2xl text-[#1e4e79]" aria-hidden="true"><i class="mdi mdi-map-marker-check-outline"></i></div><h3 class="text-lg font-bold">Pagina ospite, check-in e city guide</h3><p class="mt-2 leading-relaxed text-slate-600">Per ogni soggiorno mettiamo a disposizione una pagina dedicata con istruzioni di check-in, informazioni sulla struttura e una guida della città. Include i pulsanti per aprire le porte abilitate, attivi solo nel periodo di soggiorno previsto.</p></article>
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"><div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-2xl text-[#1e4e79]" aria-hidden="true"><i class="mdi mdi-broom"></i></div><h3 class="text-lg font-bold">Riepiloghi al team di pulizie</h3><p class="mt-2 leading-relaxed text-slate-600">Le informazioni sulle partenze e sugli arrivi possono essere riepilogate e inviate al team di pulizie, per coordinare meglio il riassetto degli alloggi.</p></article>
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"><div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-2xl text-[#1e4e79]" aria-hidden="true"><i class="mdi mdi-credit-card-check-outline"></i></div><h3 class="text-lg font-bold">Sito per prenotazioni dirette e pagamenti</h3><p class="mt-2 leading-relaxed text-slate-600">Realizziamo il sito della struttura con disponibilità e richiesta o prenotazione diretta, integrando il pagamento con carta di credito tramite il provider di pagamento.</p></article>
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:col-span-2 lg:col-span-2"><div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-2xl text-[#1e4e79]" aria-hidden="true"><i class="mdi mdi-api"></i></div><h3 class="text-lg font-bold">Channel manager e integrazioni via API</h3><p class="mt-2 leading-relaxed text-slate-600">Possiamo integrare i channel manager che mettono a disposizione un’interfaccia API accessibile, per collegare le prenotazioni e i dati operativi ai flussi della struttura. Verifichiamo insieme disponibilità e funzioni esposte da ciascuna API.</p></article>
+                </div>
+            </div>
+        </section>
 
-    <div class="footer">
-        &copy; 2026 BNBready — un progetto di domoticabari.it &middot;
-        <a href="privacy-bnbready.html">Privacy Policy</a> &middot;
-        <a href="termini-bnbready.html">Termini di Servizio</a>
-    </div>
-</div>
+        <section class="border-y border-slate-200 bg-white py-14">
+            <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
+                <div><h2 class="flex items-center gap-3 text-2xl font-bold text-[#1e4e79]"><i class="mdi mdi-home-automation text-3xl" aria-hidden="true"></i><span>Integrazione con la domotica e gli accessi</span></h2><p class="mt-3 leading-relaxed text-slate-600">Colleghiamo la pagina ospite ai sistemi di accesso installati nella struttura. I pulsanti apriporta sono abilitati solo per il soggiorno associato, così l’ospite può usarli durante il periodo previsto.</p></div>
+                <div><h2 class="flex items-center gap-3 text-2xl font-bold text-[#1e4e79]"><i class="mdi mdi-cog-sync-outline text-3xl" aria-hidden="true"></i><span>Un flusso connesso, configurato sulla struttura</span></h2><p class="mt-3 leading-relaxed text-slate-600">Dal check-in digitale alle chat WhatsApp, dagli adempimenti alle pulizie e ai pagamenti, le funzioni vengono configurate in base ai servizi adottati e alle integrazioni disponibili per la struttura.</p></div>
+            </div>
+        </section>
+
+        <section class="bg-slate-50 py-16">
+            <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-[#1e4e79]">Vuoi saperne di più?</h2>
+                <p class="mt-4 text-slate-600">Scrivici per approfondire BNBready e valutare come può aiutare la tua struttura.</p>
+                <a href="https://wa.me/393288233594?text=Ciao%2C%20vorrei%20ricevere%20informazioni%20su%20BNBready%20per%20la%20mia%20struttura." target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center rounded-lg bg-[#1e4e79] px-6 py-3 font-bold text-white shadow transition hover:bg-blue-900">Contatta DomoticaBari <span class="ml-2" aria-hidden="true">→</span></a>
+                <div class="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-slate-500"><a class="hover:text-[#1e4e79]" href="privacy-bnbready.html">Privacy Policy</a><a class="hover:text-[#1e4e79]" href="termini-bnbready.html">Termini di Servizio</a></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 py-8 text-center text-sm text-slate-300">
+        <p>© 2026 BNBready — un progetto di <a class="font-semibold text-white hover:text-blue-200" href="index.html">DomoticaBari.it</a></p>
+    </footer>
+    <script>
+        (() => {
+            const frame = document.getElementById('dashboard-tour-frame');
+            const image = document.getElementById('dashboard-tour-image');
+            const caption = document.getElementById('tour-caption');
+            const icon = document.getElementById('tour-icon');
+            const kicker = document.getElementById('tour-kicker');
+            const title = document.getElementById('tour-title');
+            const description = document.getElementById('tour-description');
+            const stops = [...document.querySelectorAll('[data-tour-stop]')];
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const zones = [
+                { title:'Prenotazioni', icon:'mdi-calendar-check', description:'L’elenco raccoglie gli arrivi e le partenze, con stato, date e struttura. Seleziona una prenotazione per aprirne i dettagli.', x:.18, y:.38, scale:2.15 },
+                { title:'Dettagli del soggiorno', icon:'mdi-card-account-details-outline', description:'Nella scheda trovi date, composizione degli ospiti, contatti, note, importi e documenti collegati alla prenotazione.', x:.50, y:.34, scale:2.15 },
+                { title:'Chat WhatsApp', icon:'mdi-whatsapp', description:'La conversazione è integrata accanto alla prenotazione: puoi seguire i messaggi e rispondere senza perdere di vista il soggiorno.', x:.84, y:.34, scale:1.9 },
+                { title:'Invio Alloggiati', icon:'mdi-file-send-outline', description:'Nella sezione dei dati ospiti raccogli i documenti e gestisci l’invio delle schedine alla piattaforma Alloggiati Web.', x:.50, y:.75, scale:2.1 }
+            ];
+            let active = 0;
+            let timer;
+
+            function clamp(value, min, max) { return Math.min(max, Math.max(min, value)); }
+
+            function focusZone(zone) {
+                const x = 50 - zone.x * zone.scale * 100;
+                const y = 50 - zone.y * zone.scale * 100;
+                frame.style.setProperty('--zoom', zone.scale);
+                frame.style.setProperty('--pan-x', `${clamp(x, -(zone.scale - 1) * 100, 0)}%`);
+                frame.style.setProperty('--pan-y', `${clamp(y, -(zone.scale - 1) * 100, 0)}%`);
+            }
+
+            function showZone(index) {
+                active = (index + zones.length) % zones.length;
+                const zone = zones[active];
+                caption.classList.add('is-changing');
+                window.setTimeout(() => {
+                    kicker.textContent = `Area ${active + 1} di ${zones.length}`;
+                    icon.className = `mdi ${zone.icon} text-xl`;
+                    title.textContent = zone.title;
+                    description.textContent = zone.description;
+                    caption.classList.remove('is-changing');
+                }, 160);
+                stops.forEach((stop, i) => stop.setAttribute('aria-pressed', String(i === active)));
+                focusZone(zone);
+            }
+
+            function restartTimer() {
+                window.clearInterval(timer);
+                if (!prefersReducedMotion) timer = window.setInterval(() => showZone(active + 1), 4300);
+            }
+
+            stops.forEach(stop => stop.addEventListener('click', () => {
+                showZone(Number(stop.dataset.tourStop));
+                restartTimer();
+            }));
+
+            if (!prefersReducedMotion) {
+                frame.style.setProperty('--zoom', 1);
+                window.setTimeout(() => focusZone(zones[0]), 700);
+                timer = window.setInterval(() => showZone(active + 1), 4300);
+            } else {
+                focusZone(zones[0]);
+            }
+        })();
+    </script>
 </body>
 </html>
