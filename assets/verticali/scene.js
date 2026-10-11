@@ -12,7 +12,7 @@ const caption=el('div','native-caption'),ownCaption=el('div','own-caption');
 const watermark=el('img','own-watermark');watermark.src='../domoticabari-watermark.svg';watermark.alt='DomoticaBari.it';
 const button=el('button','standalone-play');button.textContent='Ⅱ Pausa';button.type='button';
 let time=0,playing=false,previous=0,raf=0,lastMessage=0,lastCaption='',ready=false;
-let elementPlate,voice,scan,air,water,warmth,pin,map,netflix,shade,walker,shadow,shield,status,climate;
+let elementPlate,voice,scan,air,water,warmth,pin,map,netflix,shade,walker,shadow,shield,status,climate,doorReveal,lampReveal;
 function absolute(n,box){n.style.left=box[0]+'%';n.style.top=box[1]+'%';n.style.width=box[2]+'%';n.style.height=box[3]+'%';return n}
 function svg(markup,cls){const n=document.createElementNS('http://www.w3.org/2000/svg','svg');n.setAttribute('viewBox','0 0 100 100');n.setAttribute('preserveAspectRatio','none');n.innerHTML=markup;if(cls)n.classList.add(cls);fx.append(n);return n}
 function bubbles(){voice=el('div','voice',fx);voice.innerHTML='<i></i><i></i><i></i>';voice.style.left=c.voice[0]+'%';voice.style.top=c.voice[1]+'%';}
@@ -25,7 +25,10 @@ if(c.kind==='shutter'||c.kind==='door'){
 }
 if(c.face){scan=absolute(el('div','scan',fx),c.face);}
 if(c.air){const [x,y]=c.air;air=svg([0,3,6].map((d,i)=>`<path class="airline" d="M ${x+d} ${y-d*.1} C ${x+d-3} ${y+8},${x+d+7} ${y+13},${x+d+4} ${y+23}"/>`).join(''));}
-if(c.kind==='garden'){water=svg('<path class="waterline" d="M 30 72 Q 41 56 54 72"/><path class="waterline" d="M 30 72 Q 20 57 9 72"/><path class="waterline" d="M 86 65 Q 73 52 61 65"/><path class="waterline" d="M 86 65 Q 93 54 99 65"/>');}
+if(c.kind==='garden'){
+ const sprays=[[30,72,27,63,19,65],[30,72,30,61,26,60],[30,72,33,62,35,61],[30,72,36,65,42,67],[86,65,82,56,75,57],[86,65,87,54,82,52],[86,65,91,55,94,58],[86,65,94,60,100,63]];
+ water=svg(sprays.map(([x,y,cx,cy,tx,ty])=>`<path class="waterline" d="M ${x} ${y} Q ${cx} ${cy} ${tx} ${ty}"/>`).join(''),'sprinkler-spray');
+}
 if(c.kind==='door'&&c.key==='casa-6'){warmth=absolute(el('div','warmth',fx),[60,19,30,60]);}
 if(c.kind==='phone'){pin=absolute(el('div','pinpoint',fx),[77,54,14,9]);}
 if(c.kind==='tablet'){pin=absolute(el('div','pinpoint',fx),[81,32,6,4]);}
@@ -34,7 +37,7 @@ if(c.kind==='geoclima'){
  const room=el('img','plate room');room.src='clima-senza-termostato-v39.webp';room.alt='';room.style.display='none';
  const roomAfter=el('img','plate after room-after');roomAfter.src='clima-attivo-senza-termostato-v39.webp';roomAfter.alt='';roomAfter.style.display='none';
  c.room=room;c.roomAfter=roomAfter;
- air=svg([0,3,6].map(d=>`<path class="airline" d="M ${65+d} 20 C ${62+d} 29,${77+d} 33,${72+d} 41"/>`).join(''));
+ air=svg([0,3.5,7].map((d,i)=>`<path class="airline" d="M ${69+d} ${23+d*.18} C ${64+d} ${22+d*.18},${59+d} ${25+d*.18},${54+d} ${24+d*.18} S ${45+d} ${22+d*.18},${40+d} ${24+d*.18}" style="opacity:${.26-i*.045}"/>`).join(''));
 
  map=el('div','map');map.innerHTML='<div class="map-title">Rientro rilevato</div><div class="map-sub">Avvio prima dell’arrivo.</div><svg viewBox="0 0 100 177.78"><rect width="100" height="178" fill="#e9ead9"/><g fill="#d6dcc4"><rect x="7" y="41" width="20" height="30" rx="3"/><rect x="38" y="26" width="18" height="26" rx="3"/><rect x="65" y="53" width="27" height="33" rx="3"/><rect x="12" y="96" width="20" height="36" rx="3"/><rect x="48" y="91" width="39" height="32" rx="3"/></g><path d="M-10 87Q48 67 108 104M35 0L43 178" fill="none" stroke="#faf9ed" stroke-width="6"/><path d="M17 125Q29 103 40 87T76 60" fill="none" stroke="#afbd9e" stroke-width="2" stroke-dasharray="2 2"/><path d="M17 125Q29 103 40 87T76 60" class="route" fill="none" stroke="#44765b" stroke-width="2" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/><g transform="translate(76 60)"><path d="M-5 0V-7L0-11L5-7V0Z" fill="#315c45"/><rect x="-1" y="-5" width="2" height="5" fill="#e9ead9"/></g><g class="map-marker"><circle r="6" fill="#44765b22"/><circle r="3" fill="#44765b" stroke="#fff" stroke-width="1"/></g></svg><div class="arrival"><b>Rientro rilevato</b><br>Posizione rilevata a metà percorso.<br>Azione: impostazione clima a 23 °C.</div>';
  map.querySelector('svg').style.zIndex='-1';
@@ -46,9 +49,15 @@ if(c.walk){
  elementPlate=el('img','element-plate walking-door');elementPlate.src=c.closed+'.webp';elementPlate.alt='';
  elementPlate.style.clipPath='polygon('+c.door.map(p=>p.join('% ')+'%').join(',')+')';
  elementPlate.style.transformOrigin=c.door[1][0]+'% 40%';scene.style.perspective='900px';
- if(c.kind==='arrival'){scan=el('div','scan',fx);after.style.opacity=0;}
+ if(c.kind==='arrival'){
+  scan=el('div','scan',fx);after.style.opacity=0;
+  doorReveal=el('img','door-reveal');doorReveal.src=c.open+'.webp';doorReveal.alt='';
+  doorReveal.style.clipPath='polygon(63% 22%,86% 20%,86% 75%,63% 73%)';
+  lampReveal=el('img','lamp-reveal');lampReveal.src=c.lamp+'.webp';lampReveal.alt='';
+  lampReveal.style.clipPath=doorReveal.style.clipPath;
+ }
  if(c.kind==='security'){
-  shield=svg('<path d="M65 45L73 48V55Q72 62 65 66Q58 62 57 55V48Z" fill="#173d2cd9" stroke="#dcecd0" stroke-width=".5"/><path d="M61 55l3 3 5-6" fill="none" stroke="#dcecd0" stroke-width=".8"/>','security-shield');
+  shield=svg('<path d="M65 50L73 52V55Q72 59 65 61Q58 59 57 55V52Z" fill="#173d2cd9" stroke="#dcecd0" stroke-width=".5"/><path d="M61 55l3 2 5-4" fill="none" stroke="#dcecd0" stroke-width=".8"/>','security-shield');
   status=el('div','security-status',fx);status.innerHTML='<div><span>Presenza</span><b>Nessuno in casa</b></div><div><span>Antifurto</span><b>Armato</b></div>';
  }
 }
@@ -87,21 +96,20 @@ function render(){
    if(warmth)warmth.style.opacity=ramp(t,10,12)*.6;
    hud('Accesso autorizzato',t<5.8?(c.face?'Riconoscimento del volto':'Apri la porta'):t<9?'La porta si apre':c.key==='casa-6'?'Benvenuti. Luci accese.':'Porta aperta',t<5.8?(c.face?'Scansione in corso…':'Un tocco dalla pagina ospite.'):c.key==='accessibile-3'?'Ingresso senza dislivelli.':'L’accoglienza comincia dall’ingresso.',ramp(t,1,2));break;}
  case 'garden':{
-   p=ramp(t,6,7);water.style.opacity=p;water.querySelectorAll('path').forEach((n,i)=>n.style.strokeDashoffset=-t*4-i*2);
+   p=ramp(t,6,7);water.style.opacity=p;water.querySelectorAll('path').forEach((n,i)=>{n.style.strokeDashoffset=-t*3-i*2;n.style.opacity=(.42+.1*Math.sin(t*2+i))*(t>=6?1:0)});
    hud('Giardino · Previsioni meteo',t<5?'Sole previsto, terreno asciutto':'Irrigazione in corso','Durata adattata alle previsioni: 8 minuti.',ramp(t,1,2),ramp(t,5,12));break;}
  case 'security':{
  if(walker){walkFrame(t,[[65,67,32],[54,78,40],[28,96,54],[-55,118,66]],.8,8.7);walker.style.opacity=t<8.7?1:0;shadow.style.opacity=t<8.7?.35:0;const close=ramp(t,3.2,5.2);elementPlate.style.transform='rotateY('+(-80*(1-close))+'deg)';elementPlate.style.opacity=ramp(t,3.2,3.5);shield.style.opacity=ramp(t,11,12);status.style.opacity=ramp(t,11,12);}
  hud('Scenario uscita','Verifica delle condizioni','',ramp(t,.5,1));break;}
  case 'arrival':{
  const atDoor=t>=5,inside=t>=10.8;
- const pos=inside?walkFrame(t,[[58,82,49],[75,75,36]],10.8,14.6):walkFrame(t,[[-30,113,64],[20,96,57],[58,82,49]],.5,5);
- walker.style.opacity=1-ramp(t,13.5,14.6);shadow.style.opacity=.28*(1-ramp(t,11,13));
- // Once entering, the figures are occluded by the doorway edges.
- if(inside){const x=Math.max(0,(60-pos.x)/pos.w*100),right=Math.max(0,(pos.x+pos.w-89)/pos.w*100);walker.style.clipPath='inset(0 '+right+'% 0 '+x+'%)';}else walker.style.clipPath='none';
- const target=t<8?c.closed+'.webp':c.open+'.webp';if(!base.src.endsWith(target))base.src=target;
+ const pos=walkFrame(t,[[-30,113,64],[20,96,55],[37,84,44]],.5,6);
+ walker.style.opacity=1;walker.style.clipPath='none';shadow.style.opacity=.28;
+ // The visitors stop on the path. Only the doorway aperture crossfades to the open view.
  const open=ramp(t,8,10);elementPlate.style.transform='rotateY('+(-80*open)+'deg)';elementPlate.style.opacity=1-ramp(t,9.5,10);
- after.style.opacity=ramp(t,10.2,11.5);
- absolute(scan,[pos.x+pos.w*.64,pos.y+pos.h*.06,pos.w*.19,pos.h*.13]);scan.style.opacity=t>=5.2&&t<7.8?1:0;scan.style.setProperty('--scan',((t*24)%100)+'%');
+ doorReveal.style.opacity=ramp(t,9.2,10.4);lampReveal.style.opacity=ramp(t,11.5,12.4);
+ after.style.opacity=0;
+ absolute(scan,[pos.x+pos.w*.65,pos.y+pos.h*.08,pos.w*.14,pos.h*.12]);scan.style.opacity=t>=5.2&&t<7.8?1:0;scan.style.setProperty('--scan',((t*24)%100)+'%');
  hud('Scenario rientro','Accesso autorizzato','',ramp(t,.5,1));break;}
 
  case 'twilight':hud('Orario del crepuscolo',t<5?'19:42 · Tra poco farà buio':'Luci del giardino accese','La casa conosce l’ora del crepuscolo.',ramp(t,1,2));break;
@@ -112,11 +120,11 @@ function render(){
    // Marker covers exactly HALF the itinerary, never reaches the house.
    const q=clamp((t-4.8)/3.4)*.5,path=map.querySelector('.route'),point=path.getPointAtLength(path.getTotalLength()*q);
    map.querySelector('.map-marker').setAttribute('transform',`translate(${point.x} ${point.y})`);path.style.strokeDashoffset=100-q*100;
-   air.style.opacity=interior?ramp(t,11.5,12.5):0;
+   air.style.opacity=interior?ramp(t,10.8,11.8):0;
    hud('Comfort prima del rientro',interior?'Climatizzatore acceso':'Stiamo tornando a casa.',interior?'Temperatura impostata a 23 °C.':'La casa vi aspetta.',travel||interior?ramp(t,.5,1):0);break;}
  case 'night':{
    const out=t>=7;base.style.display=out?'none':'block';after.style.display=out?'none':'block';c.outside.style.display=out?'block':'none';c.outsideAfter.style.display=out?'block':'none';c.outsideAfter.style.opacity=ramp(t,9,12);
-   hud('Buonanotte',t<7?'Gli occhi si chiudono':t<12?'La casa va a riposo':'Luci interne spente','Le luci del giardino restano accese.',ramp(t,1,2));break;}
+   hud('Buonanotte',t<7?'Gli occhi si chiudono':t<12?'La casa va a riposo':'Luci interne spente','Le luci restano ai livelli configurati.',ramp(t,1,2));break;}
  case 'booking':hud('Il viaggio comincia',t<4?'Una camera a Bari':t<8?'Prenotazione inviata':'Prenotazione confermata','Due ospiti · Emma e Lukas',ramp(t,1,2),ramp(t,4,8));break;
  case 'concierge':{
    top.style.top=t<7?'3%':'44%';hud(t<7?'BNBReady · Host':'Pagina ospite',t<7?'Nuova prenotazione':'Il vostro web concierge',t<7?'Emma e Lukas · 2 ospiti':'Indicazioni, informazioni e apertura porta.',ramp(t,1,2));break;}

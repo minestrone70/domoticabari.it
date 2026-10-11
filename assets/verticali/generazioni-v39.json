@@ -114,5 +114,19 @@
     "prompt": "Use case: precise-object-edit. Fix ONLY the seated woman's HEAD DIRECTION in this exact portrait comic living room. Her head is at x53%, y48%; television centre x39%, y28%. She MUST look UP AND LEFT toward the TELEVISION, not right toward the window. Rotate her head left: her visible cheek/nose belongs on the LEFT EDGE of her head facing the TV; NO cheek, nose or eyes visible on the right edge next to the window. Show predominantly back of her hair, with a slight LEFT cheek/profile directed at the middle of TV. Keep man, woman's body/remote/arm, sofa, lamp brightness, TV exact color, window, all furniture unchanged with exact registration. Native 9:16. No text, no branding.",
     "output": "assets/verticali/film-tv-dim-v39.webp",
     "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-76e12215-d84a-4146-927c-23083d2e12c9.png"
+  },
+  {
+    "key": "rientro-aperta-v40",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. This exact vertical illustration is the edit target. Preserve all architecture and pixels: the terracotta sunset sky, vines, stone columns, lantern, plants, paving, camera perspective, geometry and color must remain precisely registered to the reference. Change ONLY the green entrance door: open it inward about 65 degrees on the RIGHT hinge, retaining the exact original frame position, size and polygon. Through the opening show a softly lit warm entry and the same narrow wooden console that already exists in the paired door-open reference: one ceramic plant pot and a small table lamp turned OFF. Keep the entrance clearly empty: no people or body parts, and no bright glow from the lamp. Do not move or resize the doorway or add extra details. Comic-book illustration matching reference. No text, no watermark. Native portrait 9:16.",
+    "output": "assets/verticali/rientro-aperta-v40.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-e105e3be-f0c1-46b8-a5d2-d05e7acb523b.png"
+  },
+  {
+    "key": "rientro-lampada-accesa-v40",
+    "mode": "built-in image_gen",
+    "prompt": "Precise-object-edit on this exact image. Change ONLY the small ceramic table lamp on the wooden console inside the entrance, turning it ON with a restrained warm glow on the console surface and a small nearby patch of wall. Keep its size and position. Preserve absolutely every other pixel and object in exact alignment: architectural opening, door frame, door leaf, scene outside and paving, console, plant and pot, furniture, camera perspective, color and lighting. No people, no new objects, no text, no watermark. Native portrait.",
+    "output": "assets/verticali/rientro-lampada-accesa-v40.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-34b6378d-4b33-4696-a99a-7ce787aa64c7.png"
   }
 ]
