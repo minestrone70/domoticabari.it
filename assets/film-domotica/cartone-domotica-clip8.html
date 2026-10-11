@@ -33,7 +33,7 @@ window.addEventListener('message',event=>{
 });
 function report(){if(performance.now()-lastReport>100){lastReport=performance.now();send('film-progress')}if(t>=15&&!reportedEnd){reportedEnd=true;send('film-ended')}if(t<15)reportedEnd=false}
 
-function tick(now){const dt=Math.min(.1,(now-last)/1000);last=now;if(playing){t=Math.min(15,t+dt);if(t>=15)playing=false}render();report();requestAnimationFrame(tick)}
+function tick(now){const dt=Math.min(.1,(now-last)/1000);last=now;if(playing){t=Math.min(15,t+dt);if(t>=15)playing=false;render()}report();requestAnimationFrame(tick)}
 button.onclick=()=>{if(t>=15)t=0;playing=!playing;last=performance.now();render()};q('#replay').onclick=()=>{t=0;playing=true;last=performance.now();render()};seek.oninput=()=>{t=+seek.value;playing=false;render()};document.addEventListener('visibilitychange',()=>last=performance.now());render();requestAnimationFrame(tick);
 })();
 </script></body></html>
