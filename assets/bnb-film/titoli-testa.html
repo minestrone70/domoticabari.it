@@ -1,0 +1,22 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Un soggiorno smart · DomoticaBari.it</title><style>@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap');*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#142e27;color:#fff8e9;font-family:Manrope,Arial,sans-serif}.credits-screen{position:absolute;inset:0;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,#234337,#102a23 75%)}.opening-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:58%;max-width:640px}.opening-title{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(22px,5vw,60px);font-weight:500;letter-spacing:-1px;opacity:0}.closing-scroll{position:absolute;left:15%;width:70%;text-align:center;will-change:transform}.closing-scroll img{display:block;width:78%;max-width:590px;margin:0 auto 9%}.closing-scroll h1{font-size:clamp(15px,2.8vw,34px);font-weight:500;line-height:1.4;margin:0 auto 5%;max-width:680px}.closing-scroll p{font-size:clamp(12px,2vw,24px);line-height:1.6;margin:0 auto;max-width:620px;opacity:.85}.internal-controls{display:none}</style></head><body><div class="credits-screen"><img class="opening-logo" src="../../assets/domoticabari-watermark.svg" alt="DomoticaBari.it"><div class="opening-title">Un soggiorno smart</div></div><div class="internal-controls"><button id="play"></button><button id="replay"></button><input id="seek" type="range" max="6"><span id="time"></span></div><script>(()=>{const q=s=>document.querySelector(s),clamp=x=>Math.max(0,Math.min(1,x)),ease=x=>{x=clamp(x);return x*x*(3-2*x)},duration=6;let t=0,playing=window.parent===window,last=performance.now();const seek=q('#seek'),button=q('#play');function render(){q('.opening-logo').style.opacity=1-ease((t-2.4)/.6);q('.opening-title').style.opacity=ease((t-3)/.7);seek.value=t;q('#time').textContent=t.toFixed(1);button.textContent=playing?'Pausa':'Riproduci';}
+// Same-window source validation allows the local preview and the hosted collector.
+let assetsReady=false,reportedEnd=false,lastReport=-1;
+const send=type=>{if(window.parent!==window)window.parent.postMessage({type,time:t,playing},'*')};
+window.addEventListener('load',()=>{assetsReady=true;send('film-ready')});
+window.addEventListener('message',event=>{
+ if(event.source!==window.parent||!event.data||event.data.type!=='film-control')return;
+ if(location.protocol!=='file:'&&event.origin!==location.origin)return;
+ const d=event.data;
+ if(d.action==='init'){if(assetsReady)send('film-ready');return}
+ if(d.action==='play'){if(t>=duration)t=0;playing=true}
+ if(d.action==='pause')playing=false;
+ if(d.action==='seek'){t=Math.max(0,Math.min(duration,Number(d.time)||0));playing=!!d.playing}
+ if(d.action==='restart'){t=0;playing=true}
+ if(t<duration)reportedEnd=false;
+ last=performance.now();render();send('film-progress');
+});
+function report(){if(performance.now()-lastReport>100){lastReport=performance.now();send('film-progress')}if(t>=duration&&!reportedEnd){reportedEnd=true;send('film-ended')}if(t<duration)reportedEnd=false}
+
+function tick(now){const dt=Math.min(.1,(now-last)/1000);last=now;if(playing){t=Math.min(duration,t+dt);if(t>=duration)playing=false;render()}report();requestAnimationFrame(tick)}
+button.onclick=()=>{if(t>=duration)t=0;playing=!playing;last=performance.now();render()};q('#replay').onclick=()=>{t=0;playing=true;last=performance.now();render()};seek.oninput=()=>{t=+seek.value;playing=false;render()};document.addEventListener('visibilitychange',()=>last=performance.now());render();requestAnimationFrame(tick);
+})();</script></body></html>
