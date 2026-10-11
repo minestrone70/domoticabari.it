@@ -1,0 +1,1 @@
+(()=>{const form=document.getElementById('message-form');if(!form)return;form.addEventListener('submit',e=>{e.preventDefault();document.getElementById('response').textContent='Il modulo è in fase di attivazione. Riprova più tardi.'});const button=document.getElementById('submit-button');button.disabled=true;button.textContent='Modulo in attivazione';})();
