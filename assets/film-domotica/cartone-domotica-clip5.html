@@ -21,6 +21,9 @@ function stairFoot(p){for(let k=1;k<treads.length;k++){if(p<=treads[k][0]){const
 [q('.woman'),q('.man')].forEach((el,i)=>{
  const enter=i?inM:inW,travel=ease(enter),cx=(i?60.25:49.75)+((i?58.4:56.8)-(i?60.25:49.75))*travel,cy=stairFoot(enter),height=40-4.5*travel,width=height*9/32,visible=settled*(1-ease((enter-.88)/.12));
  el.style.opacity=visible;el.style.width=width+'%';el.style.height=height+'%';el.style.left=(cx-width/2)+'%';el.style.top=(cy-height*.96)+'%';el.style.transform='none';el.style.backgroundPosition=enter>0?(i?'100% 0':'66.667% 0'):(i?'33.333% 0':'0 0');
+ // Face center measured within the woman's first sprite cell (70% across, 22.5% down).
+ if(i===0){const box=q('.recognition'),bw=width*.4,bh=height*.18;box.style.left=(cx-width/2+width*.70-bw/2)+'%';box.style.top=(cy-height*.96+height*.225-bh/2)+'%';box.style.width=bw+'%';box.style.height=bh+'%'}
+
  const shadow=q(i?'.shadow-man':'.shadow-woman');shadow.style.left=cx+'%';shadow.style.top=cy+'%';shadow.style.opacity=visible;shadow.style.width=(width*.65)+'%';
 });
 q('.door').style.transform=`rotateY(${-82*open}deg)`;q('.recognition').style.opacity=fade(s,3.7,4,5.1,5.4);q('.scan').style.top=((s*65)%100)+'%';q('.reader-dot').style.background=unlock>0?'#a6d597':'#d1b673';
