@@ -10,12 +10,12 @@
 <div class="forecast"><div class="forecast-head"><svg viewBox="0 0 60 50" aria-hidden="true"><circle cx="17" cy="15" r="9" fill="#dab15f"/><path d="M15 33Q4 33 7 23Q8 15 18 17Q24 5 37 13Q45 13 46 22Q57 22 55 31Q53 35 46 35H15Z" fill="#d9e4df" stroke="#7e9b8c" stroke-width="1.5"/><path d="M22 39L19 45M33 39L30 45M44 39L41 45" stroke="#80afb5" stroke-width="2.7" stroke-linecap="round"/></svg><div><small>Previsioni · Domani</small><strong>Pioggia in arrivo</strong></div></div><div class="cycle"><div class="cycle-head"><span>Durata del ciclo</span><b>Programmata</b></div><div class="bar"><i></i></div><p>L’irrigazione segue le previsioni del tempo.</p></div></div>
 <div class="caption"><span class="speaker">LEI</span><span class="speech"><small>Lei · al telefono</small><span>Domani è prevista pioggia.</span></span></div>
 <div class="title"><small>Una giornata smart</small><b>Il giardino sa quando fermarsi.</b></div>
-</div><div class="controls"><button id="play">▶ Guarda la scena</button><button id="replay" class="secondary" aria-label="Ricomincia la scena">↺</button><div class="progress"><div class="times"><span id="time">00:00</span><span>00:15</span></div><input id="seek" type="range" min="0" max="15" step=".01" value="0" aria-label="Avanzamento della scena"></div></div><div class="detail"><span><strong>03 / 08</strong> · Irrigazione e meteo</span><nav class="clip-nav" aria-label="Clip"><a class="" href="cartone-domotica-pilota.html">01</a><a class="" href="cartone-domotica-clip2.html">02</a><a class="active" href="cartone-domotica-clip3.html">03</a><a class="" href="cartone-domotica-clip6.html">04</a><a class="" href="cartone-domotica-clip4.html">05</a><a class="" href="cartone-domotica-clip5.html">06</a><a class="" href="cartone-domotica-clip7.html">07</a><a class="" href="cartone-domotica-clip8.html">08</a></nav></div></section>
+</div><div class="controls"><button id="play">▶ Guarda la scena</button><button id="replay" class="secondary" aria-label="Ricomincia la scena">↺</button><div class="progress"><div class="times"><span id="time">00:00</span><span>00:19</span></div><input id="seek" type="range" min="0" max="19" step=".01" value="0" aria-label="Avanzamento della scena"></div></div><div class="detail"><span><strong>03 / 08</strong> · Irrigazione e meteo</span><nav class="clip-nav" aria-label="Clip"><a class="" href="cartone-domotica-pilota.html">01</a><a class="" href="cartone-domotica-clip2.html">02</a><a class="active" href="cartone-domotica-clip3.html">03</a><a class="" href="cartone-domotica-clip6.html">04</a><a class="" href="cartone-domotica-clip4.html">05</a><a class="" href="cartone-domotica-clip5.html">06</a><a class="" href="cartone-domotica-clip7.html">07</a><a class="" href="cartone-domotica-clip8.html">08</a></nav></div></section>
 <div class="footer"><p>Se è prevista pioggia, il ciclo si accorcia: il giardino riceve l’acqua necessaria, evitando sprechi.</p><a href="cartone-domotica-clip6.html">Clip 4 · La casa vi aspetta →</a></div>
 </main><script>
 (()=>{
 const q=s=>document.querySelector(s),clamp=x=>Math.max(0,Math.min(1,x)),ease=x=>{x=clamp(x);return x*x*(3-2*x)},fade=(t,a,b,c,d)=>ease((t-a)/(b-a))*(1-ease((t-c)/(d-c)));
-let t=0,playing=false,last=performance.now();const camera=q('.camera'),title=q('.title'),caption=q('.caption'),badge=q('.automazione'),forecast=q('.forecast'),seek=q('#seek'),button=q('#play'),water=q('.water'),ctx=water.getContext('2d'),W=water.width,H=water.height;
+const duration=19;let t=0,playing=false,last=performance.now();const camera=q('.camera'),title=q('.title'),caption=q('.caption'),badge=q('.automazione'),forecast=q('.forecast'),seek=q('#seek'),button=q('#play'),water=q('.water'),ctx=water.getContext('2d'),W=water.width,H=water.height;
 const heads=[{x:.25,y:.78,size:1},{x:.5,y:.7,size:.77},{x:.76,y:.82,size:1.13}];
 heads.forEach(h=>{let el=document.createElement('div');el.className='sprinkler';el.style.left=h.x*100+'%';el.style.top=h.y*100+'%';el.style.width=1.1*h.size+'%';el.style.height=2*h.size+'%';el.innerHTML='<svg viewBox="0 0 20 30" aria-hidden="true"><ellipse cx="10" cy="28" rx="10" ry="2" fill="#273f3240"/><g class="stem"><path d="M7 27V9Q10 6 13 9V27Z" fill="#768777" stroke="#3d5142" stroke-width="1.2"/><ellipse cx="10" cy="9" rx="6" ry="3" fill="#899784" stroke="#445b46" stroke-width="1.2"/><ellipse cx="10" cy="8" rx="3" ry="1.1" fill="#304e3b"/></g></svg>';camera.append(el);h.el=el.querySelector('.stem')});
 function drawWater(s){
@@ -32,14 +32,14 @@ function drawWater(s){
  });water.dataset.drops=String(count);
 }
 function render(){
- const s=Math.max(0,t-4.8),intro=ease((t-3.8)/1),shortened=ease((s-4.1)/1.1),done=s>=9.5;
+ const s=Math.max(0,Math.min(t,15)-4.8),intro=ease((t-3.8)/1),shortened=ease((s-4.1)/1.1),done=s>=9.5;
  camera.style.transform=`scale(${1.005+s*.0015}) translate(${-s*.015}%,${s*.01}%)`;
  title.style.opacity=1-intro;title.style.transform=`translateY(${-intro*12}px)`;q('.clockcard').style.opacity=intro;
  badge.style.opacity=ease(s/.5);q('.automazione span').textContent=done?'Ciclo completato':s>4.1?'Durata adattata al meteo':'Irrigazione automatica';
  forecast.style.opacity=ease((s-1.6)/.6);forecast.style.transform=`translateY(${(1-ease((s-1.6)/.6))*8}px)`;q('.cycle-head b').textContent=done?'Completata':s>4.1?'Ridotta':'Programmata';q('.bar i').style.transform=`scaleX(${1-shortened*.45})`;
  heads.forEach(h=>h.el.style.transform=`translateY(${(1-ease((s-.25)/.55)+ease((s-9.5)/.6))*11}px)`);drawWater(s);
  const first=fade(s,1.8,2.2,4.1,4.5),second=fade(s,5.2,5.6,9.5,9.9);caption.style.opacity=Math.max(first,second);caption.style.transform=`translateY(${(1-Math.max(first,second))*5}px)`;q('.speaker').textContent=s<5?'LEI':'LUI';q('.speech small').textContent=s<5?'Lei · al telefono':'Lui';q('.speech span').textContent=s<5?'Domani è prevista pioggia.':'La durata si adatta alle previsioni del tempo.';
- seek.value=t;q('#time').textContent='00:'+String(Math.floor(t)).padStart(2,'0');button.textContent=playing?'Ⅱ Pausa':t>=15?'▶ Guarda di nuovo':'▶ Guarda la scena';
+ seek.value=t;q('#time').textContent='00:'+String(Math.floor(t)).padStart(2,'0');button.textContent=playing?'Ⅱ Pausa':t>=duration?'▶ Guarda di nuovo':'▶ Guarda la scena';
 }
 
 // Same-window source validation allows the local preview and the hosted collector.
@@ -51,16 +51,16 @@ window.addEventListener('message',event=>{
  if(location.protocol!=='file:'&&event.origin!==location.origin)return;
  const d=event.data;
  if(d.action==='init'){if(assetsReady)send('film-ready');return}
- if(d.action==='play'){if(t>=15)t=0;playing=true}
+ if(d.action==='play'){if(t>=duration)t=0;playing=true}
  if(d.action==='pause')playing=false;
- if(d.action==='seek'){t=Math.max(0,Math.min(15,Number(d.time)||0));playing=!!d.playing}
+ if(d.action==='seek'){t=Math.max(0,Math.min(duration,Number(d.time)||0));playing=!!d.playing}
  if(d.action==='restart'){t=0;playing=true}
- if(t<15)reportedEnd=false;
+ if(t<duration)reportedEnd=false;
  last=performance.now();render();send('film-progress');
 });
-function report(){if(performance.now()-lastReport>100){lastReport=performance.now();send('film-progress')}if(t>=15&&!reportedEnd){reportedEnd=true;send('film-ended')}if(t<15)reportedEnd=false}
+function report(){if(performance.now()-lastReport>100){lastReport=performance.now();send('film-progress')}if(t>=duration&&!reportedEnd){reportedEnd=true;send('film-ended')}if(t<duration)reportedEnd=false}
 
-function tick(now){const dt=Math.min(.1,(now-last)/1000);last=now;if(playing){t=Math.min(15,t+dt);if(t>=15)playing=false;render()}report();requestAnimationFrame(tick)}
-button.onclick=()=>{if(t>=15)t=0;playing=!playing;last=performance.now();render()};q('#replay').onclick=()=>{t=0;playing=true;last=performance.now();render()};seek.oninput=()=>{t=+seek.value;playing=false;render()};document.addEventListener('visibilitychange',()=>last=performance.now());render();requestAnimationFrame(tick);
+function tick(now){const dt=Math.min(.1,(now-last)/1000);last=now;if(playing){t=Math.min(duration,t+dt);if(t>=duration)playing=false;render()}report();requestAnimationFrame(tick)}
+button.onclick=()=>{if(t>=duration)t=0;playing=!playing;last=performance.now();render()};q('#replay').onclick=()=>{t=0;playing=true;last=performance.now();render()};seek.oninput=()=>{t=+seek.value;playing=false;render()};document.addEventListener('visibilitychange',()=>last=performance.now());render();requestAnimationFrame(tick);
 })();
 </script></body></html>

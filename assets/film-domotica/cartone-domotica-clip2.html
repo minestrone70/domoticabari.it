@@ -17,14 +17,14 @@
 <div class="caption"><span class="speaker">LEI</span><span class="speech"><small>Lei</small><span>Pronti, andiamo!</span></span></div>
 <div class="title"><small>Una giornata smart</small><b>Voi uscite. La casa si protegge.</b></div>
 </div>
-<div class="controls"><button id="play">▶ Guarda la scena</button><button id="replay" class="secondary" aria-label="Ricomincia la scena">↺</button><div class="progress"><div class="times"><span id="time">00:00</span><span>00:15</span></div><input id="seek" type="range" min="0" max="15" step=".01" value="0" aria-label="Avanzamento della scena"></div></div><div class="detail"><span><strong>02 / 08</strong> · Uscita e antifurto</span><nav class="clip-nav" aria-label="Clip"><a class="" href="cartone-domotica-pilota.html">01</a><a class="active" href="cartone-domotica-clip2.html">02</a><a class="" href="cartone-domotica-clip3.html">03</a><a class="" href="cartone-domotica-clip6.html">04</a><a class="" href="cartone-domotica-clip4.html">05</a><a class="" href="cartone-domotica-clip5.html">06</a><a class="" href="cartone-domotica-clip7.html">07</a><a class="" href="cartone-domotica-clip8.html">08</a></nav></div></section>
+<div class="controls"><button id="play">▶ Guarda la scena</button><button id="replay" class="secondary" aria-label="Ricomincia la scena">↺</button><div class="progress"><div class="times"><span id="time">00:00</span><span>00:19</span></div><input id="seek" type="range" min="0" max="19" step=".01" value="0" aria-label="Avanzamento della scena"></div></div><div class="detail"><span><strong>02 / 08</strong> · Uscita e antifurto</span><nav class="clip-nav" aria-label="Clip"><a class="" href="cartone-domotica-pilota.html">01</a><a class="active" href="cartone-domotica-clip2.html">02</a><a class="" href="cartone-domotica-clip3.html">03</a><a class="" href="cartone-domotica-clip6.html">04</a><a class="" href="cartone-domotica-clip4.html">05</a><a class="" href="cartone-domotica-clip5.html">06</a><a class="" href="cartone-domotica-clip7.html">07</a><a class="" href="cartone-domotica-clip8.html">08</a></nav></div></section>
 <div class="footer"><p>Una porta chiusa, la coppia ormai fuori e la protezione che si attiva: l’automazione segue il loro ritmo.</p><a href="cartone-domotica-clip3.html">Clip 3 · Il giardino →</a></div>
 </main><script>
 (()=>{
 const q=s=>document.querySelector(s),clamp=x=>Math.max(0,Math.min(1,x)),ease=x=>{x=clamp(x);return x*x*(3-2*x)},fade=(t,a,b,c,d)=>ease((t-a)/(b-a))*(1-ease((t-c)/(d-c)));
-let t=0,playing=false,last=performance.now();const camera=q('.camera'),couple=q('.couple'),stride=q('.stride'),door=q('.door'),badge=q('.automazione'),title=q('.title'),caption=q('.caption'),seek=q('#seek'),button=q('#play'),marker=q('.security-marker'),check=q('.check'),status=q('.home-status'),birds=q('.birds');
+const duration=19;let t=0,playing=false,last=performance.now();const camera=q('.camera'),couple=q('.couple'),stride=q('.stride'),door=q('.door'),badge=q('.automazione'),title=q('.title'),caption=q('.caption'),seek=q('#seek'),button=q('#play'),marker=q('.security-marker'),check=q('.check'),status=q('.home-status'),birds=q('.birds');
 function render(){
- const s=Math.max(0,t-4.8),intro=ease((t-3.8)/1),travel=clamp((s-.25)/6),walking=s>=.25&&s<6.25,close=ease((s-2)/1.4),armed=ease((s-6.6)/.7);
+ const s=Math.max(0,Math.min(t,15)-4.8),intro=ease((t-3.8)/1),travel=clamp((s-.25)/6),walking=s>=.25&&s<6.25,close=ease((s-2)/1.4),armed=ease((s-6.6)/.7);
  camera.style.transform=`scale(${1.005+s*.0009}) translate(${-s*.025}%,${s*.005}%)`;
  couple.style.left=(43.3+travel*66)+'%';couple.style.top=(44+travel*25)+'%';couple.style.transform=`scale(${1+travel*.16}) translateY(${walking?Math.sin((s-.25)*Math.PI*8)*.32:0}%)`;
  const frame=walking?Math.floor((s-.25)*8)%8:0;stride.style.backgroundPosition=`${(frame%4)*100/3}% ${frame<4?0:100}%`;
@@ -34,7 +34,7 @@ function render(){
  birds.style.transform=`translate(${-s*5}px,${Math.sin(s*.5)*4}px)`;
  title.style.opacity=1-intro;title.style.transform=`translateY(${-intro*12}px)`;q('.clockcard').style.opacity=intro;
  const first=fade(s,.7,1.1,2.6,3),second=fade(s,7,7.4,9.5,9.9);caption.style.opacity=Math.max(first,second);caption.style.transform=`translateY(${(1-Math.max(first,second))*5}px)`;q('.speaker').textContent=s<5?'LEI':'LUI';q('.speech small').textContent=s<5?'Lei':'Lui';q('.speech span').textContent=s<5?'Pronti, andiamo!':'E l’allarme si è già inserito.';
- seek.value=t;q('#time').textContent='00:'+String(Math.floor(t)).padStart(2,'0');button.textContent=playing?'Ⅱ Pausa':t>=15?'▶ Guarda di nuovo':'▶ Guarda la scena';
+ seek.value=t;q('#time').textContent='00:'+String(Math.floor(t)).padStart(2,'0');button.textContent=playing?'Ⅱ Pausa':t>=duration?'▶ Guarda di nuovo':'▶ Guarda la scena';
 }
 
 // Same-window source validation allows the local preview and the hosted collector.
@@ -46,16 +46,16 @@ window.addEventListener('message',event=>{
  if(location.protocol!=='file:'&&event.origin!==location.origin)return;
  const d=event.data;
  if(d.action==='init'){if(assetsReady)send('film-ready');return}
- if(d.action==='play'){if(t>=15)t=0;playing=true}
+ if(d.action==='play'){if(t>=duration)t=0;playing=true}
  if(d.action==='pause')playing=false;
- if(d.action==='seek'){t=Math.max(0,Math.min(15,Number(d.time)||0));playing=!!d.playing}
+ if(d.action==='seek'){t=Math.max(0,Math.min(duration,Number(d.time)||0));playing=!!d.playing}
  if(d.action==='restart'){t=0;playing=true}
- if(t<15)reportedEnd=false;
+ if(t<duration)reportedEnd=false;
  last=performance.now();render();send('film-progress');
 });
-function report(){if(performance.now()-lastReport>100){lastReport=performance.now();send('film-progress')}if(t>=15&&!reportedEnd){reportedEnd=true;send('film-ended')}if(t<15)reportedEnd=false}
+function report(){if(performance.now()-lastReport>100){lastReport=performance.now();send('film-progress')}if(t>=duration&&!reportedEnd){reportedEnd=true;send('film-ended')}if(t<duration)reportedEnd=false}
 
-function tick(now){const dt=Math.min(.1,(now-last)/1000);last=now;if(playing){t=Math.min(15,t+dt);if(t>=15)playing=false;render()}report();requestAnimationFrame(tick)}
-button.onclick=()=>{if(t>=15)t=0;playing=!playing;last=performance.now();render()};q('#replay').onclick=()=>{t=0;playing=true;last=performance.now();render()};seek.oninput=()=>{t=+seek.value;playing=false;render()};document.addEventListener('visibilitychange',()=>last=performance.now());render();requestAnimationFrame(tick);
+function tick(now){const dt=Math.min(.1,(now-last)/1000);last=now;if(playing){t=Math.min(duration,t+dt);if(t>=duration)playing=false;render()}report();requestAnimationFrame(tick)}
+button.onclick=()=>{if(t>=duration)t=0;playing=!playing;last=performance.now();render()};q('#replay').onclick=()=>{t=0;playing=true;last=performance.now();render()};seek.oninput=()=>{t=+seek.value;playing=false;render()};document.addEventListener('visibilitychange',()=>last=performance.now());render();requestAnimationFrame(tick);
 })();
 </script></body></html>

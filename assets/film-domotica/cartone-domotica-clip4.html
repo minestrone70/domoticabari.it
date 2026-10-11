@@ -10,14 +10,14 @@
 <div class="light-message"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="15" fill="#f5edc9" stroke="#bba461" stroke-width="1.6"/><path d="M20 10V20L27 24" stroke="#967d39" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="20" cy="20" r="2" fill="#967d39"/></svg><div><b>È l’ora del crepuscolo.</b><small>Ingresso e giardino illuminati automaticamente</small></div></div>
 <div class="caption"><span class="speaker">LEI</span><span class="speech"><small>Lei · al telefono</small><span>È già scesa la luce.</span></span></div>
 <div class="title"><small>Una giornata smart</small><b>La casa conosce l’ora del crepuscolo.</b></div>
-</div><div class="controls"><button id="play">▶ Guarda la scena</button><button id="replay" class="secondary" aria-label="Ricomincia la scena">↺</button><div class="progress"><div class="times"><span id="time">00:00</span><span>00:15</span></div><input id="seek" type="range" min="0" max="15" step=".01" value="0" aria-label="Avanzamento della scena"></div></div><div class="detail"><span><strong>05 / 08</strong> · Luci al crepuscolo</span><nav class="clip-nav" aria-label="Clip"><a class="" href="cartone-domotica-pilota.html">01</a><a class="" href="cartone-domotica-clip2.html">02</a><a class="" href="cartone-domotica-clip3.html">03</a><a class="" href="cartone-domotica-clip6.html">04</a><a class="active" href="cartone-domotica-clip4.html">05</a><a class="" href="cartone-domotica-clip5.html">06</a><a class="" href="cartone-domotica-clip7.html">07</a><a class="" href="cartone-domotica-clip8.html">08</a></nav></div></section>
+</div><div class="controls"><button id="play">▶ Guarda la scena</button><button id="replay" class="secondary" aria-label="Ricomincia la scena">↺</button><div class="progress"><div class="times"><span id="time">00:00</span><span>00:19</span></div><input id="seek" type="range" min="0" max="19" step=".01" value="0" aria-label="Avanzamento della scena"></div></div><div class="detail"><span><strong>05 / 08</strong> · Luci al crepuscolo</span><nav class="clip-nav" aria-label="Clip"><a class="" href="cartone-domotica-pilota.html">01</a><a class="" href="cartone-domotica-clip2.html">02</a><a class="" href="cartone-domotica-clip3.html">03</a><a class="" href="cartone-domotica-clip6.html">04</a><a class="active" href="cartone-domotica-clip4.html">05</a><a class="" href="cartone-domotica-clip5.html">06</a><a class="" href="cartone-domotica-clip7.html">07</a><a class="" href="cartone-domotica-clip8.html">08</a></nav></div></section>
 <div class="footer"><p>La casa conosce l’ora del crepuscolo: quando arriva quel momento, accende le luci e prepara l’accoglienza per il rientro.</p><a href="cartone-domotica-clip5.html">Clip 6 · Bentornati →</a></div>
 </main><script>
 (()=>{
 const q=s=>document.querySelector(s),clamp=x=>Math.max(0,Math.min(1,x)),ease=x=>{x=clamp(x);return x*x*(3-2*x)},fade=(t,a,b,c,d)=>ease((t-a)/(b-a))*(1-ease((t-c)/(d-c)));
-let t=0,playing=false,last=performance.now();const camera=q('.camera'),title=q('.title'),caption=q('.caption'),badge=q('.automazione'),seek=q('#seek'),button=q('#play'),evening=q('.evening'),message=q('.light-message'),zones=[q('.porch'),q('.path-one'),q('.path-two'),q('.path-three')];
+const duration=19;let t=0,playing=false,last=performance.now();const camera=q('.camera'),title=q('.title'),caption=q('.caption'),badge=q('.automazione'),seek=q('#seek'),button=q('#play'),evening=q('.evening'),message=q('.light-message'),zones=[q('.porch'),q('.path-one'),q('.path-two'),q('.path-three')];
 function render(){
- const s=Math.max(0,t-4.8),intro=ease((t-3.8)/1),on=s>=3,complete=s>=5.2;
+ const s=Math.max(0,Math.min(t,15)-4.8),intro=ease((t-3.8)/1),on=s>=3,complete=s>=5.2;
  camera.style.transform=`scale(${1.005+s*.00125}) translate(${-s*.02}%,${s*.008}%)`;
  title.style.opacity=1-intro;title.style.transform=`translateY(${-intro*12}px)`;q('.clockcard').style.opacity=intro;
  evening.style.opacity=ease(s/3)*.12;
@@ -25,7 +25,7 @@ function render(){
  q('.time').textContent=on?'19:45':'19:44';badge.style.opacity=ease(s/.5);badge.classList.toggle('on',on);q('.automazione span').textContent=complete?'Luci esterne accese':'Crepuscolo previsto · 19:45';
  const ready=ease((s-5.2)/.6);message.style.opacity=ready;message.style.transform=`translateY(${(1-ready)*8}px)`;
  const first=fade(s,1.2,1.6,3.8,4.2),second=fade(s,5.3,5.7,9.7,10.1);caption.style.opacity=Math.max(first,second);caption.style.transform=`translateY(${(1-Math.max(first,second))*5}px)`;q('.speaker').textContent=s<5?'LEI':'LUI';q('.speech small').textContent=s<5?'Lei · al telefono':'Lui';q('.speech span').textContent=s<5?'È già scesa la luce.':'La casa conosce l’ora del crepuscolo: accende le luci da sola.';
- seek.value=t;q('#time').textContent='00:'+String(Math.floor(t)).padStart(2,'0');button.textContent=playing?'Ⅱ Pausa':t>=15?'▶ Guarda di nuovo':'▶ Guarda la scena';
+ seek.value=t;q('#time').textContent='00:'+String(Math.floor(t)).padStart(2,'0');button.textContent=playing?'Ⅱ Pausa':t>=duration?'▶ Guarda di nuovo':'▶ Guarda la scena';
 }
 
 // Same-window source validation allows the local preview and the hosted collector.
@@ -37,16 +37,16 @@ window.addEventListener('message',event=>{
  if(location.protocol!=='file:'&&event.origin!==location.origin)return;
  const d=event.data;
  if(d.action==='init'){if(assetsReady)send('film-ready');return}
- if(d.action==='play'){if(t>=15)t=0;playing=true}
+ if(d.action==='play'){if(t>=duration)t=0;playing=true}
  if(d.action==='pause')playing=false;
- if(d.action==='seek'){t=Math.max(0,Math.min(15,Number(d.time)||0));playing=!!d.playing}
+ if(d.action==='seek'){t=Math.max(0,Math.min(duration,Number(d.time)||0));playing=!!d.playing}
  if(d.action==='restart'){t=0;playing=true}
- if(t<15)reportedEnd=false;
+ if(t<duration)reportedEnd=false;
  last=performance.now();render();send('film-progress');
 });
-function report(){if(performance.now()-lastReport>100){lastReport=performance.now();send('film-progress')}if(t>=15&&!reportedEnd){reportedEnd=true;send('film-ended')}if(t<15)reportedEnd=false}
+function report(){if(performance.now()-lastReport>100){lastReport=performance.now();send('film-progress')}if(t>=duration&&!reportedEnd){reportedEnd=true;send('film-ended')}if(t<duration)reportedEnd=false}
 
-function tick(now){const dt=Math.min(.1,(now-last)/1000);last=now;if(playing){t=Math.min(15,t+dt);if(t>=15)playing=false;render()}report();requestAnimationFrame(tick)}
-button.onclick=()=>{if(t>=15)t=0;playing=!playing;last=performance.now();render()};q('#replay').onclick=()=>{t=0;playing=true;last=performance.now();render()};seek.oninput=()=>{t=+seek.value;playing=false;render()};document.addEventListener('visibilitychange',()=>last=performance.now());render();requestAnimationFrame(tick);
+function tick(now){const dt=Math.min(.1,(now-last)/1000);last=now;if(playing){t=Math.min(duration,t+dt);if(t>=duration)playing=false;render()}report();requestAnimationFrame(tick)}
+button.onclick=()=>{if(t>=duration)t=0;playing=!playing;last=performance.now();render()};q('#replay').onclick=()=>{t=0;playing=true;last=performance.now();render()};seek.oninput=()=>{t=+seek.value;playing=false;render()};document.addEventListener('visibilitychange',()=>last=performance.now());render();requestAnimationFrame(tick);
 })();
 </script></body></html>
