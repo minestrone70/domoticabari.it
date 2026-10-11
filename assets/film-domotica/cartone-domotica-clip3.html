@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="it"><head><meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Il giardino · Domotica Bari</title><link rel="stylesheet" href="assets/clip2/player.css"><style>
+.camera{transform-origin:50% 70%}.water{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}.sprinkler{position:absolute;width:1.1%;height:2%;z-index:2;transform:translate(-50%,-100%)}.sprinkler svg{width:100%;height:100%;overflow:hidden}.sprinkler .stem{will-change:transform}.clockcard{text-shadow:0 2px 12px #183023aa}.automazione{opacity:0}.forecast{position:absolute;right:4%;top:21%;width:23%;padding:16px 18px;background:#f8fbf1ed;border:1px solid #fffffff0;border-radius:15px;color:#38573e;box-shadow:0 8px 30px #203d281c;z-index:12;opacity:0;transform:translateY(8px)}.forecast-head{display:flex;gap:12px;align-items:center}.forecast svg{width:44px;height:38px;flex:none}.forecast small{display:block;color:#829076;font-size:clamp(8px,.8vw,10px);letter-spacing:.3px;margin-bottom:4px}.forecast strong{font:700 clamp(11px,1.2vw,15px) Manrope}.cycle{border-top:1px solid #dbe5d2;margin-top:13px;padding-top:11px}.cycle-head{display:flex;align-items:center;justify-content:space-between;gap:7px;font-size:clamp(8px,.85vw,11px);color:#77896e}.cycle-head b{color:#45734c}.bar{height:4px;border-radius:6px;background:#dee7d5;margin-top:8px;overflow:hidden}.bar i{display:block;width:100%;height:100%;background:#729a68;border-radius:6px;transform-origin:0 50%}.forecast p{font-size:clamp(8px,.82vw,10px);line-height:1.5;margin:9px 0 0;color:#788970}.clip-nav{display:flex;gap:6px}.clip-nav a{color:#7c8a75;background:#edf1e8;padding:8px 10px;border-radius:9px;font-size:11px;text-decoration:none}.clip-nav a.active{color:#fff;background:#246d57}.detail{align-items:center}.title{background:#142e2677}@media(max-width:640px){.forecast{padding:9px 10px;width:28%;top:19%}.forecast-head{gap:6px}.forecast svg{width:24px;height:23px}.cycle{margin-top:8px;padding-top:7px}.forecast p{margin-top:5px}.clip-nav a{padding:6px 7px;font-size:9px}}
+</style><style>html.embedded,html.embedded body{width:100%;height:100%;margin:0;background:#152c24;overflow:hidden}html.embedded header,html.embedded .intro,html.embedded .controls,html.embedded .detail,html.embedded .footer{display:none}html.embedded main.wrap{width:100%;max-width:none;margin:0}html.embedded .player{border:0;border-radius:0;box-shadow:none}html.embedded .screen{width:100%;height:100vh;aspect-ratio:auto}html.embedded .title b{font-size:clamp(18px,4vw,50px)}html.embedded .caption{font-size:clamp(12px,1.45vw,19px)}@media(max-width:520px){html.embedded .speech{font-size:12px}html.embedded .caption{left:4%;right:4%;bottom:3%}html.embedded .speech small{margin-bottom:2px;font-size:7px}html.embedded .title b{max-width:85%;letter-spacing:-.8px}html.embedded .automazione{font-size:8px}html.embedded .goodnight small{font-size:8px}}</style><script>if(new URLSearchParams(location.search).has('embedded'))document.documentElement.classList.add('embedded');</script></head><body>
+<header><div class="wrap head"><div class="brand"><img src="assets/domoticabari-logo.svg" alt=""><span>DomoticaBari.it</span></div><a href="cartone-domotica-clip2.html">← Clip 2 · Si esce</a></div></header>
+<main class="wrap"><section class="intro"><div><div class="eyebrow">Una giornata smart · Clip 03</div><h1>Solo l’acqua che serve.</h1></div><p>Il giardino si prende cura di sé. La durata dell’irrigazione si adatta alle previsioni del tempo.</p></section>
+<section class="player"><div class="screen" role="img" aria-label="Gli irrigatori annaffiano il prato e accorciano il ciclo perché è prevista pioggia">
+<div class="camera"><img class="set" src="assets/clip3/giardino.png" alt=""><canvas class="water" width="1672" height="941" aria-hidden="true"></canvas></div>
+<div class="clockcard"><small>Il giardino si prende cura di sé</small><span class="time">17:30</span><span class="day">Al ritmo del tempo.</span></div><div class="automazione"><i></i><span>Irrigazione automatica</span></div>
+<div class="forecast"><div class="forecast-head"><svg viewBox="0 0 60 50" aria-hidden="true"><circle cx="17" cy="15" r="9" fill="#dab15f"/><path d="M15 33Q4 33 7 23Q8 15 18 17Q24 5 37 13Q45 13 46 22Q57 22 55 31Q53 35 46 35H15Z" fill="#d9e4df" stroke="#7e9b8c" stroke-width="1.5"/><path d="M22 39L19 45M33 39L30 45M44 39L41 45" stroke="#80afb5" stroke-width="2.7" stroke-linecap="round"/></svg><div><small>Previsioni · Domani</small><strong>Pioggia in arrivo</strong></div></div><div class="cycle"><div class="cycle-head"><span>Durata del ciclo</span><b>Programmata</b></div><div class="bar"><i></i></div><p>L’irrigazione segue le previsioni del tempo.</p></div></div>
+<div class="caption"><span class="speaker">LEI</span><span class="speech"><small>Lei · al telefono</small><span>Domani è prevista pioggia.</span></span></div>
+<div class="title"><small>Una giornata smart</small><b>Il giardino sa quando fermarsi.</b></div>
+</div><div class="controls"><button id="play">▶ Guarda la scena</button><button id="replay" class="secondary" aria-label="Ricomincia la scena">↺</button><div class="progress"><div class="times"><span id="time">00:00</span><span>00:15</span></div><input id="seek" type="range" min="0" max="15" step=".01" value="0" aria-label="Avanzamento della scena"></div></div><div class="detail"><span><strong>03 / 08</strong> · Irrigazione e meteo</span><nav class="clip-nav" aria-label="Clip"><a href="cartone-domotica-pilota.html">01</a><a href="cartone-domotica-clip2.html">02</a><a class="active" href="cartone-domotica-clip3.html" aria-current="page">03 · Giardino</a><a href="cartone-domotica-clip4.html">04</a></nav></div></section>
+<div class="footer"><p>Se è prevista pioggia, il ciclo si accorcia: il giardino riceve l’acqua necessaria, evitando sprechi.</p><a href="cartone-domotica-clip4.html">Clip 4 · Luci al crepuscolo →</a></div>
+</main><script>
+(()=>{
+const q=s=>document.querySelector(s),clamp=x=>Math.max(0,Math.min(1,x)),ease=x=>{x=clamp(x);return x*x*(3-2*x)},fade=(t,a,b,c,d)=>ease((t-a)/(b-a))*(1-ease((t-c)/(d-c)));
+let t=0,playing=false,last=performance.now();const camera=q('.camera'),title=q('.title'),caption=q('.caption'),badge=q('.automazione'),forecast=q('.forecast'),seek=q('#seek'),button=q('#play'),water=q('.water'),ctx=water.getContext('2d'),W=water.width,H=water.height;
+const heads=[{x:.25,y:.78,size:1},{x:.5,y:.7,size:.77},{x:.76,y:.82,size:1.13}];
+heads.forEach(h=>{let el=document.createElement('div');el.className='sprinkler';el.style.left=h.x*100+'%';el.style.top=h.y*100+'%';el.style.width=1.1*h.size+'%';el.style.height=2*h.size+'%';el.innerHTML='<svg viewBox="0 0 20 30" aria-hidden="true"><ellipse cx="10" cy="28" rx="10" ry="2" fill="#273f3240"/><g class="stem"><path d="M7 27V9Q10 6 13 9V27Z" fill="#768777" stroke="#3d5142" stroke-width="1.2"/><ellipse cx="10" cy="9" rx="6" ry="3" fill="#899784" stroke="#445b46" stroke-width="1.2"/><ellipse cx="10" cy="8" rx="3" ry="1.1" fill="#304e3b"/></g></svg>';camera.append(el);h.el=el.querySelector('.stem')});
+function drawWater(s){
+ ctx.clearRect(0,0,W,H);let count=0;
+ heads.forEach((h,k)=>{const x=h.x*W,y=h.y*H-12*h.size;
+ for(let j=0;j<86;j++){
+  const life=(.82+(j%9)*.035)*Math.sqrt(h.size),period=life,phase=j/86*period,emit=Math.floor((s-.8-phase)/period)*period+.8+phase;
+  if(emit<.8||emit>8.2)continue;const age=s-emit;if(age<0||age>life)continue;
+  const sweep=Math.sin(emit*.65+k)*.26,sign=j%2?1:-1,vx=sign*(120+(j%17)*5)*h.size*(1+sweep*sign),vy=-240*life/2,gravity=240;
+  const dx=x+vx*age,dy=y+vy*age+gravity*age*age/2,tail=.018;
+  ctx.beginPath();ctx.moveTo(dx-vx*tail,dy-(vy+gravity*age)*tail);ctx.lineTo(dx,dy);ctx.strokeStyle=`rgba(197,234,231,${.38+(j%4)*.11})`;ctx.lineWidth=(j%3===0?1.7:1.1)*h.size;ctx.lineCap='round';ctx.stroke();count++;
+  if(age>life-.07){ctx.beginPath();ctx.ellipse(dx,y+2,3*h.size,1*h.size,0,0,Math.PI*2);ctx.strokeStyle='#c9e3d340';ctx.lineWidth=1;ctx.stroke()}
+ }
+ });water.dataset.drops=String(count);
+}
+function render(){
+ const s=Math.max(0,t-4.8),intro=ease((t-3.8)/1),shortened=ease((s-4.1)/1.1),done=s>=9.5;
+ camera.style.transform=`scale(${1.005+s*.0015}) translate(${-s*.015}%,${s*.01}%)`;
+ title.style.opacity=1-intro;title.style.transform=`translateY(${-intro*12}px)`;q('.clockcard').style.opacity=intro;
+ badge.style.opacity=ease(s/.5);q('.automazione span').textContent=done?'Ciclo completato':s>4.1?'Durata adattata al meteo':'Irrigazione automatica';
+ forecast.style.opacity=ease((s-1.6)/.6);forecast.style.transform=`translateY(${(1-ease((s-1.6)/.6))*8}px)`;q('.cycle-head b').textContent=done?'Completata':s>4.1?'Ridotta':'Programmata';q('.bar i').style.transform=`scaleX(${1-shortened*.45})`;
+ heads.forEach(h=>h.el.style.transform=`translateY(${(1-ease((s-.25)/.55)+ease((s-9.5)/.6))*11}px)`);drawWater(s);
+ const first=fade(s,1.8,2.2,4.1,4.5),second=fade(s,5.2,5.6,9.5,9.9);caption.style.opacity=Math.max(first,second);caption.style.transform=`translateY(${(1-Math.max(first,second))*5}px)`;q('.speaker').textContent=s<5?'LEI':'LUI';q('.speech small').textContent=s<5?'Lei · al telefono':'Lui';q('.speech span').textContent=s<5?'Domani è prevista pioggia.':'La durata si adatta alle previsioni del tempo.';
+ seek.value=t;q('#time').textContent='00:'+String(Math.floor(t)).padStart(2,'0');button.textContent=playing?'Ⅱ Pausa':t>=15?'▶ Guarda di nuovo':'▶ Guarda la scena';
+}
+
+// Same-window source validation allows the local preview and the hosted collector.
+let assetsReady=false,reportedEnd=false,lastReport=-1;
+const send=type=>{if(window.parent!==window)window.parent.postMessage({type,time:t,playing},'*')};
+window.addEventListener('load',()=>{assetsReady=true;send('film-ready')});
+window.addEventListener('message',event=>{
+ if(event.source!==window.parent||!event.data||event.data.type!=='film-control')return;
+ if(location.protocol!=='file:'&&event.origin!==location.origin)return;
+ const d=event.data;
+ if(d.action==='init'){if(assetsReady)send('film-ready');return}
+ if(d.action==='play'){if(t>=15)t=0;playing=true}
+ if(d.action==='pause')playing=false;
+ if(d.action==='seek'){t=Math.max(0,Math.min(15,Number(d.time)||0));playing=!!d.playing}
+ if(d.action==='restart'){t=0;playing=true}
+ if(t<15)reportedEnd=false;
+ last=performance.now();render();send('film-progress');
+});
+function report(){if(performance.now()-lastReport>100){lastReport=performance.now();send('film-progress')}if(t>=15&&!reportedEnd){reportedEnd=true;send('film-ended')}if(t<15)reportedEnd=false}
+
+function tick(now){const dt=Math.min(.1,(now-last)/1000);last=now;if(playing){t=Math.min(15,t+dt);if(t>=15)playing=false}render();report();requestAnimationFrame(tick)}
+button.onclick=()=>{if(t>=15)t=0;playing=!playing;last=performance.now();render()};q('#replay').onclick=()=>{t=0;playing=true;last=performance.now();render()};seek.oninput=()=>{t=+seek.value;playing=false;render()};document.addEventListener('visibilitychange',()=>last=performance.now());render();requestAnimationFrame(tick);
+})();
+</script></body></html>
