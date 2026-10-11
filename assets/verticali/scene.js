@@ -21,7 +21,7 @@ if(['about','voiceclima','welcome','absence','checkout'].includes(c.kind))top.cl
 if(c.kind==='shutter'){top.classList.add('compact');if(c.key==='accessibile-1')shade=el('div','room-shade');}
 if(c.kind==='shutter'||c.kind==='door'){
  elementPlate=el('img','element-plate');elementPlate.src=base.src;elementPlate.alt='';
- if(c.kind==='door'){elementPlate.style.clipPath='polygon('+c.door.map(p=>p.join('% ')+'%').join(',')+')';elementPlate.style.transformOrigin=c.door[1][0]+'% 40%';scene.style.perspective='900px';}
+ if(c.kind==='door'){elementPlate.style.clipPath='polygon('+c.door.map(p=>p.join('% ')+'%').join(',')+')';elementPlate.style.transformOrigin=(c.hinge?.[0]??c.door[1][0])+'% '+(c.hinge?.[1]??40)+'%';scene.style.perspective='900px';after.style.opacity=0;}
 }
 if(c.face){scan=absolute(el('div','scan',fx),c.face);}
 if(c.air){const [x,y]=c.air;air=svg([0,3,6].map((d,i)=>`<path class="airline" d="M ${x+d} ${y-d*.1} C ${x+d-3} ${y+8},${x+d+7} ${y+13},${x+d+4} ${y+23}"/>`).join(''));}
@@ -51,10 +51,8 @@ if(c.walk){
  elementPlate.style.transformOrigin=c.door[1][0]+'% 40%';scene.style.perspective='900px';
  if(c.kind==='arrival'){
   scan=el('div','scan',fx);after.style.opacity=0;
-  doorReveal=el('img','door-reveal');doorReveal.src=c.open+'.webp';doorReveal.alt='';
-  doorReveal.style.clipPath='polygon(63% 22%,86% 20%,86% 75%,63% 73%)';
-  lampReveal=el('img','lamp-reveal');lampReveal.src=c.lamp+'.webp';lampReveal.alt='';
-  lampReveal.style.clipPath=doorReveal.style.clipPath;
+  doorReveal=el('img','door-reveal');doorReveal.src=c.open+'.webp';doorReveal.alt='';doorReveal.style.zIndex='1';
+  lampReveal=el('img','lamp-reveal');lampReveal.src=c.lamp+'.webp';lampReveal.alt='';lampReveal.style.clipPath='polygon(66% 55%,79% 55%,79% 81%,66% 81%)';
  }
  if(c.kind==='security'){
   shield=svg('<path d="M65 50L73 52V55Q72 59 65 61Q58 59 57 55V52Z" fill="#173d2cd9" stroke="#dcecd0" stroke-width=".5"/><path d="M61 55l3 2 5-4" fill="none" stroke="#dcecd0" stroke-width=".8"/>','security-shield');
@@ -66,7 +64,7 @@ function walkFrame(t,points,start,end){
  const q=clamp((t-start)/(end-start)),v=q*(points.length-1),a=Math.min(points.length-2,Math.floor(v)),f=v-a;
  const pos=points[a].map((x,i)=>x+(points[a+1][i]-x)*f),h=pos[2],w=h*.75*16/9;
  walker.style.left=(pos[0]-w*.5)+'%';walker.style.top=(pos[1]-h*.965)+'%';walker.style.width=w+'%';walker.style.height=h+'%';
- const frame=t>start&&t<end?Math.floor((t-start)*8)%8:1;
+ const gait=[0,2,1,3,4,6,5,7];const frame=t>start&&t<end?gait[Math.floor((t-start)*6)%gait.length]:0;
  walker.style.backgroundPosition=((frame%4)*100/3)+'% '+(Math.floor(frame/4)*100)+'%';
  shadow.style.left=(pos[0]-w*.33)+'%';shadow.style.top=(pos[1]-.7)+'%';shadow.style.width=(w*.66)+'%';shadow.style.height=(h*.035)+'%';
  return {x:pos[0]-w*.5,y:pos[1]-h*.965,w,h};
@@ -91,10 +89,10 @@ function render(){
    elementPlate.style.clipPath=`polygon(${q[0][0]}% ${q[0][1]}%,${q[1][0]}% ${q[1][1]}%,${q[2][0]}% ${bottomRight}%,${q[3][0]}% ${bottomLeft}%)`;elementPlate.style.opacity=p>=1?0:1;
    hud(c.key==='casa-1'?'07:00 · Buongiorno':'Comando vocale',p<1?'Tapparella '+Math.round(p*100)+'%':'Tapparella aperta','La luce naturale entra gradualmente.',ramp(t,.4,1),p);break;}
  case 'door':{
-   p=ramp(t,6,9);after.style.opacity=t>=6?1:0;
-   elementPlate.style.transform='rotateY('+(-80*p)+'deg)';elementPlate.style.opacity=1-ramp(p,.8,1);
+   after.style.opacity=ramp(t,6,7.5);p=ramp(t,8,10);
+   elementPlate.style.transform='rotateY('+((c.swing??-80)*p)+'deg)';elementPlate.style.opacity=1;
    if(warmth)warmth.style.opacity=ramp(t,10,12)*.6;
-   hud('Accesso autorizzato',t<5.8?(c.face?'Riconoscimento del volto':'Apri la porta'):t<9?'La porta si apre':c.key==='casa-6'?'Benvenuti. Luci accese.':'Porta aperta',t<5.8?(c.face?'Scansione in corso…':'Un tocco dalla pagina ospite.'):c.key==='accessibile-3'?'Ingresso senza dislivelli.':'L’accoglienza comincia dall’ingresso.',ramp(t,1,2));break;}
+   hud('Accesso autorizzato',t<5.8?(c.face?'Verifica del volto':'Comando di apertura'):t<9?'Apertura in corso':c.key==='casa-6'?'Benvenuti. Luci accese.':'Porta aperta',t<5.8?(c.face?'Identità verificata dal lettore.':'Richiesta ricevuta dalla pagina ospite.'):c.key==='accessibile-3'?'Serratura sbloccata. Ingresso aperto.':'Apertura completata.',ramp(t,1,2));break;}
  case 'garden':{
    p=ramp(t,6,7);water.style.opacity=p;water.querySelectorAll('path').forEach((n,i)=>{n.style.strokeDashoffset=-t*3-i*2;n.style.opacity=(.42+.1*Math.sin(t*2+i))*(t>=6?1:0)});
    hud('Giardino · Previsioni meteo',t<5?'Sole previsto, terreno asciutto':'Irrigazione in corso','Durata adattata alle previsioni: 8 minuti.',ramp(t,1,2),ramp(t,5,12));break;}
@@ -103,11 +101,11 @@ function render(){
  hud('Scenario uscita','Verifica delle condizioni','',ramp(t,.5,1));break;}
  case 'arrival':{
  const atDoor=t>=5,inside=t>=10.8;
- const pos=walkFrame(t,[[-30,113,64],[20,96,55],[37,84,44]],.5,6);
+ const pos=walkFrame(t,[[-30,108,66],[20,91,59],[37,79,50]],.5,6);
  walker.style.opacity=1;walker.style.clipPath='none';shadow.style.opacity=.28;
  // The visitors stop on the path. Only the doorway aperture crossfades to the open view.
- const open=ramp(t,8,10);elementPlate.style.transform='rotateY('+(-80*open)+'deg)';elementPlate.style.opacity=1-ramp(t,9.5,10);
- doorReveal.style.opacity=ramp(t,9.2,10.4);lampReveal.style.opacity=ramp(t,11.5,12.4);
+ const reveal=ramp(t,7.2,8),open=ramp(t,8,10);doorReveal.style.opacity=reveal;elementPlate.style.transform='rotateY('+((c.swing??-80)*open)+'deg)';elementPlate.style.opacity=1;
+ lampReveal.style.opacity=ramp(t,11.5,12.4);
  after.style.opacity=0;
  absolute(scan,[pos.x+pos.w*.65,pos.y+pos.h*.08,pos.w*.14,pos.h*.12]);scan.style.opacity=t>=5.2&&t<7.8?1:0;scan.style.setProperty('--scan',((t*24)%100)+'%');
  hud('Scenario rientro','Accesso autorizzato','',ramp(t,.5,1));break;}
@@ -142,12 +140,12 @@ function render(){
  case 'voiceclima':hud('Comando vocale',t<6?'Imposta il clima a 23 gradi':'Climatizzatore a 23 °C','Le alette si aprono e l’aria comincia a uscire.',ramp(t,.5,1));break;
  case 'tablet':{
    pin.style.opacity=t>=4&&t<6?.6:0;pin.style.transform='scale('+(1+.12*Math.sin(t*8))+')';
-   hud('Controllo raggiungibile',t<5?'Un tocco sul tablet':'Luci spente','Al crepuscolo, i comandi sono a portata di mano.',ramp(t,1,2));break;}
+   hud('Pannello di controllo',t<5?'Comando selezionato':'Luci spente','Tocco sull’icona luce · comando eseguito.',ramp(t,1,2));break;}
  case 'phone':{
    pin.style.opacity=t<4?.6+.2*Math.sin(t*4):0;
    hud('Una voce per chiedere aiuto',t<4?'Il telefono è sotto il mobile':t<9?'Chiama il mio contatto di aiuto':'Contatto collegato',t<4?'Nessun problema: posso usare la voce.':'Una chiamata al contatto scelto.',ramp(t,.2,.8));break;}
  case 'about':{base.style.display=t<3?'block':'none';c.industry.style.display=t>=3&&t<9?'block':'none';c.home.style.display=t>=9?'block':'none';hud(t<9?'Le mie origini':'Oggi · DomoticaBari',t<3?'Dai robot alla tua casa':t<9?'Automazione industriale':'Home Assistant',t<9?'Programmare, coordinare, rendere semplice.':'Logiche costruite intorno alle tue abitudini.',t<3?0:ramp(t,3,3.5));break;}
- case 'sleep':hud('Scenario notte',t<6?'È ora di riposare':'Corridoio spento','La casa riconosce gli ambienti lasciati vuoti.',ramp(t,1,2));break;
+ case 'sleep':hud('Scenario notte',t<6?'Riposo avviato':'Illuminazione disattivata','Sensore corridoio: nessuna presenza · luci spente.',ramp(t,1,2));break;
  }
  if(c.climate){const cfg=c.climate,on=c.kind==='geoclima'?t>=9:true;climate.style.opacity=on?ramp(t,cfg.start-.5,cfg.start):0;const q=ramp(t,cfg.start,cfg.end),value=cfg.from+(cfg.to-cfg.from)*q;climate.querySelector('strong').textContent=Math.round(value)+' °C';climate.querySelector('small').textContent=q<1?'Aggiornamento impostazione…':'Climatizzazione attiva';}
  if(c.huds){const state=c.huds.reduce((value,row)=>t>=row[0]?row:value,c.huds[0]);const opacity=c.kind==='geoclima'&&t>=4.5&&t<9?0:ramp(t,.3,.8);hud(state[1],state[2].replace('{percent}',Math.round(p*100)),state[3],opacity,c.kind==='shutter'?p:null);}
