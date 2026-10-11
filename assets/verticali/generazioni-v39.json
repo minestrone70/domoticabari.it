@@ -1,0 +1,118 @@
+[
+  {
+    "key": "clima-senza-termostato",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Remove ONLY the small black wall-mounted thermostat at x57%-65%, y37%-42% of this portrait illustration, replacing it with exactly matching smooth warm cream plaster wall. Preserve absolutely everything else in precise pixel registration: air conditioner body and exact flap state, its size/position, window, outdoor view, sofa, honey-wood console, plants, shadows and lighting, fixed native portrait camera. No new objects, no text, no shadows or traces where thermostat was.",
+    "output": "assets/verticali/clima-senza-termostato-v39.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-3fc7f23c-2b88-442c-b713-4ef72b3e96c2.png"
+  },
+  {
+    "key": "clima-attivo-senza-termostato",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Remove ONLY the small black wall-mounted thermostat at x57%-65%, y37%-42% of this portrait illustration, replacing it with exactly matching smooth warm cream plaster wall. Preserve absolutely everything else in precise pixel registration: air conditioner body and exact flap state, its size/position, window, outdoor view, sofa, honey-wood console, plants, shadows and lighting, fixed native portrait camera. No new objects, no text, no shadows or traces where thermostat was.",
+    "output": "assets/verticali/clima-attivo-senza-termostato-v39.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-1f71e138-6707-4786-bfea-a648870264ab.png"
+  },
+  {
+    "key": "rientro-chiusa",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Remove ONLY both people, cleanly reconstructing the jasmine, wall and flat paving behind them. Preserve EXACT pixel registration of this portrait scene: camera, closed green door at right, reader, lantern, cream limestone architecture, all plants, outdoor sunset, pots and accessible flat landing unchanged. Do not add objects or steps. No words. This is a clean background for animated people.",
+    "output": "assets/verticali/rientro-chiusa-v39.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-e53888dc-2fe0-4340-a9b2-3d18a7e0599b.png"
+  },
+  {
+    "key": "rientro-aperta",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Remove ONLY both people and reconstruct the background. Add ONE elegant small ceramic table lamp on the existing honey-wood entrance console inside the OPEN doorway, beside the existing potted plant. The lamp has a warm cream linen shade and is initially OFF. Keep interior dim. Preserve EXACT pixel registration and framing of facade, open door, reader, lantern, plant, console, flat paving and outdoor sunset. Do not change camera or add steps. No texts.",
+    "output": "assets/verticali/rientro-aperta-v39.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-c7f1ae87-e27f-4a18-9652-9c213192ca44.png"
+  },
+  {
+    "key": "rientro-passi",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: illustration-story. Asset: comic WALK CYCLE sprite sheet, TRUE transparent alpha background. Character reference: the same brunette woman in rust blouse cream trousers white shoes and the curly-haired man sage shirt dark trousers white/green shoes in attached approved image. Both ADULT proportions, no chibi. Draw 8 successive gait poses in EXACT 4 columns by 2 rows equal grid, landscape 3:2 canvas, one pair per cell. Full-body 3/4 BACK view, walking AWAY from camera toward UPPER RIGHT, to approach a house door. Their face profiles partly visible toward right so we recognize them. Stagger woman a half-step AHEAD RIGHT and man behind LEFT, with their silhouettes overlapping horizontally, narrow pair width; not spread side-by-side. Each pair same scale, body centre registered, all frames top of hair y5% and lowest PLANTED sole y95% of its cell. Every planted foot stays same ground baseline. Natural full cycle: frame1 LEFT heel contact,2 loading,3 passing,4 right swing,5 RIGHT heel contact,6 loading,7 passing,8 left swing. Alternating arms and bent knees, soles heel-toe, heads steady. Identical faces, clothes, anatomy and proportions each frame. Professional hand-drawn ink/cel shaded warm comic palette. ABSOLUTELY no background: NOT gradient, NOT brown glow, NOT floor, NOT shadows, NOT painted checkerboard, no labels, no borders, no props. Characters and transparent pixels ONLY. Keep generous transparent cell margins to animate independently.",
+    "output": "assets/verticali/rientro-passi-v39.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-1f1cc345-fb11-4057-82ec-4bfbdcab8a10.png"
+  },
+  {
+    "key": "film-sguardo-tv",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Correct ONLY both people's head orientation and gaze: they are seated watching the actual television at upper LEFT x18%-61%, y21%-35%, not the window at right. Turn BOTH heads toward the TV screen centre x40%,y28%. From camera BEHIND sofa we should see primarily BACKS of their heads and a tiny LEFT cheek profile, not their right-facing full profiles. Bodies relax facing TV, woman still has remote pointing toward television, man has arm on sofa. Keep exact sofa position, people identities/clothes and size, TV, furniture, moonlit window, lighting and camera unchanged. No letters or logo in TV screen, no new objects.",
+    "output": "assets/verticali/film-sguardo-tv-v39.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-59aa59f4-4591-4d81-b1aa-a9758278e361.png"
+  },
+  {
+    "key": "notte-camera",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: lighting-weather. Remove ALL warm frontal illumination on the couple and bed. Both existing copper bedroom pendant lamps remain completely OFF with no glow under their shades. Faces, pajamas, pillows and blanket are now in dim cool-blue moonlight, with no orange spotlight or bright warm light on them. Preserve eyes OPEN, expressions, pose, identities and EXACT pixel registration of every object. Hallway at upper left may remain softly lit but its warm illumination must NOT spill onto the bed or couple. Moonlit window remains same, overall bedroom convincingly dark and restful. Fixed portrait camera unchanged.",
+    "output": "assets/verticali/notte-camera-v39.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-df485915-0a2e-43a2-8468-352636a2da86.png"
+  },
+  {
+    "key": "notte-sonno",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: lighting-weather. Remove ALL warm frontal illumination on the couple and bed. Both existing copper bedroom pendant lamps remain completely OFF with no glow under their shades. Faces, pajamas, pillows and blanket are now in dim cool-blue moonlight, with no orange spotlight or bright warm light on them. Preserve eyes CLOSED, expressions, pose, identities and EXACT pixel registration of every object. Hallway at upper left may remain softly lit but its warm illumination must NOT spill onto the bed or couple. Moonlit window remains same, overall bedroom convincingly dark and restful. Fixed portrait camera unchanged.",
+    "output": "assets/verticali/notte-sonno-v39.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-28d3e515-2d21-4a04-bb24-34eadcc58173.png"
+  },
+  {
+    "key": "risveglio-camera",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: lighting-weather. Edit this exact portrait comic bedroom into early sunny morning. SAME bedroom as the bedtime frame: same couple in same bed and exact anatomy/blanket/props/geometry. Door at left now closed, pendants completely OFF. Right tall window unchanged coordinates x84 to100%, y0 to31%. Replace moon with sunny garden daylight behind the glass, install a discreet horizontal roller shutter inside that exact upper-right window fully RAISED. Natural morning sunlight only from that window, pleasant but not overexposed. Couple eyes open as reference. Preserve ALL registration and comic identity. No text, no watermark, no new furniture. Native 9:16.",
+    "output": "assets/verticali/risveglio-camera-v39.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-2b5a92c8-1fcb-4de8-b5da-95fa46d885b2.png"
+  },
+  {
+    "key": "rientro-lampada-accesa",
+    "mode": "built-in image_gen",
+    "prompt": "Precise-object-edit: same exact portrait comic exterior/door/open entry/console/plant. Change ONLY the little ceramic table lamp on console inside doorway: turn it ON with a soft warm cream shade and localized gentle golden glow on console and surrounding entry wall. Preserve pixel registration, all exterior lights, architecture and colors. No people/text.",
+    "output": "assets/verticali/rientro-lampada-accesa-v39.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-be2e84dd-ce3e-4642-a2d2-7425b2bb136a.png"
+  },
+  {
+    "key": "film-tv-dim",
+    "mode": "built-in image_gen",
+    "prompt": "Lighting-weather edit. Same exact portrait comic living room and same couple heads looking at TV. ONLY dim interior pendant and table lamp to low 18% warm brightness; TV display uniform very dark navy with faint blue glow on couple, no branding/text/images. Keep window moon and garden lights unchanged. Preserve exact scene registration and all anatomy/furniture.",
+    "output": "assets/verticali/film-tv-dim-v39.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-c9c0e73e-7e90-4d2d-b028-fe8b2a9cd792.png"
+  },
+  {
+    "key": "risveglio-camera-buia",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit and lighting-weather. Edit this exact morning portrait comic bedroom to the INITIAL frame before the shutter opens at 07:00. Keep identical bed, blanket folds, same couple pose, furniture, closed wooden door and framing with exact registration. Close a sage grey horizontal-slat roller shutter ONLY inside the right window (visible glass x84% to99%, top0% to31%); curtain remains as in reference, in front of part of shutter. Block ALL sunlight: room quite dim, faint cool ambient visibility, NO sunny shadows on wall/bed, no frontal warm lighting. BOTH bedside pendant lamps completely OFF. Couple eyes CLOSED sleeping. Natural readable comic illustration, not pitch black. No text, no watermark, no other changes. Native 9:16.",
+    "output": "assets/verticali/risveglio-camera-buia-v39.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-73ba267d-8f8c-4347-b1c4-0808fa0b8e66.png"
+  },
+  {
+    "key": "uscita-chiusa",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit target: attached portrait illustration. Create a clean background plate for animating the occupants leaving their home. Remove ONLY both people completely, reconstruct the stone facade and plants behind them. Preserve EXACT native 9:16 camera, house, green front door CLOSED, all balcony/windows, jasmine, lanterns, honey limestone colors and comic drawing style. Replace the three entrance steps with a gently sloping continuous paved stone approach at the SAME top threshold elevation, so there is NO stair tread to animate and the walking path runs unobstructed diagonally from the door toward the bottom LEFT foreground. Keep the door at x51%-79%, y34%-66%. Do not add people, no words, no shield, no overlays, no borders. Quiet floor lower 12%. Fixed composition.",
+    "output": "assets/verticali/uscita-chiusa-v39.webp"
+  },
+  {
+    "key": "uscita-aperta",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the CLOSED sage-green front entrance door in the attached clean portrait background: open the door inward to the RIGHT, with the door leaf mostly out of sight inside, revealing a softly lit tasteful cream entrance hall, honey wood console and small plant. The doorway must have exactly the same polygon x51%-79%, y34%-66% and be clear for walking people to be composited. Preserve pixel registration of entire house, porch, doorframe, jambs, doormat, paved pathway, plants, pots, balcony, light and fixed camera. No people, no text, no symbols, no zoom or crop. Keep threshold completely flush with gently sloping pavement as in input. Only door changes.",
+    "output": "assets/verticali/uscita-aperta-v39.webp"
+  },
+  {
+    "key": "uscita-passi",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: background-extraction and precise-object-edit. Edit target: this 4-column by 2-row walking sprite sheet. Remove the ENTIRE brown gradient background and ALL glow around the characters. Output a genuinely TRANSPARENT PNG alpha background, clear transparent gaps between all 8 sprites, absolutely no background or painted shadows. Preserve EXACT grid cell locations, framing, identities, clothes, person scale and head registration. For the four SECOND ROW cells only, make the opposite leg lead (right leg forward, left leg trails), and swap which arm swings forward, to complete the opposite half of their gait cycle. Top row stays the first half. Keep full body, lowest planted sole at same y95% in each cell. No labels, no lines, no shadows. This must be ready to overlay on a house background with no rectangle visible.",
+    "output": "assets/verticali/uscita-passi-v39.webp"
+  },
+  {
+    "key": "film-sguardo-tv-sguardo-corretto",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Fix ONLY the seated woman's HEAD DIRECTION in this exact portrait comic living room. Her head is at x53%, y48%; television centre x39%, y28%. She MUST look UP AND LEFT toward the TELEVISION, not right toward the window. Rotate her head left: her visible cheek/nose belongs on the LEFT EDGE of her head facing the TV; NO cheek, nose or eyes visible on the right edge next to the window. Show predominantly back of her hair, with a slight LEFT cheek/profile directed at the middle of TV. Keep man, woman's body/remote/arm, sofa, lamp brightness, TV exact color, window, all furniture unchanged with exact registration. Native 9:16. No text, no branding.",
+    "output": "assets/verticali/film-sguardo-tv-v39.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-b1752157-9cf8-4afa-a17a-baa199748508.png"
+  },
+  {
+    "key": "film-tv-dim-sguardo-corretto",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Fix ONLY the seated woman's HEAD DIRECTION in this exact portrait comic living room. Her head is at x53%, y48%; television centre x39%, y28%. She MUST look UP AND LEFT toward the TELEVISION, not right toward the window. Rotate her head left: her visible cheek/nose belongs on the LEFT EDGE of her head facing the TV; NO cheek, nose or eyes visible on the right edge next to the window. Show predominantly back of her hair, with a slight LEFT cheek/profile directed at the middle of TV. Keep man, woman's body/remote/arm, sofa, lamp brightness, TV exact color, window, all furniture unchanged with exact registration. Native 9:16. No text, no branding.",
+    "output": "assets/verticali/film-tv-dim-v39.webp",
+    "source": "/home/ps1/.codex/generated_images/01a0f716-97a6-7f51-8a63-9dee51d5b564/exec-76e12215-d84a-4146-927c-23083d2e12c9.png"
+  }
+]

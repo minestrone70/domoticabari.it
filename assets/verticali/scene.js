@@ -5,14 +5,14 @@ const embedded=parent!==window;document.documentElement.classList.toggle('embedd
 const el=(tag,cls,parent=scene)=>{const n=document.createElement(tag);n.className=cls;parent.append(n);return n};
 const clamp=x=>Math.min(1,Math.max(0,x)), ease=x=>{x=clamp(x);return x*x*(3-2*x)}, ramp=(t,a,b)=>ease((t-a)/(b-a));
 const base=el('img','plate'),after=c.after?el('img','plate after'):null;
-base.src=c.key+'.webp';base.alt=c.title; if(after){after.src=c.after+'.webp';after.alt='';}
+base.src=(c.base||c.key)+'.webp';base.alt=c.title; if(after){after.src=c.after+'.webp';after.alt='';}
 const fx=el('div','effects');
 const top=el('div','hud');top.innerHTML='<div class="kicker"></div><strong></strong><small></small><div class="progress"><span></span></div>';
 const caption=el('div','native-caption'),ownCaption=el('div','own-caption');
 const watermark=el('img','own-watermark');watermark.src='../domoticabari-watermark.svg';watermark.alt='DomoticaBari.it';
 const button=el('button','standalone-play');button.textContent='Ⅱ Pausa';button.type='button';
 let time=0,playing=false,previous=0,raf=0,lastMessage=0,lastCaption='',ready=false;
-let elementPlate,voice,scan,air,water,warmth,thermostat,pin,map,netflix,shade;
+let elementPlate,voice,scan,air,water,warmth,pin,map,netflix,shade,walker,shadow,shield,status,climate;
 function absolute(n,box){n.style.left=box[0]+'%';n.style.top=box[1]+'%';n.style.width=box[2]+'%';n.style.height=box[3]+'%';return n}
 function svg(markup,cls){const n=document.createElementNS('http://www.w3.org/2000/svg','svg');n.setAttribute('viewBox','0 0 100 100');n.setAttribute('preserveAspectRatio','none');n.innerHTML=markup;if(cls)n.classList.add(cls);fx.append(n);return n}
 function bubbles(){voice=el('div','voice',fx);voice.innerHTML='<i></i><i></i><i></i>';voice.style.left=c.voice[0]+'%';voice.style.top=c.voice[1]+'%';}
@@ -31,15 +31,36 @@ if(c.kind==='phone'){pin=absolute(el('div','pinpoint',fx),[77,54,14,9]);}
 if(c.kind==='tablet'){pin=absolute(el('div','pinpoint',fx),[81,32,6,4]);}
 if(c.kind==='film'){netflix=svg('<path d="M37.5 26.5h1.05v4h-1.05zM40.1 26.5h1.05v4H40.1z" fill="#ad1020"/><path d="M37.5 26.5h1.05l2.6 4H40.1z"/>','netflix');}
 if(c.kind==='geoclima'){
- const room=el('img','plate room');room.src='casa-4-clima.webp';room.alt='';room.style.display='none';
- const roomAfter=el('img','plate after room-after');roomAfter.src='casa-4-clima-finale.webp';roomAfter.alt='';roomAfter.style.display='none';
+ const room=el('img','plate room');room.src='clima-senza-termostato-v39.webp';room.alt='';room.style.display='none';
+ const roomAfter=el('img','plate after room-after');roomAfter.src='clima-attivo-senza-termostato-v39.webp';roomAfter.alt='';roomAfter.style.display='none';
  c.room=room;c.roomAfter=roomAfter;
  air=svg([0,3,6].map(d=>`<path class="airline" d="M ${65+d} 20 C ${62+d} 29,${77+d} 33,${72+d} 41"/>`).join(''));
- thermostat=absolute(el('div','thermostat',fx),[56.5,37.4,7.6,3.3]);
- map=el('div','map');map.innerHTML='<div class="map-title">Stanno rientrando.</div><div class="map-sub">Il comfort si prepara prima dell’arrivo.</div><svg viewBox="0 0 100 177.78"><rect width="100" height="178" fill="#e9ead9"/><g fill="#d6dcc4"><rect x="7" y="41" width="20" height="30" rx="3"/><rect x="38" y="26" width="18" height="26" rx="3"/><rect x="65" y="53" width="27" height="33" rx="3"/><rect x="12" y="96" width="20" height="36" rx="3"/><rect x="48" y="91" width="39" height="32" rx="3"/></g><path d="M-10 87Q48 67 108 104M35 0L43 178" fill="none" stroke="#faf9ed" stroke-width="6"/><path d="M17 125Q29 103 40 87T76 60" fill="none" stroke="#afbd9e" stroke-width="2" stroke-dasharray="2 2"/><path d="M17 125Q29 103 40 87T76 60" class="route" fill="none" stroke="#44765b" stroke-width="2" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/><g transform="translate(76 60)"><path d="M-5 0V-7L0-11L5-7V0Z" fill="#315c45"/><rect x="-1" y="-5" width="2" height="5" fill="#e9ead9"/></g><g class="map-marker"><circle r="6" fill="#44765b22"/><circle r="3" fill="#44765b" stroke="#fff" stroke-width="1"/></g></svg><div class="arrival"><b>Rientro rilevato</b><br>La coppia è ancora a metà strada.<br>Il climatizzatore si avvia ora.</div>';
+
+ map=el('div','map');map.innerHTML='<div class="map-title">Rientro rilevato</div><div class="map-sub">Avvio prima dell’arrivo.</div><svg viewBox="0 0 100 177.78"><rect width="100" height="178" fill="#e9ead9"/><g fill="#d6dcc4"><rect x="7" y="41" width="20" height="30" rx="3"/><rect x="38" y="26" width="18" height="26" rx="3"/><rect x="65" y="53" width="27" height="33" rx="3"/><rect x="12" y="96" width="20" height="36" rx="3"/><rect x="48" y="91" width="39" height="32" rx="3"/></g><path d="M-10 87Q48 67 108 104M35 0L43 178" fill="none" stroke="#faf9ed" stroke-width="6"/><path d="M17 125Q29 103 40 87T76 60" fill="none" stroke="#afbd9e" stroke-width="2" stroke-dasharray="2 2"/><path d="M17 125Q29 103 40 87T76 60" class="route" fill="none" stroke="#44765b" stroke-width="2" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/><g transform="translate(76 60)"><path d="M-5 0V-7L0-11L5-7V0Z" fill="#315c45"/><rect x="-1" y="-5" width="2" height="5" fill="#e9ead9"/></g><g class="map-marker"><circle r="6" fill="#44765b22"/><circle r="3" fill="#44765b" stroke="#fff" stroke-width="1"/></g></svg><div class="arrival"><b>Rientro rilevato</b><br>Posizione rilevata a metà percorso.<br>Azione: impostazione clima a 23 °C.</div>';
  map.querySelector('svg').style.zIndex='-1';
  // The map has its own fixed UI layer; artwork never pans or zooms.
  map.style.isolation='isolate';
+}
+if(c.walk){
+ shadow=el('div','walk-shadow');walker=el('div','walk-sprite');walker.style.backgroundImage='url('+c.walk+'.webp)';
+ elementPlate=el('img','element-plate walking-door');elementPlate.src=c.closed+'.webp';elementPlate.alt='';
+ elementPlate.style.clipPath='polygon('+c.door.map(p=>p.join('% ')+'%').join(',')+')';
+ elementPlate.style.transformOrigin=c.door[1][0]+'% 40%';scene.style.perspective='900px';
+ if(c.kind==='arrival'){scan=el('div','scan',fx);after.style.opacity=0;}
+ if(c.kind==='security'){
+  shield=svg('<path d="M65 45L73 48V55Q72 62 65 66Q58 62 57 55V48Z" fill="#173d2cd9" stroke="#dcecd0" stroke-width=".5"/><path d="M61 55l3 3 5-6" fill="none" stroke="#dcecd0" stroke-width=".8"/>','security-shield');
+  status=el('div','security-status',fx);status.innerHTML='<div><span>Presenza</span><b>Nessuno in casa</b></div><div><span>Antifurto</span><b>Armato</b></div>';
+ }
+}
+if(c.climate){climate=absolute(el('div','climate-setting',fx),c.climate.box);climate.innerHTML='<span>Temperatura impostata</span><strong></strong><small></small>';}
+function walkFrame(t,points,start,end){
+ const q=clamp((t-start)/(end-start)),v=q*(points.length-1),a=Math.min(points.length-2,Math.floor(v)),f=v-a;
+ const pos=points[a].map((x,i)=>x+(points[a+1][i]-x)*f),h=pos[2],w=h*.75*16/9;
+ walker.style.left=(pos[0]-w*.5)+'%';walker.style.top=(pos[1]-h*.965)+'%';walker.style.width=w+'%';walker.style.height=h+'%';
+ const frame=t>start&&t<end?Math.floor((t-start)*8)%8:1;
+ walker.style.backgroundPosition=((frame%4)*100/3)+'% '+(Math.floor(frame/4)*100)+'%';
+ shadow.style.left=(pos[0]-w*.33)+'%';shadow.style.top=(pos[1]-.7)+'%';shadow.style.width=(w*.66)+'%';shadow.style.height=(h*.035)+'%';
+ return {x:pos[0]-w*.5,y:pos[1]-h*.965,w,h};
 }
 if(c.kind==='night'){
  c.outside=el('img','plate outside');c.outside.src='casa-8-esterno.webp';c.outside.alt='';c.outside.style.display='none';
@@ -66,9 +87,23 @@ function render(){
    if(warmth)warmth.style.opacity=ramp(t,10,12)*.6;
    hud('Accesso autorizzato',t<5.8?(c.face?'Riconoscimento del volto':'Apri la porta'):t<9?'La porta si apre':c.key==='casa-6'?'Benvenuti. Luci accese.':'Porta aperta',t<5.8?(c.face?'Scansione in corso…':'Un tocco dalla pagina ospite.'):c.key==='accessibile-3'?'Ingresso senza dislivelli.':'L’accoglienza comincia dall’ingresso.',ramp(t,1,2));break;}
  case 'garden':{
-   p=ramp(t,5,6);water.style.opacity=p;water.querySelectorAll('path').forEach((n,i)=>n.style.strokeDashoffset=-t*4-i*2);
+   p=ramp(t,6,7);water.style.opacity=p;water.querySelectorAll('path').forEach((n,i)=>n.style.strokeDashoffset=-t*4-i*2);
    hud('Giardino · Previsioni meteo',t<5?'Sole previsto, terreno asciutto':'Irrigazione in corso','Durata adattata alle previsioni: 8 minuti.',ramp(t,1,2),ramp(t,5,12));break;}
- case 'security':hud('La casa si protegge',t<5?'Porta chiusa':t<8?'Nessuna presenza in casa':'Antifurto inserito',t<8?'Verifica automatica degli ambienti.':'Vi avviso io, se succede qualcosa.',ramp(t,1,2));break;
+ case 'security':{
+ if(walker){walkFrame(t,[[65,67,32],[54,78,40],[28,96,54],[-55,118,66]],.8,8.7);walker.style.opacity=t<8.7?1:0;shadow.style.opacity=t<8.7?.35:0;const close=ramp(t,3.2,5.2);elementPlate.style.transform='rotateY('+(-80*(1-close))+'deg)';elementPlate.style.opacity=ramp(t,3.2,3.5);shield.style.opacity=ramp(t,11,12);status.style.opacity=ramp(t,11,12);}
+ hud('Scenario uscita','Verifica delle condizioni','',ramp(t,.5,1));break;}
+ case 'arrival':{
+ const atDoor=t>=5,inside=t>=10.8;
+ const pos=inside?walkFrame(t,[[58,82,49],[75,75,36]],10.8,14.6):walkFrame(t,[[-30,113,64],[20,96,57],[58,82,49]],.5,5);
+ walker.style.opacity=1-ramp(t,13.5,14.6);shadow.style.opacity=.28*(1-ramp(t,11,13));
+ // Once entering, the figures are occluded by the doorway edges.
+ if(inside){const x=Math.max(0,(60-pos.x)/pos.w*100),right=Math.max(0,(pos.x+pos.w-89)/pos.w*100);walker.style.clipPath='inset(0 '+right+'% 0 '+x+'%)';}else walker.style.clipPath='none';
+ const target=t<8?c.closed+'.webp':c.open+'.webp';if(!base.src.endsWith(target))base.src=target;
+ const open=ramp(t,8,10);elementPlate.style.transform='rotateY('+(-80*open)+'deg)';elementPlate.style.opacity=1-ramp(t,9.5,10);
+ after.style.opacity=ramp(t,10.2,11.5);
+ absolute(scan,[pos.x+pos.w*.64,pos.y+pos.h*.06,pos.w*.19,pos.h*.13]);scan.style.opacity=t>=5.2&&t<7.8?1:0;scan.style.setProperty('--scan',((t*24)%100)+'%');
+ hud('Scenario rientro','Accesso autorizzato','',ramp(t,.5,1));break;}
+
  case 'twilight':hud('Orario del crepuscolo',t<5?'19:42 · Tra poco farà buio':'Luci del giardino accese','La casa conosce l’ora del crepuscolo.',ramp(t,1,2));break;
  case 'film':netflix.style.opacity=ramp(t,4,5);hud('Scenario cinema',t<6?'Un film insieme':'Luci al 18%','Il televisore accende il comfort giusto.',ramp(t,1,2));break;
  case 'geoclima':{
@@ -77,7 +112,7 @@ function render(){
    // Marker covers exactly HALF the itinerary, never reaches the house.
    const q=clamp((t-4.8)/3.4)*.5,path=map.querySelector('.route'),point=path.getPointAtLength(path.getTotalLength()*q);
    map.querySelector('.map-marker').setAttribute('transform',`translate(${point.x} ${point.y})`);path.style.strokeDashoffset=100-q*100;
-   air.style.opacity=interior?ramp(t,11.5,12.5):0;thermostat.style.opacity=interior?1:0;thermostat.textContent=t<11?'27°':'23°';
+   air.style.opacity=interior?ramp(t,11.5,12.5):0;
    hud('Comfort prima del rientro',interior?'Climatizzatore acceso':'Stiamo tornando a casa.',interior?'Temperatura impostata a 23 °C.':'La casa vi aspetta.',travel||interior?ramp(t,.5,1):0);break;}
  case 'night':{
    const out=t>=7;base.style.display=out?'none':'block';after.style.display=out?'none':'block';c.outside.style.display=out?'block':'none';c.outsideAfter.style.display=out?'block':'none';c.outsideAfter.style.opacity=ramp(t,9,12);
@@ -106,6 +141,8 @@ function render(){
  case 'about':{base.style.display=t<3?'block':'none';c.industry.style.display=t>=3&&t<9?'block':'none';c.home.style.display=t>=9?'block':'none';hud(t<9?'Le mie origini':'Oggi · DomoticaBari',t<3?'Dai robot alla tua casa':t<9?'Automazione industriale':'Home Assistant',t<9?'Programmare, coordinare, rendere semplice.':'Logiche costruite intorno alle tue abitudini.',t<3?0:ramp(t,3,3.5));break;}
  case 'sleep':hud('Scenario notte',t<6?'È ora di riposare':'Corridoio spento','La casa riconosce gli ambienti lasciati vuoti.',ramp(t,1,2));break;
  }
+ if(c.climate){const cfg=c.climate,on=c.kind==='geoclima'?t>=9:true;climate.style.opacity=on?ramp(t,cfg.start-.5,cfg.start):0;const q=ramp(t,cfg.start,cfg.end),value=cfg.from+(cfg.to-cfg.from)*q;climate.querySelector('strong').textContent=Math.round(value)+' °C';climate.querySelector('small').textContent=q<1?'Aggiornamento impostazione…':'Climatizzazione attiva';}
+ if(c.huds){const state=c.huds.reduce((value,row)=>t>=row[0]?row:value,c.huds[0]);const opacity=c.kind==='geoclima'&&t>=4.5&&t<9?0:ramp(t,.3,.8);hud(state[1],state[2].replace('{percent}',Math.round(p*100)),state[3],opacity,c.kind==='shutter'?p:null);}
  lastCaption=speech(t);caption.textContent=lastCaption;ownCaption.textContent=lastCaption;
  button.textContent=playing?'Ⅱ Pausa':time>=19?'↺ Rivedi':'▶ Guarda';
 }
@@ -116,5 +153,5 @@ function play(){if(!ready)return;if(time>=19)time=0;if(playing)return;playing=tr
 addEventListener('message',e=>{if(e.origin!==location.origin||e.source!==parent||!ready)return;const d=e.data;if(d?.type!=='film-control')return;if(d.action==='pause')stop();else if(d.action==='play')play();else if(d.action==='restart'){time=0;play()}else if(d.action==='seek'){stop();time=Math.max(0,Math.min(19,+d.time||0));render();post('film-progress');if(d.playing)play()}else if(d.action==='init')post('film-ready');});
 button.onclick=()=>playing?stop():play();
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
-Promise.all([...scene.querySelectorAll('img')].map(img=>img.decode().catch(()=>{}))).then(()=>{ready=true;render();post('film-ready');if(!embedded&&!matchMedia('(prefers-reduced-motion: reduce)').matches)play();});
+const assets=[...scene.querySelectorAll('img')];if(c.walk){const sprite=new Image();sprite.src=c.walk+'.webp';assets.push(sprite);}if(c.open){const open=new Image();open.src=c.open+'.webp';assets.push(open);}Promise.all(assets.map(img=>img.decode().catch(()=>{}))).then(()=>{ready=true;render();post('film-ready');if(!embedded&&!matchMedia('(prefers-reduced-motion: reduce)').matches)play();});
 })();
