@@ -12,7 +12,7 @@ const caption=el('div','native-caption'),ownCaption=el('div','own-caption');
 const watermark=el('img','own-watermark');watermark.src='../domoticabari-watermark.svg';watermark.alt='DomoticaBari.it';
 const button=el('button','standalone-play');button.textContent='Ⅱ Pausa';button.type='button';
 let time=0,playing=false,previous=0,raf=0,lastMessage=0,lastCaption='',ready=false;
-let elementPlate,voice,scan,air,water,warmth,pin,map,netflix,shade,walker,shadow,shield,status,climate,doorReveal,lampReveal,walkLegLayers=[];
+let elementPlate,voice,scan,air,water,warmth,pin,map,netflix,shade,walker,shadow,shield,status,climate,doorReveal,lampReveal;
 function absolute(n,box){n.style.left=box[0]+'%';n.style.top=box[1]+'%';n.style.width=box[2]+'%';n.style.height=box[3]+'%';return n}
 function svg(markup,cls){const n=document.createElementNS('http://www.w3.org/2000/svg','svg');n.setAttribute('viewBox','0 0 100 100');n.setAttribute('preserveAspectRatio','none');n.innerHTML=markup;if(cls)n.classList.add(cls);fx.append(n);return n}
 function bubbles(){voice=el('div','voice',fx);voice.innerHTML='<i></i><i></i><i></i>';voice.style.left=c.voice[0]+'%';voice.style.top=c.voice[1]+'%';}
@@ -46,18 +46,6 @@ if(c.kind==='geoclima'){
 }
 if(c.walk){
  shadow=el('div','walk-shadow');walker=el('div','walk-sprite');walker.style.backgroundImage='url('+c.walk+'.webp)';if(c.walkFrames)walker.style.backgroundSize=(c.walkFrames*100)+'% 100%';
- // For the two-pose sprites, mirror only the lower-body cutouts on the
- // alternate beat. This guarantees a visible left/right stride even when
- // the source drawing repeats the same lead foot in both cells.
- if(c.walkFrames===2&&c.walkLegs){
-  walker.style.clipPath='inset(0 0 58% 0)';
-  c.walkLegs.forEach(([x1,x2])=>{
-   const layer=el('div','walk-legs'),part=el('i','',layer);
-   layer.style.clipPath=`polygon(${x1}% 39%,${x2}% 39%,${x2}% 100%,${x1}% 100%)`;
-   part.style.backgroundImage='url('+c.walk+'.webp)';part.style.backgroundSize='200% 100%';
-   walkLegLayers.push({layer,part,center:(x1+x2)/2});
-  });
- }
  elementPlate=el('img','element-plate walking-door');elementPlate.src=c.closed+'.webp';elementPlate.alt='';
  elementPlate.style.clipPath='polygon('+c.door.map(p=>p.join('% ')+'%').join(',')+')';
  elementPlate.style.transformOrigin=c.door[1][0]+'% 40%';scene.style.perspective='900px';
@@ -78,11 +66,6 @@ function walkFrame(t,points,start,end){
  walker.style.left=(pos[0]-w*.5)+'%';walker.style.top=(pos[1]-h*.965)+'%';walker.style.width=w+'%';walker.style.height=h+'%';
  const gait=c.walkFrames===2?[0,1]:[0,2,1,3,4,6,5,7];const cadence=c.walkFrames===2?2.4:6;const frame=t>start&&t<end?gait[Math.floor((t-start)*cadence)%gait.length]:0;
  const columns=c.walkFrames||4;walker.style.backgroundPosition=(columns===1?0:(frame%columns)*100/(columns-1))+'% '+(columns===2?0:Math.floor(frame/columns)*100)+'%';
- walkLegLayers.forEach(({layer,part,center})=>{
-  layer.style.left=walker.style.left;layer.style.top=walker.style.top;layer.style.width=walker.style.width;layer.style.height=walker.style.height;
-  part.style.backgroundPosition=(frame%2)*100+'% 0';
-  part.style.transform=frame%2?'scaleX(-1)':'none';part.style.transformOrigin=center+'% 50%';
- });
  shadow.style.left=(pos[0]-w*.33)+'%';shadow.style.top=(pos[1]-.7)+'%';shadow.style.width=(w*.66)+'%';shadow.style.height=(h*.035)+'%';
  return {x:pos[0]-w*.5,y:pos[1]-h*.965,w,h};
 }
