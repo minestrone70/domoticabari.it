@@ -64,7 +64,7 @@ function walkFrame(t,points,start,end){
  const q=clamp((t-start)/(end-start)),v=q*(points.length-1),a=Math.min(points.length-2,Math.floor(v)),f=v-a;
  const pos=points[a].map((x,i)=>x+(points[a+1][i]-x)*f),h=pos[2],w=h*.75*16/9;
  walker.style.left=(pos[0]-w*.5)+'%';walker.style.top=(pos[1]-h*.965)+'%';walker.style.width=w+'%';walker.style.height=h+'%';
- const gait=c.walkFrames===2?[0,1]:[0,2,1,3,4,6,5,7];const cadence=c.walkFrames===2?2:6;const frame=t>start&&t<end?gait[Math.floor((t-start)*cadence)%gait.length]:0;
+ const gait=c.walkFrames===2?[0,1]:[0,2,1,3,4,6,5,7];const cadence=c.walkFrames===2?2.4:6;const frame=t>start&&t<end?gait[Math.floor((t-start)*cadence)%gait.length]:0;
  const columns=c.walkFrames||4;walker.style.backgroundPosition=(columns===1?0:(frame%columns)*100/(columns-1))+'% '+(columns===2?0:Math.floor(frame/columns)*100)+'%';
  shadow.style.left=(pos[0]-w*.33)+'%';shadow.style.top=(pos[1]-.7)+'%';shadow.style.width=(w*.66)+'%';shadow.style.height=(h*.035)+'%';
  return {x:pos[0]-w*.5,y:pos[1]-h*.965,w,h};
