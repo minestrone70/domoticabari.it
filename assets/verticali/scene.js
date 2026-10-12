@@ -104,7 +104,7 @@ function render(){
  const pos=walkFrame(t,[[-30,108,66],[20,91,59],[37,79,50]],.5,6);
  walker.style.opacity=1;walker.style.clipPath='none';shadow.style.opacity=.28;
  // The visitors stop on the path. Only the doorway aperture crossfades to the open view.
- const reveal=ramp(t,7.2,8),open=ramp(t,8,10);doorReveal.style.opacity=reveal;elementPlate.style.transform='rotateY('+((c.swing??-80)*open)+'deg)';elementPlate.style.opacity=1;
+ const reveal=ramp(t,7.2,8),open=ramp(t,8,10);doorReveal.style.opacity=reveal;elementPlate.style.transform='rotateY('+((c.swing??-80)*open)+'deg)';elementPlate.style.opacity=1-ramp(t,9.2,9.8);
  lampReveal.style.opacity=ramp(t,11.5,12.4);
  after.style.opacity=0;
  absolute(scan,[pos.x+pos.w*.65,pos.y+pos.h*.08,pos.w*.14,pos.h*.12]);scan.style.opacity=t>=5.2&&t<7.8?1:0;scan.style.setProperty('--scan',((t*24)%100)+'%');
