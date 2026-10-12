@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /archivio-sito-2026-10-13/
+
+Sitemap: https://www.domoticabari.it/sitemap.xml
