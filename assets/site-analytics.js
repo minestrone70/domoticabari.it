@@ -4,7 +4,7 @@
 
   const endpoint = 'https://pocketbase.wildcat.freeddns.org/api/domoticabari/analytics';
   const page = location.pathname === '/' ? '/index.html' : location.pathname;
-  const allowedPages = new Set(['/index.html', '/bnbready.html', '/casa-accessibile.html', '/chi-siamo.html', '/prezzi.html', '/bnb.html']);
+  const allowedPages = new Set(['/index.html', '/bnbready.html', '/casa-accessibile.html', '/chi-siamo.html', '/prezzi.html', '/bnb.html', '/privacy.html']);
   if (!allowedPages.has(page)) return;
 
   const device = matchMedia('(max-width: 600px)').matches ? 'mobile' :
