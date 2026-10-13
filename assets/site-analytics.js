@@ -13,6 +13,8 @@
     .filter(element => /^[a-z0-9-]{1,64}$/.test(element.id));
   let current = null;
   let enteredAt = 0;
+  let pageEnteredAt = 0;
+  let pageActive = false;
   let timer = 0;
 
   function durationBucket(milliseconds) {
@@ -44,18 +46,23 @@
       const delta = rect.top <= marker && rect.bottom >= marker ? 0 : Math.min(Math.abs(rect.top - marker), Math.abs(rect.bottom - marker));
       if (delta < distance) { distance = delta; nearest = section.id; }
     }
-    return nearest || 'pagina';
+    return nearest;
   }
 
   function update() {
     if (document.visibilityState === 'hidden') return;
+    if (!pageActive) {
+      pageActive = true;
+      pageEnteredAt = performance.now();
+      send('view', 'pagina');
+    }
     const next = selectedSection();
     if (next === current) return;
     const now = performance.now();
     if (current) send('exit', current, durationBucket(now - enteredAt));
     current = next;
     enteredAt = now;
-    send('view', current);
+    if (current) send('view', current);
   }
 
   function schedule() {
@@ -65,9 +72,10 @@
 
   function leave() {
     clearTimeout(timer);
-    if (!current) return;
-    send('exit', current, durationBucket(performance.now() - enteredAt), true);
+    if (current) send('exit', current, durationBucket(performance.now() - enteredAt), true);
     current = null;
+    if (pageActive) send('exit', 'pagina', durationBucket(performance.now() - pageEnteredAt), true);
+    pageActive = false;
   }
 
   addEventListener('scroll', schedule, { passive: true });
