@@ -1,9 +1,9 @@
 .skip-link{position:fixed;z-index:1000;top:12px;left:12px;transform:translateY(-180%);padding:12px 16px;border-radius:8px;background:#173d32;color:#fff;font-weight:700;text-decoration:none}
 .skip-link:focus{transform:none;outline:3px solid #fff;outline-offset:2px}
 .feature-hero--accessibile~.feature-hero-lead{font-size:clamp(16px,1.55vw,19px)}
-.clip-description{max-width:355px;margin:4px auto 0;border:1px solid #c8d7c4;border-radius:9px;background:#fafbf7;color:#19372d}
-.clip-description summary{padding:12px 14px;font-size:14px;font-weight:700;cursor:pointer}
-.clip-description p{padding:0 14px 14px;margin:0;font-size:14px;line-height:1.65}
+.clip-description{max-width:355px;margin:0 auto;text-align:center;color:#246d57}
+.clip-description summary{display:inline-block;padding:4px 8px;font-size:13px;font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.clip-description p{padding:12px 14px;margin:4px 0 0;border-radius:9px;background:#e8eee1;color:#19372d;text-align:left;font-size:14px;line-height:1.65}
 .portrait-controls button{min-height:44px;font-size:14px}
 .portrait-controls input{min-height:44px}
 .portrait-status,.detail-topic figcaption{font-size:13px;color:#40594a}
