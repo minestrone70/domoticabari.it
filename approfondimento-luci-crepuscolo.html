@@ -1,0 +1,29 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Luci esterne al crepuscolo | DomoticaBari.it</title><meta name="description" content="Accensione delle luci al crepuscolo e spegnimento programmato: configurazione Home Assistant con posizione del sole ed esempio YAML."/><meta name="robots" content="noindex,follow"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@500;700;800&amp;display=swap" rel="stylesheet"/><link href="assets/smart-pages.css?v=36" rel="stylesheet"/><link href="assets/site-menu.css?v=63" rel="stylesheet"/><link href="assets/site-footer.css?v=70" rel="stylesheet"/><link href="assets/technical-pages.css?v=1" rel="stylesheet"/></head><body><header><div class="wrap head"><a class="brand" href="index.html"><img alt="" src="assets/domoticabari-logo.svg"/><span>DomoticaBari.it</span></a><button aria-controls="site-navigation" aria-expanded="false" aria-label="Apri menu" class="menu-toggle" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24"><path class="menu-bars" d="M4 6h16M4 12h16M4 18h16"></path><path class="menu-close" d="m6 6 12 12M18 6 6 18"></path></svg></button><nav aria-label="Menu principale" class="site-nav" id="site-navigation"><a href="index.html">Casa</a><a href="bnbready.html">BNBReady</a><a href="casa-accessibile.html">Casa accessibile</a><a href="chi-siamo.html">Chi siamo</a><a href="prezzi.html">Prezzi</a></nav></div></header><main class="wrap technical-page"><div class="technical-page-head"><a class="technical-back" href="index.html#approfondimento-crepuscolo">← Torna a Casa</a><div class="eyebrow">Crepuscolo e illuminazione del giardino · 05 / 08</div><h1>Luci al crepuscolo</h1><p class="technical-lead">Luci esterne smart: si accendono al crepuscolo.</p></div><article class="technical-article"><h2>Come funziona</h2><p>L’elevazione di sun.sun è espressa in gradi: una soglia negativa attiva le luci quando il sole è già sotto l’orizzonte. L’helper input_datetime imposta l’orario di spegnimento forzato, per esempio mezzanotte.</p><h2>Esempio Home Assistant</h2><p class="technical-note">Esempio Home Assistant: adattare entità, credenziali e soglie all’impianto.</p><pre><code class="language-yaml">input_datetime:
+  spegnimento_luci_esterne:
+    name: Spegnimento luci esterne
+    has_date: false
+    has_time: true
+    initial: &quot;00:00:00&quot;
+
+automation:
+  - alias: &quot;Luci esterne - crepuscolo e spegnimento&quot;
+    triggers:
+      - trigger: numeric_state
+        id: accensione
+        entity_id: sun.sun
+        attribute: elevation
+        below: -4
+      - trigger: time
+        id: spegnimento
+        at: input_datetime.spegnimento_luci_esterne
+    actions:
+      - choose:
+          - conditions: &quot;{{ trigger.id == &#x27;accensione&#x27; }}&quot;
+            sequence:
+              - action: light.turn_on
+                target:
+                  entity_id: light.esterne
+        default:
+          - action: light.turn_off
+            target:
+              entity_id: light.esterne</code></pre></article><nav class="technical-pager" aria-label="Altri approfondimenti"><a href="approfondimento-climatizzazione.html">← Precedente</a><a href="index.html#approfondimento-crepuscolo">Torna alle soluzioni</a><a href="approfondimento-accesso-volto.html">Successivo →</a></nav></main><footer class="site-footer"><div class="wrap"><div class="site-footer-grid"><div><h3>DomoticaBari.it</h3><p>Trasformiamo i tuoi spazi con tecnologie intelligenti.</p></div><div><h4>Contatti</h4><ul><li>Via Conte Giusso, 3 Bari</li><li><a href="tel:+393288233594">+39 328 8233594</a></li><li><a aria-label="Scrivici su WhatsApp al +39 328 8233594" class="footer-whatsapp" href="https://wa.me/393288233594?text=Ciao%2C%20vorrei%20informazioni%20sulle%20soluzioni%20DomoticaBari." rel="noopener noreferrer" target="_blank"><img alt="" height="30" loading="lazy" src="assets/whatsapp-app-icon.png" width="30"/><span>Scrivici su WhatsApp</span></a></li></ul></div></div><div class="footer-bottom"><p class="footer-privacy"><a href="privacy.html">Privacy e statistiche</a></p><p class="footer-credit">Pagina web realizzata da DomoticaBari.it</p><p class="footer-copyright">© 2025 DomoticaBari.it. Tutti i diritti riservati.</p></div></div></footer><script src="assets/site-menu.js?v=63"></script><script src="assets/site-analytics.js?v=3" defer></script><script src="assets/site-visit-webhook.js?v=1" defer></script></body></html>

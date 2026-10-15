@@ -60,7 +60,7 @@ if(c.kind==='security'){
  outsidePlate=el('img','element-plate');outsidePlate.src=c.outside+'.webp';outsidePlate.alt='';
  vacantPlate=el('img','element-plate');vacantPlate.src=c.vacant+'.webp';vacantPlate.alt='';
  // The protection mark is centered on the closed entrance and appears only after the home is vacant.
- shield=svg('<path d="M66 42L74 44V47Q73 52 66 55Q59 52 58 47V44Z" fill="#173d2cdd" stroke="#e5f0dd" stroke-width=".6"/><path d="M62 48l3 2 5-5" fill="none" stroke="#e5f0dd" stroke-width=".9"/>','security-shield');
+ shield=svg('<path d="M61 40L69 42V45Q68 50 61 53Q54 50 53 45V42Z" fill="#173d2cdd" stroke="#e5f0dd" stroke-width=".6"/><path d="M57 46l3 2 5-5" fill="none" stroke="#e5f0dd" stroke-width=".9"/>','security-shield');
 }
 if(c.climate){climate=absolute(el('div','climate-setting',fx),c.climate.box);climate.innerHTML='<span>Temperatura impostata</span><strong></strong><small></small>';}
 function walkFrame(t,points,start,end){

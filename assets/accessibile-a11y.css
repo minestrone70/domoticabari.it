@@ -1,0 +1,17 @@
+.skip-link{position:fixed;z-index:1000;top:12px;left:12px;transform:translateY(-180%);padding:12px 16px;border-radius:8px;background:#173d32;color:#fff;font-weight:700;text-decoration:none}
+.skip-link:focus{transform:none;outline:3px solid #fff;outline-offset:2px}
+.feature-hero--accessibile~.feature-hero-lead{font-size:clamp(16px,1.55vw,19px)}
+.clip-description{max-width:355px;margin:0 auto;text-align:center;color:#246d57}
+.clip-description summary{display:inline-block;padding:4px 8px;font-size:13px;font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.clip-description p{padding:12px 14px;margin:4px 0 0;border-radius:9px;background:#e8eee1;color:#19372d;text-align:left;font-size:14px;line-height:1.65}
+.portrait-controls button{min-height:44px;font-size:14px}
+.portrait-controls input{min-height:44px}
+.portrait-status,.detail-topic figcaption{font-size:13px;color:#40594a}
+.details-nav a{min-height:44px;display:inline-flex;align-items:center;font-size:14px}
+.details-intro p,.detail-copy p,.detail-copy li span{font-size:clamp(16px,1.35vw,18px);line-height:1.7;color:#40594a}
+.detail-copy li strong{font-size:16px}
+.detail-example span{font-size:12px;color:#3d6343}
+.eyebrow{font-size:12px;color:#426142}.contact-privacy{font-size:13px;color:#40594a}
+.clip-description summary:focus-visible,.details-nav a:focus-visible,.topic-play:focus-visible,.topic-seek:focus-visible,.related-card:focus-visible,.site-nav a:focus-visible,#message-form :focus-visible,.footer-whatsapp:focus-visible{outline:3px solid #173d32;outline-offset:3px}
+.detail-topic h2:focus{outline:3px solid #246d57;outline-offset:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.skip-link{transition:none!important}}
