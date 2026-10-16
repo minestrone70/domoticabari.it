@@ -6,6 +6,8 @@
   const payload = {
     timestamp: new Date().toISOString(),
     page: location.pathname,
+    uri: location.pathname,
+    user_agent: navigator.userAgent || '',
     referer: document.referrer || ''
   };
   fetch(endpoint, {
