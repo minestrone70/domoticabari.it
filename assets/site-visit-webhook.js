@@ -9,7 +9,7 @@
   const requestedPath = location.pathname;
   const pagePath = stagingHost ? (requestedPath.replace(/^\/cantiere(?=\/|$)/, '') || '/') : requestedPath;
   const page = pagePath === '/' ? '/index.html' : pagePath;
-  const allowedPages = new Set(['/index.html', '/bnbready.html', '/casa-accessibile.html', '/chi-siamo.html', '/prezzi.html', '/privacy.html', '/bnb.html']);
+  const allowedPages = new Set(['/index.html', '/bnbready.html', '/casa-accessibile.html', '/chi-siamo.html', '/prezzi.html', '/privacy.html', '/bnb.html', '/approfondimento-sveglia-tap.html', '/approfondimento-antifurto.html', '/approfondimento-irrigazione.html', '/approfondimento-climatizzazione.html', '/approfondimento-luci-crepuscolo.html', '/approfondimento-accesso-volto.html', '/approfondimento-luci-tv.html', '/approfondimento-presenza-luci.html']);
   if (!allowedPages.has(page)) return;
   const endpoint = 'https://pocketbase.wildcat.freeddns.org/api/domoticabari/visit';
   const navigation = performance.getEntriesByType('navigation')[0];
