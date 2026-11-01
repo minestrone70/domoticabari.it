@@ -1,0 +1,22 @@
+.bed-voice-figure{width:min(100%,440px);margin:0 auto}
+.bed-voice-demo{position:relative;aspect-ratio:1122/1402;overflow:hidden;border-radius:18px;background:#e9e3d6;box-shadow:0 15px 42px #19372d20}
+.bed-voice-frame{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.bed-voice-frame--ready{animation:bed-frame-ready 10s linear infinite}
+.bed-voice-frame--speaking{animation:bed-frame-speaking 10s linear infinite}
+.bed-voice-frame--lowered{animation:bed-frame-lowered 10s linear infinite}
+.bed-voice-state{position:absolute;z-index:2;left:5%;right:5%;bottom:5%;margin:0;padding:11px 14px;border-radius:10px;background:#17392ee8;color:#fffaf1;font:600 12px/1.45 'DM Sans',Arial,sans-serif;text-align:center;box-shadow:0 2px 12px #10251e40}
+.bed-voice-state--ready{animation:bed-state-ready 10s linear infinite}
+.bed-voice-state--speaking{opacity:0;animation:bed-state-speaking 10s linear infinite}
+.bed-voice-state--lowered{opacity:0;animation:bed-state-lowered 10s linear infinite}
+.bed-voice-toggle{display:block;margin:12px auto 0;padding:10px 14px;border:1px solid #cbd8c6;border-radius:9px;background:#f7f9f4;color:#315b47;font:600 12px 'DM Sans',Arial,sans-serif;cursor:pointer}
+.bed-voice-toggle:hover{background:#e6eee0}
+.bed-voice-toggle:focus-visible{outline:3px solid #a7b877;outline-offset:3px}
+.bed-voice-figure figcaption{margin-top:10px;color:#74816e;font-size:11px;line-height:1.55;text-align:center}
+.bed-voice-figure.is-paused .bed-voice-demo *{animation-play-state:paused!important}
+@keyframes bed-frame-ready{0%,18%{opacity:1}26%,93%{opacity:0}100%{opacity:1}}
+@keyframes bed-frame-speaking{0%,18%{opacity:0}24%,32%{opacity:1}40%,100%{opacity:0}}
+@keyframes bed-frame-lowered{0%,32%{opacity:0}42%,93%{opacity:1}100%{opacity:0}}
+@keyframes bed-state-ready{0%,18%{opacity:1}24%,94%{opacity:0}100%{opacity:1}}
+@keyframes bed-state-speaking{0%,18%{opacity:0}24%,32%{opacity:1}40%,100%{opacity:0}}
+@keyframes bed-state-lowered{0%,38%{opacity:0}44%,94%{opacity:1}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.bed-voice-frame--ready,.bed-voice-state--ready{animation:none;opacity:1}.bed-voice-frame--speaking,.bed-voice-frame--lowered,.bed-voice-state--speaking,.bed-voice-state--lowered,.bed-voice-toggle{display:none}}
